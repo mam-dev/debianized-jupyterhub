@@ -22,7 +22,6 @@ import os
 import re
 import sys
 import json
-import rfc822
 import textwrap
 import subprocess
 
@@ -32,6 +31,11 @@ except ImportError:
     from io import StringIO
 
 try:
+    from rfc822 import Message as rfc822_headers
+except ImportError:
+    from email import message_from_file as rfc822_headers
+
+try:
     from setuptools import setup
 except ImportError as exc:
     raise RuntimeError("setuptools is missing ({1})".format(exc))
@@ -39,6 +43,11 @@ except ImportError as exc:
 
 # get external project data (and map Debian version semantics to PEP440)
 pkg_version = subprocess.check_output("parsechangelog | grep ^Version:", shell=True)
+try:
+    pkg_version = pkg_version.decode('ascii')
+except (UnicodeDecodeError, AttributeError):
+    pass
+pkg_version = pkg_version.strip()
 upstream_version, maintainer_version = pkg_version.split()[1].rsplit('~', 1)[0].split('-', 1)
 maintainer_version = maintainer_version.replace('~~rc', 'rc').replace('~~dev', '.dev')
 pypi_version = upstream_version + '.' + maintainer_version
@@ -46,8 +55,10 @@ pypi_version = upstream_version + '.' + maintainer_version
 with io.open('debian/control', encoding='utf-8') as control_file:
     data = [x for x in control_file.readlines() if not x.startswith('#')]
     control_cleaned = StringIO(''.join(data))
-    deb_source = rfc822.Message(control_cleaned)
-    deb_binary = rfc822.Message(control_cleaned)
+    deb_source = rfc822_headers(control_cleaned)
+    deb_binary = rfc822_headers(control_cleaned)
+    if not deb_binary:
+        deb_binary = rfc822_headers(StringIO(deb_source.get_payload()))
 
 try:
     doc_string = __doc__.decode('utf-8')
