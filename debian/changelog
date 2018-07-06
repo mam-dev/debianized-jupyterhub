@@ -1,0 +1,5 @@
+jupyterhub (0.9.1-1~~dev1~jessie) jessie; urgency=low
+
+  * Initial release of "debianized-jupyterhub"
+
+ -- 1&1 Group <jh@web.de>  Mon, 01 Jan 2017 01:02:03 +0000

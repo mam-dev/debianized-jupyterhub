@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+#
+# Build Debian package using https://github.com/spotify/dh-virtualenv
+
+export DH_VIRTUALENV_INSTALL_ROOT=/opt/venvs
+SNAKE=/usr/bin/python3
+EXTRA_REQUIREMENTS=--upgrade-pip --preinstall "setuptools>=17.1" --preinstall "wheel"
+
+PACKAGE=$(shell dh_listpackages)
+VERSION=$(shell parsechangelog | grep ^Version: | sed -re 's/[^0-9]+([^-]+).*/\1/')
+DH_VENV_ARGS=--with python-virtualenv --setuptools --python $(SNAKE) $(EXTRA_REQUIREMENTS)
+           # --extra-pip-arg "--no-binary=psycopg2" \
+           # -v
+
+%:
+	dh $@ $(DH_VENV_ARGS)
+
+override_dh_strip:
+	dh_strip --exclude=cffi
+
+#override_dh_shlibdeps:
+#	dh_shlibdeps -X/x86/

@@ -1,0 +1,17 @@
+#
+# Source Distribution Manifest
+#
+# More at https://docs.python.org/2/distutils/sourcedist.html
+
+include README.md LICENSE *-requirements.txt .env .gitignore
+
+recursive-include debian *
+prune debian/.debhelper
+prune debian/jupyterhub
+
+recursive-include etc *
+recursive-include scripts *
+recursive-include systemd *.service
+recursive-include docs/_static/img *.md *.png *.svg *.graphml
+
+global-exclude *~ *.swp *debhelper* *.substvars files

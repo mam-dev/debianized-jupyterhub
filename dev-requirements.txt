@@ -1,0 +1,4 @@
+# Tools for the project's virtualenv
+pip==10.0.1
+twine==1.11.0
+pip-upgrader

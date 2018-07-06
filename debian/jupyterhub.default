@@ -1,0 +1,5 @@
+# Environment file for systemd units and cron jobs
+JUPYTERHUB_CONFDIR=/etc/jupyterhub
+
+# Global logging level. Use wisely. [DEBUG|INFO|WARNING|ERROR|CRITICAL|FATAL]
+JUPYTERHUB_LOGLEVEL=INFO

@@ -1,0 +1,10 @@
+#! /bin/bash
+#
+# Helper to launch the service with activated virtualenv.
+#
+# The virtualenv needs to be active for uWSGI to work properly.
+
+. /etc/default/jupyterhub
+. /opt/venvs/jupyterhub/bin/activate
+
+/usr/bin/jupyterhub start

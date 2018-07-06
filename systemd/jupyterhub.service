@@ -1,0 +1,16 @@
+[Unit]
+Description=jupyterhub Service
+After=network.target
+#Requires=jupyterhub-worker.service
+#Requires=jupyterhub-cron.service
+
+[Service]
+Type=simple
+User=jupyterhub
+Group=daemon
+WorkingDirectory=/var/opt/jupyterhub
+EnvironmentFile=/etc/default/jupyterhub
+ExecStart=/usr/sbin/jupyterhub-launcher
+
+[Install]
+WantedBy=multi-user.target
