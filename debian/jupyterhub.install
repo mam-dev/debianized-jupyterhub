@@ -1,4 +1,3 @@
-etc/config.yml etc/jupyterhub
-etc/default/jupyterhub etc/default
+etc/jupyterhub_config.py etc/jupyterhub
 scripts/jupyterhub-* usr/sbin
 systemd/*.service lib/systemd/system
