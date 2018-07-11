@@ -275,6 +275,21 @@ If you need to relocate, consider using symbolic links to point to the physical 
 
 ## References
 
+### Documentation Links
+
+These links point to parts of the documentation especially useful for operating a JupyterHub installation.
+
+ * [Troubleshooting](https://jupyterhub.readthedocs.io/en/stable/troubleshooting.html#troubleshooting)
+
+   * [Troubleshooting Commands](https://jupyterhub.readthedocs.io/en/stable/troubleshooting.html#troubleshooting-commands)
+
+
 ### Related Projects
 
  * [Springerle/debianized-pypi-mold](https://github.com/Springerle/debianized-pypi-mold) – Cookiecutter that was used to create this project.
+
+### Things to Look At
+
+ * [jupyter/docker-stacks](https://github.com/jupyter/docker-stacks) – Ready-to-run Docker images containing Jupyter applications.
+ * [jupyter/repo2docker](https://github.com/jupyter/repo2docker) – Turn git repositories into Jupyter-enabled Docker Images.
+ * [vatlab/SoS](https://github.com/vatlab/SOS) – Workflow system designed for daily data analysis.
