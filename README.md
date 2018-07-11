@@ -21,8 +21,11 @@ i.e. starts the notebook servers in a local user's context. Tested on *Ubuntu Xe
  * [Changing the Service Unit Configuration](#changing-the-service-unit-configuration)
  * [Configuration Files](#configuration-files)
  * [Data Directories](#data-directories)
+ * [TODOs](#todos)
  * [References](#references)
+   * [Documentation Links](#documentation-links)
    * [Related Projects](#related-projects)
+   * [Things to Look At](#things-to-look-at)
 
 
 ## What is this?
