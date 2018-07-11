@@ -1,5 +1,10 @@
 # "jupyterhub" Debian Packaging
 
+**STATUS** :construction: Package building works, and you can launch the server
+using ``/usr/sbin/jupyterhub-launcher`` in a ``root`` console window. It'll use PAM authorization,
+i.e. starts the notebook servers in a local user's context. Tested on *Ubuntu Xenial* so far.
+
+
 ![BSD 3-clause licensed](http://img.shields.io/badge/license-BSD_3--clause-red.svg)
 [![debianized-jupyterhub](http://img.shields.io/pypi/v/debianized-jupyterhub.svg)](https://pypi.python.org/pypi/debianized-jupyterhub/)
 [![jupyterhub](http://img.shields.io/pypi/v/jupyterhub.svg)](https://pypi.python.org/pypi/jupyterhub/)
@@ -19,8 +24,7 @@
 
 ## What is this?
 
-This project helps to install typical Python services like Django web applications on Debian-like target hosts,
-by providing DEB packaging for the server component.
+This project provides packaging of the core *Jupyterhub* components, so they can be easily installed on Debian-like target hosts .
 This makes life-cycle management on production hosts a lot easier, and
 [avoids common drawbacks](https://nylas.com/blog/packaging-deploying-python/) of ‘from source’ installs,
 like needing build tools and direct internet access in production environments.
@@ -32,8 +36,16 @@ using [dh-virtualenv](https://github.com/spotify/dh-virtualenv).
 The resulting *omnibus package* is thus easily installed to and removed from a machine,
 but is not a ‘normal’ Debian `python-*` package. If you want that, look elsewhere.
 
-To add any plugins or other optional dependencies, add them to ``install_requires`` in ``setup.py`` as usual
-– only use versioned dependencies so package builds are reproducible.
+Since the dynamic router of *Jupyterhub* is a *Node.js* application, the package also has a dependency on `nodejs`,
+limited to the current LTS version range (that is 8.x as of this writing).
+In practice, that means you should use the
+[NodeSource](https://github.com/nodesource/distributions#nodesource-nodejs-binary-distributions)
+packages to get *Node.js*,
+since the native *Debian* ones are typically dated (*Stretch* comes with  ``4.8.2~dfsg-1``).
+Adapt the ``debian/control`` file if your requirements are different.
+
+To add any plugins or other optional *Python* dependencies, list them in ``install_requires`` in ``setup.py`` as usual
+– but only use versioned dependencies so package builds are reproducible.
 
 
 ## How to build and install the package
@@ -100,6 +112,26 @@ To list the installed version of `jupyterhub` and all its dependencies, call thi
 
 
 ## Trouble-Shooting
+
+### 'npm' errors while building the package
+
+While installing the ``configurable-http-proxy`` Javascript module,
+you might get errors like ``npm ERR! code E403``.
+That specific error means you have to provide authorization with your *Node.js* registry.
+
+``npm`` uses a configuration file which can provide both
+a local registry URL and the credentials for it.
+Create a ``.npmrc`` file in the root of your git working directory,
+otherwise ``~/.npmrc`` is used.
+
+**Example ‘.npmrc’ file:**
+
+```ini
+_auth = xyzb64…E=
+always-auth = true
+email = joe.schmoe@example.com
+```
+
 
 ### 'pkg-resources not found' or similar during virtualenv creation
 
@@ -185,8 +217,6 @@ After installing the package, …
 The package contains a ``systemd`` unit for the service, and starting it is done via ``systemctl``:
 
 ```sh
-# jupyterhub-web requires jupyterhub-worker and jupyterhub-cron,
-# so there is no need to start / enable them separately
 sudo systemctl enable jupyterhub
 sudo systemctl start jupyterhub
 
@@ -198,7 +228,7 @@ The service runs as ``jupyterhub.daemon``.
 Note that the ``jupyterhub`` user is not removed when purging the package,
 but the ``/var/{log,opt}/jupyterhub`` directories and the configuration are.
 
-After an upgrade, the services restart automatically by default,
+**TODO** After an upgrade, the services restart automatically by default,
 
 
 ## Changing the Service Unit Configuration
@@ -230,9 +260,8 @@ cat "/proc/$MainPID/limits" | egrep 'Limit|files'
 
 ## Configuration Files
 
- * ``/etc/default/jupyterhub`` – Operational parameters like global log levels.
- * ``/etc/jupyterhub/config.yml`` – The service's YAML configuration.
- * ``/etc/cron.d/jupyterhub`` – The house-keeping cron job running each day.
+ * ``/etc/default/jupyterhub`` – Operational parameters like log levels and port bindings.
+ * ``/etc/jupyterhub/jupyterhub_config.py`` – The service's configuration.
 
  :information_source: Please note that the files in ``/etc/jupyterhub``
  are *not* world-readable, since they might contain passwords.
@@ -240,8 +269,8 @@ cat "/proc/$MainPID/limits" | egrep 'Limit|files'
 
 ## Data Directories
 
- * ``/var/log/jupyterhub`` – Extra log files (by the cron job).
- * ``/var/opt/jupyterhub`` – Data files created during runtime.
+ * ``/var/log/jupyterhub`` – Extra log files.
+ * ``/var/opt/jupyterhub`` – Data files created during runtime (``jupyterhub_cookie_secret``, ``jupyterhub.sqlite``, …).
 
 You should stick to these locations, because the maintainer scripts have special handling for them.
 If you need to relocate, consider using symbolic links to point to the physical location.
