@@ -93,7 +93,7 @@ You can also install it directly on the build machine:
 
 ```sh
 sudo dpkg -i ../jupyterhub_*.deb
-/usr/bin/jupyterhub --version  # ensure it basically works
+/usr/sbin/jupyterhub --version  # ensure it basically works
 ```
 
 To list the installed version of `jupyterhub` and all its dependencies, call this:
