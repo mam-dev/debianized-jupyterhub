@@ -27,7 +27,7 @@ i.e. starts the notebook servers in a local user's context. Tested on *Ubuntu Xe
 
 ## What is this?
 
-This project provides packaging of the core *Jupyterhub* components, so they can be easily installed on Debian-like target hosts .
+This project provides packaging of the core *JupyterHub* components, so they can be easily installed on Debian-like target hosts .
 This makes life-cycle management on production hosts a lot easier, and
 [avoids common drawbacks](https://nylas.com/blog/packaging-deploying-python/) of ‘from source’ installs,
 like needing build tools and direct internet access in production environments.
@@ -39,7 +39,7 @@ using [dh-virtualenv](https://github.com/spotify/dh-virtualenv).
 The resulting *omnibus package* is thus easily installed to and removed from a machine,
 but is not a ‘normal’ Debian `python-*` package. If you want that, look elsewhere.
 
-Since the dynamic router of *Jupyterhub* is a *Node.js* application, the package also has a dependency on `nodejs`,
+Since the dynamic router of *JupyterHub* is a *Node.js* application, the package also has a dependency on `nodejs`,
 limited to the current LTS version range (that is 8.x as of this writing).
 In practice, that means you should use the
 [NodeSource](https://github.com/nodesource/distributions#nodesource-nodejs-binary-distributions)
@@ -49,6 +49,8 @@ Adapt the ``debian/control`` file if your requirements are different.
 
 To add any plugins or other optional *Python* dependencies, list them in ``install_requires`` in ``setup.py`` as usual
 – but only use versioned dependencies so package builds are reproducible.
+``seaborn`` is added by default, which in turn pulls large parts of the usual data science stack, including
+``numpy``, ``scipy``, ``pandas``, and ``matplotlib``.
 
 
 ## How to build and install the package
@@ -102,7 +104,7 @@ sudo dpkg -i ../jupyterhub_*.deb
 To list the installed version of `jupyterhub` and all its dependencies, call this:
 
 ```sh
-/opt/venvs/jupyterhub/bin/pip freeze | less
+/opt/venvs/jupyterhub/bin/pip freeze | column
 ```
 
 
