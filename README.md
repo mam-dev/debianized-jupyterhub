@@ -5,9 +5,9 @@ using ``/usr/sbin/jupyterhub-launcher`` in a ``root`` console window. It'll use 
 i.e. starts the notebook servers in a local user's context. Tested on *Ubuntu Xenial* so far.
 
 
-![BSD 3-clause licensed](http://img.shields.io/badge/license-BSD_3--clause-red.svg)
-[![debianized-jupyterhub](http://img.shields.io/pypi/v/debianized-jupyterhub.svg)](https://pypi.python.org/pypi/debianized-jupyterhub/)
-[![jupyterhub](http://img.shields.io/pypi/v/jupyterhub.svg)](https://pypi.python.org/pypi/jupyterhub/)
+![BSD 3-clause licensed](https://img.shields.io/badge/license-BSD_3--clause-red.svg)
+[![debianized-jupyterhub](https://img.shields.io/pypi/v/debianized-jupyterhub.svg)](https://pypi.python.org/pypi/debianized-jupyterhub/)
+[![jupyterhub](https://img.shields.io/pypi/v/jupyterhub.svg)](https://pypi.python.org/pypi/jupyterhub/)
 
 **Contents**
 
