@@ -5,15 +5,32 @@
 export DH_VIRTUALENV_INSTALL_ROOT=/opt/venvs
 SNAKE=/usr/bin/python3
 EXTRA_REQUIREMENTS=--upgrade-pip --preinstall "setuptools>=17.1" --preinstall "wheel"
+NODEENV_VERSION=1.3.1
 
 PACKAGE=$(shell dh_listpackages)
 VERSION=$(shell parsechangelog | grep ^Version: | sed -re 's/[^0-9]+([^-]+).*/\1/')
-DH_VENV_ARGS=--with python-virtualenv --setuptools --python $(SNAKE) $(EXTRA_REQUIREMENTS)
+DH_VENV_ARGS=--setuptools --python $(SNAKE) $(EXTRA_REQUIREMENTS)
            # --extra-pip-arg "--no-binary=psycopg2" \
            # -v
+DH_VENV_DIR=debian/$(PACKAGE)$(DH_VIRTUALENV_INSTALL_ROOT)/$(PACKAGE)
+
+ifeq (,$(wildcard $(CURDIR)/.npmrc))
+    NPM_CONFIG=~/.npmrc
+else
+    NPM_CONFIG=$(CURDIR)/.npmrc
+endif
+
 
 %:
-	dh $@ $(DH_VENV_ARGS)
+	dh $@ --with python-virtualenv $(DH_VENV_ARGS)
+
+.PHONY: override_dh_virtualenv override_dh_strip override_dh_shlibdeps
+
+override_dh_virtualenv:
+	dh_virtualenv $(DH_VENV_ARGS)
+	$(DH_VENV_DIR)/bin/python $(DH_VENV_DIR)/bin/pip install nodeenv==$(NODEENV_VERSION)
+	$(DH_VENV_DIR)/bin/nodeenv -C '' -p -n system
+	. $(DH_VENV_DIR)/bin/activate && node /usr/bin/npm install --userconfig=$(NPM_CONFIG) -g configurable-http-proxy
 
 override_dh_strip:
 	dh_strip --exclude=cffi
