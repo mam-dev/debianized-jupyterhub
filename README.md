@@ -58,7 +58,6 @@ or [Debian packages](https://packages.debian.org/source/sid/dh-virtualenv).
 
 This code requires and is tested with ``dh-virtualenv`` v1.0
 – depending on your platform you might get an older version via the standard packages.
-On *Jessie*, install it from ``jessie-backports``.
 *Zesty* provides a package for *Ubuntu* that works on older releases too,
 see *“Extra steps on Ubuntu”* below for how to use it.
 In all other cases build *v1.0* from source,
@@ -74,13 +73,6 @@ cd debianized-jupyterhub/
 # or "pip download --no-deps --no-binary :all: debianized-jupyterhub" and unpack the archive
 
 sudo apt-get install build-essential debhelper devscripts equivs
-
-# Extra steps on Jessie
-echo "deb http://ftp.debian.org/debian jessie-backports main" \
-    | sudo tee /etc/apt/sources.list.d/jessie-backports.list >/dev/null
-sudo apt-get update -qq
-sudo apt-get install -t jessie-backports cmake dh-virtualenv
-# END jessie
 
 # Extra steps on Ubuntu
 ( cd /tmp && curl -LO "http://mirrors.kernel.org/ubuntu/pool/universe/d/dh-virtualenv/dh-virtualenv_1.0-1_all.deb" )
