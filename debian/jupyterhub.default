@@ -1,5 +1,10 @@
+# vim: ft=sh
+##################################################
 # Environment file for systemd units and cron jobs
-JUPYTERHUB_CONFDIR=/etc/jupyterhub
+##################################################
 
-# Global logging level. Use wisely. [DEBUG|INFO|WARNING|ERROR|CRITICAL|FATAL]
+JUPYTERHUB_CONFDIR=/etc/jupyterhub
+JUPYTERHUB_BIND_URL="http://:8000"
+
+# Server logging level. Use wisely. [DEBUG|INFO|WARN|ERROR|CRITICAL]
 JUPYTERHUB_LOGLEVEL=INFO
