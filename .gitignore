@@ -6,3 +6,4 @@
 .pip-cache/
 dist/
 build/
+.npmrc
