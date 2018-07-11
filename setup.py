@@ -116,10 +116,10 @@ project = dict(
     install_requires=[
         # core
         'jupyterhub==' + upstream_version,
-        'notebook',
+        'notebook==5.5.0',
 
         # extensions
-        'seaborn',
+        'seaborn==0.8.1',
     ],
     packages=[],
 )
