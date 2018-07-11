@@ -13,9 +13,12 @@ i.e. starts the notebook servers in a local user's context. Tested on *Ubuntu Xe
 
  * [What is this?](#what-is-this)
  * [How to build and install the package](#how-to-build-and-install-the-package)
- * [How to set up a simple service instance](#how-to-set-up-a-simple-service-instance)
  * [Trouble-Shooting](#trouble-shooting)
+   * ['npm' errors while building the package](#npm-errors-while-building-the-package)
    * ['pkg-resources not found' or similar during virtualenv creation](#pkg-resources-not-found-or-similar-during-virtualenv-creation)
+   * ['no such option: --no-binary' during package builds](#no-such-option---no-binary-during-package-builds)
+ * [How to set up a simple service instance](#how-to-set-up-a-simple-service-instance)
+ * [Changing the Service Unit Configuration](#changing-the-service-unit-configuration)
  * [Configuration Files](#configuration-files)
  * [Data Directories](#data-directories)
  * [References](#references)
