@@ -306,6 +306,10 @@ These links point to parts of the documentation especially useful for operating 
 
 ### Things to Look At
 
+ * [Dockerize and Kerberize Notebook for Yarn and HDFS](https://www.youtube.com/watch?v=7m9VK0kXdcM&feature=youtu.be) [YouTube]
+   * [bloomberg/jupyterhub-kdcauthenticator](https://github.com/bloomberg/jupyterhub-kdcauthenticator) – A Kerberos authenticator module for the JupyterHub platform.
+   * [jupyter-incubator/sparkmagic](https://github.com/jupyter-incubator/sparkmagic) – Jupyter magics and kernels for working with remote Spark clusters.
+   * [Apache Livy](https://github.com/apache/incubator-livy#apache-livy) – An open source REST interface for interacting with Apache Spark from anywhere.
  * [jupyter/docker-stacks](https://github.com/jupyter/docker-stacks) – Ready-to-run Docker images containing Jupyter applications.
  * [jupyter/repo2docker](https://github.com/jupyter/repo2docker) – Turn git repositories into Jupyter-enabled Docker Images.
  * [vatlab/SoS](https://github.com/vatlab/SOS) – Workflow system designed for daily data analysis.
