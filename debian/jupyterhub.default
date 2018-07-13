@@ -6,5 +6,8 @@
 JUPYTERHUB_CONFDIR=/etc/jupyterhub
 JUPYTERHUB_BIND_URL="http://:8000"
 
+# PySpark (leave empty to use 'alternatives' selection)
+JUPYTERHUB_JAVA_HOME=
+
 # Server logging level. Use wisely. [DEBUG|INFO|WARN|ERROR|CRITICAL]
 JUPYTERHUB_LOGLEVEL=INFO
