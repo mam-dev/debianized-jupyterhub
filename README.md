@@ -313,3 +313,4 @@ These links point to parts of the documentation especially useful for operating 
  * [jupyter/docker-stacks](https://github.com/jupyter/docker-stacks) – Ready-to-run Docker images containing Jupyter applications.
  * [jupyter/repo2docker](https://github.com/jupyter/repo2docker) – Turn git repositories into Jupyter-enabled Docker Images.
  * [vatlab/SoS](https://github.com/vatlab/SOS) – Workflow system designed for daily data analysis.
+ * [sparklingpandas/sparklingpandas](https://github.com/sparklingpandas/sparklingpandas) – SparklingPandas builds on Spark's DataFrame class to give you a polished, pythonic, and Pandas-like API.
