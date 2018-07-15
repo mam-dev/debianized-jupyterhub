@@ -9,7 +9,8 @@ RUN apt-get update -qq && apt-get install -yqq \
         libxml2-dev libxslt1-dev libyaml-dev libjpeg-dev \
         libssl-dev libncurses5-dev libncursesw5-dev libzmq3-dev \
     && ( curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - ) \
-    && echo 'deb https://deb.nodesource.com/#NODEREPO# #CODENAME# main' >/etc/apt/sources.list.d/nodesource.list \
+    && echo 'deb https://deb.nodesource.com/#NODEREPO# #CODENAME# main' \
+            >/etc/apt/sources.list.d/nodesource.list \
     && apt-get update -qq && apt-get install -y nodejs \
     && rm -rf "/var/lib/apt/lists"/*
 WORKDIR /dpkg-build

@@ -7,6 +7,7 @@ set -e
 
 NODEREPO="node_8.x"
 
+# Get build platform as 1st argument, and collect project metadata
 image="${1:?You MUST provide a docker image name}"; shift
 dist_id=${image%%:*}
 codename=${image#*:}
@@ -15,6 +16,7 @@ pkgname="$(dh_listpackages)"
 tag=$pypi_name-$dist_id-$codename
 staging_dir="build/staging"
 
+# Prepare staging area
 rm -rf $staging_dir 2>/dev/null || true
 mkdir -p $staging_dir
 git ls-files >build/git-files
@@ -24,6 +26,8 @@ sed -r -e s/#UUID#/$(< /proc/sys/kernel/random/uuid)/g \
     -e s/#DIST_ID#/$dist_id/g -e s/#CODENAME#/$codename/g \
     -e s/#NODEREPO#/$NODEREPO/ -e s/#PYPI#/$pypi_name/ -e s/#PKGNAME#/$pkgname/ \
     <Dockerfile.build >$staging_dir/Dockerfile
+
+# Build in Docker container, save results, and show package info
 docker build --tag $tag "$@" $staging_dir
 docker run --rm $tag tar -C /dpkg -c . | tar -C build -xv
 dpkg-deb -I build/${pkgname}_*.deb
