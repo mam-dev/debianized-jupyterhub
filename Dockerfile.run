@@ -1,0 +1,37 @@
+# Instal and run JupyterHub on Debian Stretch
+# ===========================================
+#
+#   ./build.sh debian:stretch
+#   docker build --tag jupyterhub-stretch -f Dockerfile.run build
+#   docker run --rm -it -p 8000:8000 -p 8001:8001 jupyterhub-stretch
+#
+# To copy examples and open Jupyter (do this in another terminal):
+#
+#   ( builtin cd docs/examples/ >/dev/null && tar -c *.ipynb ) | docker exec -i $(docker ps | grep jupyterhub-stretch | cut -f1 -d' ') bash -c "cd /home/admin && tar -xv"
+#   xdg-open "http://127.0.0.1:8000/user/admin/tree"
+#
+# To enter the container:
+#
+#   docker exec -it $(docker ps | grep jupyterhub-stretch | cut -f1 -d' ') bash
+#
+
+FROM debian:stretch
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update -qq && apt-get install -yqq \
+        curl python3-tk perl gnupg apt-utils apt-transport-https \
+    && ( curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - ) \
+    && echo 'deb https://deb.nodesource.com/node_8.x stretch main' \
+            >/etc/apt/sources.list.d/nodesource.list \
+    && apt-get update -qq && apt-get install -y nodejs \
+    && rm -rf "/var/lib/apt/lists"/*
+WORKDIR /srv/jupyterhub
+COPY *.deb ./
+RUN dpkg -i jupyterhub_[0-9]*~stretch_amd64.deb \
+    && groupadd jhub \
+    && useradd -g jhub -G jhub,users -c "JupyterHub Admin" -s /bin/bash --create-home admin \
+    && chmod 750 ~admin \
+    && chown -R admin.jhub ~admin \
+    && ( echo 'admin:test1234' | chpasswd )
+EXPOSE 8000
+EXPOSE 8001
+ENTRYPOINT /usr/sbin/jupyterhub-launcher
