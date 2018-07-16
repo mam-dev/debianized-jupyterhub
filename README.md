@@ -1,8 +1,9 @@
 # "jupyterhub" Debian Packaging
 
 **STATUS** :construction: Package building works, and you can launch the server
-using ``/usr/sbin/jupyterhub-launcher`` in a ``root`` console window. It'll use PAM authorization,
-i.e. starts the notebook servers in a local user's context. Tested on *Ubuntu Xenial* so far.
+using ``/usr/sbin/jupyterhub-launcher`` in a ``root`` console window, or via the provided ``Dockerfile.run``.
+It'll use PAM authorization, i.e. starts the notebook servers in a local user's context.
+Tested on *Ubuntu Xenial* so far, and on *Debian Stretch* in a Docker container (user: ``admin`` / pwd: ``test1234``).
 
 
 ![BSD 3-clause licensed](https://img.shields.io/badge/license-BSD_3--clause-red.svg)
