@@ -4,7 +4,8 @@
 
 export DH_VIRTUALENV_INSTALL_ROOT=/opt/venvs
 SNAKE=/usr/bin/python3
-EXTRA_REQUIREMENTS=--upgrade-pip --preinstall "setuptools>=17.1" --preinstall "wheel"
+EXTRA_REQUIREMENTS=--upgrade-pip --preinstall "setuptools>=17.1" --preinstall "wheel" \
+    --preinstall "Cython==0.28.4"
 NODEENV_VERSION=1.3.1
 
 PACKAGE=$(shell dh_listpackages)
