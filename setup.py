@@ -120,9 +120,10 @@ project = dict(
 
         # extensions
         'seaborn==0.8.1',
-        'pyspark==2.3.1',
-        'pyspark-flame==0.2.4',
     ],
+    extras_require=dict(
+        spark=['pyspark==2.3.1', 'pyspark-flame==0.2.4'],
+    ),
     packages=[],
 )
 
