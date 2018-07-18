@@ -18,7 +18,7 @@
 FROM debian:stretch
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -qq && apt-get install -yqq \
-        curl python3-tk perl gnupg apt-utils apt-transport-https \
+        curl python3-tk libyaml-0-2 perl gnupg apt-utils apt-transport-https \
     && ( curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - ) \
     && echo 'deb https://deb.nodesource.com/node_8.x stretch main' \
             >/etc/apt/sources.list.d/nodesource.list \
