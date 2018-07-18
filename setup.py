@@ -120,6 +120,7 @@ project = dict(
 
         # extensions
         'seaborn==0.8.1',
+        'bokeh==0.13.0', 'psutil==5.4.6',
     ],
     extras_require=dict(
         spark=['pyspark==2.3.1', 'pyspark-flame==0.2.4'],

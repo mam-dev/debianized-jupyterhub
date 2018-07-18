@@ -9,6 +9,9 @@
 . /opt/venvs/jupyterhub/bin/activate
 builtin cd /var/opt/jupyterhub
 
+# Bokeh: Use inline resources (no use of the CDN)
+export BOKEH_RESOURCES=inline
+
 # PySpark / JVM settings
 default_java_home=$(readlink /etc/alternatives/java 2>/dev/null)
 default_java_home=${default_java_home%%/bin/*}
