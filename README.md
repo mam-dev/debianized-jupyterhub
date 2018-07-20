@@ -3,7 +3,9 @@
 **STATUS** :construction: Package building works, and you can launch the server
 using ``/usr/sbin/jupyterhub-launcher`` in a ``root`` console window, or via the provided ``Dockerfile.run``.
 It'll use PAM authorization, i.e. starts the notebook servers in a local user's context.
-Tested on *Ubuntu Xenial* so far, and on *Debian Stretch* in a Docker container (user: ``admin`` / pwd: ``test1234``).
+Tested on *Ubuntu Xenial* so far (with Python 3.6 from the *Deadsnakes PPA*),
+and on *Debian Stretch* in a Docker container
+(see ``Dockerfile.run`` / user: ``admin`` / pwd: ``test1234``).
 
 
 ![BSD 3-clause licensed](https://img.shields.io/badge/license-BSD_3--clause-red.svg)
@@ -315,3 +317,5 @@ These links point to parts of the documentation especially useful for operating 
  * [jupyter/repo2docker](https://github.com/jupyter/repo2docker) – Turn git repositories into Jupyter-enabled Docker Images.
  * [vatlab/SoS](https://github.com/vatlab/SOS) – Workflow system designed for daily data analysis.
  * [sparklingpandas/sparklingpandas](https://github.com/sparklingpandas/sparklingpandas) – SparklingPandas builds on Spark's DataFrame class to give you a polished, pythonic, and Pandas-like API.
+ * [data-8/nbzip](https://github.com/data-8/nbzip) – Zips and downloads all the contents of a Jupyter notebook.
+ * [data-8/nbgitpuller](https://github.com/data-8/nbgitpuller)  – One-way git pull with auto-merging, most suited for classroom settings.
