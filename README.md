@@ -76,7 +76,7 @@ for more details.
 To test the resulting package, read the comments at the start of ``Dockerfile.run``.
 
 
-**Buildung directly on your workstation**
+**Building directly on your workstation**
 
 Otherwise, you need a build machine with all build dependencies installed, specifically
 [dh-virtualenv](https://github.com/spotify/dh-virtualenv) in addition to the normal Debian packaging tools.
