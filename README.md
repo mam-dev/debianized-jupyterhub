@@ -138,17 +138,8 @@ email = joe.schmoe@example.com
 
 ### 'pkg-resources not found' or similar during virtualenv creation
 
-If you get errors regarding ``pkg-resources`` during the virtualenv creation,
-update your build machine's ``pip`` and ``virtualenv``.
-The versions on many distros are just too old to handle current infrastructure (especially PyPI).
-
-This is the one exception to “never sudo pip”, so go ahead and do this:
-
-```sh
-sudo pip install -U pip virtualenv
-```
-
-Then try building the package again.
+See the [related section](https://dh-virtualenv.readthedocs.io/en/latest/trouble-shooting.html#pkg-resources-not-found-or-similar)
+in the dh-virtualenv manual.
 
 
 ### 'no such option: --no-binary' during package builds
