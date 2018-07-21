@@ -61,7 +61,24 @@ To add any plugins or other optional *Python* dependencies, list them in ``insta
 
 ## How to build and install the package
 
-You need a build machine with all build dependencies installed, specifically
+**Building in a Docker container**
+
+The easiest way to build the package is using the provided ``Dockerfile.build``.
+Then you do not need to install tooling and build dependencies on your machine,
+and the package gets built in a pristine environment.
+The only thing you need on your workstatioon is a ``docker-ce`` installation of version 17.06 or higher.
+
+Call ``./build.sh debian:stretch`` to build the package for *Debian Stretch*
+– building for *Ubuntu Bionic* is also supported.
+See [Multi-platform builds in Docker](https://dh-virtualenv.readthedocs.io/en/latest/howtos.html#docker-builds)
+for more details.
+
+To test the resulting package, read the comments at the start of ``Dockerfile.run``.
+
+
+**Buildung directly on your workstation**
+
+Otherwise, you need a build machine with all build dependencies installed, specifically
 [dh-virtualenv](https://github.com/spotify/dh-virtualenv) in addition to the normal Debian packaging tools.
 You can get it from [this PPA](https://launchpad.net/~spotify-jyrki/+archive/ubuntu/dh-virtualenv),
 the [official Ubuntu repositories](http://packages.ubuntu.com/search?keywords=dh-virtualenv),

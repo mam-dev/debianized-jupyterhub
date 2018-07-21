@@ -10,6 +10,8 @@
 #   ( builtin cd docs/examples/ >/dev/null && tar -c *.ipynb ) | docker exec -i $(docker ps | grep jupyterhub-stretch | cut -f1 -d' ') bash -c "cd /home/admin && tar -xv"
 #   xdg-open "http://127.0.0.1:8000/user/admin/tree"
 #
+# The password for the `admin` account is `test1234`.
+#
 # To enter the container:
 #
 #   docker exec -it $(docker ps | grep jupyterhub-stretch | cut -f1 -d' ') bash
