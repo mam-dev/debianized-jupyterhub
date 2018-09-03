@@ -281,6 +281,7 @@ cat "/proc/$MainPID/limits" | egrep 'Limit|files'
 ## Data Directories
 
  * ``/var/log/jupyterhub`` – Extra log files.
+ * ``/var/run/jupyterhub`` – PID file.
  * ``/var/opt/jupyterhub`` – Data files created during runtime (``jupyterhub_cookie_secret``, ``jupyterhub.sqlite``, …).
 
 You should stick to these locations, because the maintainer scripts have special handling for them.

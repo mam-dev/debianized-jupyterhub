@@ -1,8 +1,11 @@
 #! /bin/bash
 #
-# Helper to launch the service with activated virtualenv.
+# Helper to launch the service with activated virtualenv
+# and populated environment.
 #
-# The virtualenv needs to be active for uWSGI to work properly.
+# For manual launching use:
+#
+#   su -s /bin/sh -c /usr/sbin/jupyterhub-launcher jupyterhub
 
 # Set up runtime environment
 . /etc/default/jupyterhub
@@ -23,7 +26,10 @@ echo "$0: JAVA_HOME is '$JAVA_HOME'"
 /usr/sbin/jupyterhub \
     --url=${JUPYTERHUB_BIND_URL:-"http://:8000"} \
     --log-level=${JUPYTERHUB_LOGLEVEL:-"INFO"} \
-    --pid-file=/var/run/jupyterhub.pid \
+    --pid-file=/var/run/jupyterhub/jupyterhub.pid \
+    --JupyterHub.spawner_class=sudospawner.SudoSpawner \
+    --SudoSpawner.sudospawner_path=/opt/venvs/jupyterhub/bin/sudospawner \
+    --PAMAuthenticator.open_sessions=False \
     --config=${JUPYTERHUB_CONFDIR:-"/etc/jupyterhub"}/jupyterhub_config.py
 #    --ssl-key my_ssl.key \
 #    --ssl-cert my_ssl.cert \

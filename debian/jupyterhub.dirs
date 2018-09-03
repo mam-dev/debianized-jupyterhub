@@ -1,2 +1,3 @@
 var/log/jupyterhub
 var/opt/jupyterhub
+var/run/jupyterhub

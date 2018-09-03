@@ -26,6 +26,7 @@ case "$1" in
         if ! getent passwd "$RUN_AS" >/dev/null; then
             adduser --quiet --system --ingroup daemon --no-create-home \
                     --home "/var/opt/$APP_ID" --shell /usr/sbin/nologin "$RUN_AS"
+            usermod -a -G shadow "$RUN_AS"
         fi
     ;;
 
@@ -49,8 +50,9 @@ esac
 # Protect configuration files (possibly containing passwords)
 chmod 0640 /etc/"$APP_ID"/*.py
 chgrp daemon /etc/"$APP_ID"/*
+chmod 0440 /etc/sudoers.d/"$APP_ID"
 
-# Data and log directory permissions
-chown -RPh "$RUN_AS".daemon /var/log/"$APP_ID"/. /var/opt/"$APP_ID"/.
+# System user's directory permissions
+chown -RPh "$RUN_AS".daemon /var/log/"$APP_ID"/. /var/opt/"$APP_ID"/. /var/run/"$APP_ID"/.
 
 exit 0

@@ -1,3 +1,4 @@
 etc/jupyterhub_config.py etc/jupyterhub
 scripts/jupyterhub-* usr/sbin
 systemd/*.service lib/systemd/system
+etc/sudoers.d/jupyterhub etc/sudoers.d

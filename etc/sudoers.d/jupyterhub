@@ -1,0 +1,13 @@
+# See https://jupyterhub.readthedocs.io/en/stable/reference/config-sudo.html
+
+# comma-separated whitelist of users that can spawn single-user servers;
+# for tighter security, use a more specific group than all non-system users,
+# or an explicit list of names
+Runas_Alias JUPYTER_USERS = %users
+
+# the command(s) the Hub can run on behalf of the above users without needing a password
+Cmnd_Alias JUPYTER_CMD = /opt/venvs/jupyterhub/bin/sudospawner
+
+# Give the Hub system user permission to run the above command on behalf
+# of the above users without prompting for a password
+jupyterhub ALL=(JUPYTER_USERS) NOPASSWD:JUPYTER_CMD

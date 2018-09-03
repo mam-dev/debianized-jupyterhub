@@ -117,6 +117,7 @@ project = dict(
         # core
         'jupyterhub==' + upstream_version,
         'notebook==5.5.0',
+        'sudospawner==0.5.2',
 
         # extensions
         'seaborn==0.8.1',
