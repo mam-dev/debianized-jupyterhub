@@ -11,3 +11,6 @@ JUPYTERHUB_JAVA_HOME=
 
 # Server logging level. Use wisely. [DEBUG|INFO|WARN|ERROR|CRITICAL]
 JUPYTERHUB_LOGLEVEL=INFO
+
+# Restart service automatically after package upgrades? [true|false]
+JUPYTERHUB_AUTO_RESTART=true

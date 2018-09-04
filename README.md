@@ -290,15 +290,15 @@ If you need to relocate, consider using symbolic links to point to the physical 
 
 ## TODOs
 
- * Use ``/srv/jupyterhub`` as the data dir?
- * [Put user notebook dirs into the data dir](https://jupyterhub.readthedocs.io/en/stable/getting-started/spawners-basics.html)
  * Add a global ``jupyter_notebook_config.py``
  * https://jupyterhub.readthedocs.io/en/stable/reference/config-proxy.html
- * https://jupyterhub.readthedocs.io/en/stable/reference/config-sudo.html
  * [cull_idle_servers](https://jupyterhub.readthedocs.io/en/stable/getting-started/services-basics.html)
  * Prometheus monitoring
+
+*Maybe*
+
  * Run the proxy as a separate systemd service?
- * Replace CHP by Træfik, an F5 integration, or similar
+ * Replace CHP by Træfik, an F5 integration, or similar?
 
 
 ## References
