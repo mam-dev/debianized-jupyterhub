@@ -59,6 +59,7 @@ chown -RPh "$RUN_AS".daemon /var/log/"$APP_ID"/. /var/opt/"$APP_ID"/. /var/run/"
 if [ "$1" = "configure" ]; then
     if "${JUPYTERHUB_AUTO_RESTART:-false}"; then
         echo "*** $APP_ID: Starting service..."
+        systemctl daemon-reload
         systemctl start "$APP_ID" \
             || echo >&2 "!!! $APP_ID: Starting service failed (RC=$?), for details see journalctl"
     fi
