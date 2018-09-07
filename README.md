@@ -290,10 +290,19 @@ If you need to relocate, consider using symbolic links to point to the physical 
 
 ## TODOs
 
+ * Update to 0.9.2
+ * Check https://github.com/jupyterhub/jupyterhub/issues/2120
+ * Add a debug switch to the default file
+   * https://github.com/jupyterhub/jupyterhub/wiki/Debug-Jupyterhub
  * Add a global ``jupyter_notebook_config.py``
+ * "Protect*" service directives…
+   * https://github.com/jupyterhub/the-littlest-jupyterhub/blob/master/tljh/systemd-units/jupyterhub.service
  * https://jupyterhub.readthedocs.io/en/stable/reference/config-proxy.html
  * [cull_idle_servers](https://jupyterhub.readthedocs.io/en/stable/getting-started/services-basics.html)
- * Prometheus monitoring
+ * Prometheus monitoring → https://github.com/jupyterhub/jupyterhub/issues/2049
+   * Graphite bridge: https://github.com/prometheus/client_python#bridges
+ * Sample nginx config
+   * https://github.com/jupyterhub/jupyterhub/issues/2105
 
 *Maybe*
 
@@ -318,6 +327,11 @@ These links point to parts of the documentation especially useful for operating 
 
 ### Things to Look At
 
+ * [Tutorial: Getting Started with JupyterHub](https://jupyterhub-tutorial.readthedocs.io/)
+ * https://github.com/jupyterhub/the-littlest-jupyterhub
+ * Notebook culling: https://github.com/jupyterhub/jupyterhub/issues/2032
+ * https://github.com/jupyterhub/systemdspawner
+   * As for “Simple sudo rules do not help, since unrestricted access to systemd-run is equivalent to root”, sudo command patterns or a wrapper script could probably fix that.
  * [Dockerize and Kerberize Notebook for Yarn and HDFS](https://www.youtube.com/watch?v=7m9VK0kXdcM&feature=youtu.be) [YouTube]
    * [bloomberg/jupyterhub-kdcauthenticator](https://github.com/bloomberg/jupyterhub-kdcauthenticator) – A Kerberos authenticator module for the JupyterHub platform.
    * [jupyter-incubator/sparkmagic](https://github.com/jupyter-incubator/sparkmagic) – Jupyter magics and kernels for working with remote Spark clusters.
