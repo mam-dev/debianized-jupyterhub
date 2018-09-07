@@ -15,5 +15,15 @@ EnvironmentFile=/etc/default/jupyterhub
 ExecStart=/usr/sbin/jupyterhub-launcher
 ExecStop=/usr/sbin/jupyterhub-backup "systemd service stop"
 
+UMask=0027
+#ProtectHome=tmpfs – only when using systemd-spawner!?
+ProtectSystem=full
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+PrivateTmp=true
+PrivateDevices=true
+LimitNOFILE=8192
+
 [Install]
 WantedBy=multi-user.target
