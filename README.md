@@ -296,6 +296,8 @@ If you need to relocate, consider using symbolic links to point to the physical 
  * Add a global ``jupyter_notebook_config.py``
  * "Protect*" service directives…
    * https://github.com/jupyterhub/the-littlest-jupyterhub/blob/master/tljh/systemd-units/jupyterhub.service
+ * Inject a user's "--user" installs into the launched notebook servers
+   * https://github.com/jupyterhub/jupyterhub/issues/2136
  * https://jupyterhub.readthedocs.io/en/stable/reference/config-proxy.html
  * [cull_idle_servers](https://jupyterhub.readthedocs.io/en/stable/getting-started/services-basics.html)
  * Prometheus monitoring → https://github.com/jupyterhub/jupyterhub/issues/2049
