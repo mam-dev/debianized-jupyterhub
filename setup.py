@@ -118,6 +118,7 @@ project = dict(
         'jupyterhub==' + upstream_version,
         'notebook==5.5.0',
         'sudospawner==0.5.2',
+        'pycurl==7.43.0.2',  # recommended by server logs
 
         # extensions
         'seaborn==0.8.1',

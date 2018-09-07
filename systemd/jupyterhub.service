@@ -1,5 +1,5 @@
 [Unit]
-Description=jupyterhub Service
+Description=JupyterHub Service
 Documentation=https://jupyterhub.readthedocs.io/en/stable/
 Documentation=https://github.com/1and1/debianized-jupyterhub#jupyterhub-debian-packaging
 After=network.target
@@ -13,6 +13,7 @@ Group=daemon
 WorkingDirectory=/var/opt/jupyterhub
 EnvironmentFile=/etc/default/jupyterhub
 ExecStart=/usr/sbin/jupyterhub-launcher
+ExecStop=/usr/sbin/jupyterhub-backup "systemd service stop"
 
 [Install]
 WantedBy=multi-user.target

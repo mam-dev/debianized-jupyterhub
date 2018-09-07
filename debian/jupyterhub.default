@@ -14,3 +14,7 @@ JUPYTERHUB_LOGLEVEL=INFO
 
 # Restart service automatically after package upgrades? [true|false]
 JUPYTERHUB_AUTO_RESTART=true
+
+# Auto-migrate database during package upgrades? [true|false]
+# https://jupyterhub.readthedocs.io/en/stable/reference/upgrading.html
+JUPYTERHUB_AUTO_MIGRATION=true

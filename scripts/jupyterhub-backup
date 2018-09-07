@@ -1,0 +1,30 @@
+#! /bin/bash
+#
+# Versioned local backup of config and SQLite database files.
+# Used during service shutdown to guard against update (migration)
+# problems and other accidents.
+
+set -e
+trigger="${1:-manual execution}"
+
+# Set up runtime environment
+. /etc/default/jupyterhub
+. /opt/venvs/jupyterhub/bin/activate
+builtin cd /var/opt/jupyterhub
+
+# Copy files to versioned location
+DATADIR="/var/opt/jupyterhub"
+BAKDIR="$DATADIR/backups/$(/usr/sbin/jupyterhub --version 2>/dev/null || echo 'UNKNOWN')"
+mkdir -p "$BAKDIR"
+echo "JupyterHub backup triggered by $trigger at $(date --rfc-3339=seconds)" >"$BAKDIR/STATUS"
+
+files=(
+    "$JUPYTERHUB_CONFDIR"/*
+    "$DATADIR/jupyterhub_cookie_secret"
+    "$DATADIR/jupyterhub.sqlite"
+)
+for file in "${files[@]}"; do
+    cp -a "$file" "$BAKDIR" || :
+done
+chmod -R o= "$BAKDIR"
+chown -R jupyterhub.daemon "$BAKDIR"

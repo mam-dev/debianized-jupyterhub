@@ -11,6 +11,8 @@
 . /etc/default/jupyterhub
 . /opt/venvs/jupyterhub/bin/activate
 builtin cd /var/opt/jupyterhub
+OPTS=( )
+${JUPYTERHUB_AUTO_MIGRATION:-false} && OPTS+=( --upgrade-db ) || :
 
 # Bokeh: Use inline resources (no use of the CDN)
 export BOKEH_RESOURCES=inline
@@ -30,6 +32,7 @@ echo "$0: JAVA_HOME is '$JAVA_HOME'"
     --JupyterHub.spawner_class=sudospawner.SudoSpawner \
     --SudoSpawner.sudospawner_path=/opt/venvs/jupyterhub/bin/sudospawner \
     --PAMAuthenticator.open_sessions=False \
-    --config=${JUPYTERHUB_CONFDIR:-"/etc/jupyterhub"}/jupyterhub_config.py
+    --config=${JUPYTERHUB_CONFDIR:-"/etc/jupyterhub"}/jupyterhub_config.py \
+    "${OPTS[@]}"
 #    --ssl-key my_ssl.key \
 #    --ssl-cert my_ssl.cert \
