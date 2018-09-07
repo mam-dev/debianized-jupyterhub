@@ -290,7 +290,6 @@ If you need to relocate, consider using symbolic links to point to the physical 
 
 ## TODOs
 
- * Update to 0.9.2
  * Check https://github.com/jupyterhub/jupyterhub/issues/2120
  * Add a debug switch to the default file
    * https://github.com/jupyterhub/jupyterhub/wiki/Debug-Jupyterhub
