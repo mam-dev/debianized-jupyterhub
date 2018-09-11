@@ -37,4 +37,4 @@ RUN echo JUPYTERHUB_AUTO_RESTART=false >/etc/default/jupyterhub \
     && ( echo 'admin:test1234' | chpasswd )
 EXPOSE 8000
 EXPOSE 8001
-ENTRYPOINT /usr/sbin/jupyterhub-launcher
+ENTRYPOINT su -s /bin/sh -c /usr/sbin/jupyterhub-launcher jupyterhub
