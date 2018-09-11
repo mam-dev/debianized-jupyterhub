@@ -13,6 +13,7 @@ dist_id=${image%%:*}
 codename=${image#*:}
 pypi_name="$(./setup.py --name)"
 pkgname="$(dh_listpackages)"
+pkgversion="$(dpkg-parsechangelog -S Version)"
 tag=$pypi_name-$dist_id-$codename
 staging_dir="build/staging"
 
@@ -20,6 +21,7 @@ staging_dir="build/staging"
 rm -rf $staging_dir 2>/dev/null || true
 mkdir -p $staging_dir
 git ls-files >build/git-files
+rm build/${pkgname}?*${pkgversion}*.*
 test ! -f .npmrc || echo .npmrc >>build/git-files
 tar -c --files-from build/git-files | tar -C $staging_dir -x
 sed -i -r -e 1s/stretch/$codename/g $staging_dir/debian/changelog
@@ -31,4 +33,4 @@ sed -r -e s/#UUID#/$(< /proc/sys/kernel/random/uuid)/g \
 # Build in Docker container, save results, and show package info
 docker build --tag $tag "$@" $staging_dir
 docker run --rm $tag tar -C /dpkg -c . | tar -C build -xv
-dpkg-deb -I build/${pkgname}_*~${codename}*.deb
+dpkg-deb -I build/${pkgname}_${pkgversion}*.deb
