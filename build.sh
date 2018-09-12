@@ -21,7 +21,7 @@ staging_dir="build/staging"
 rm -rf $staging_dir 2>/dev/null || true
 mkdir -p $staging_dir
 git ls-files >build/git-files
-rm build/${pkgname}?*${pkgversion}*.*
+rm -f build/${pkgname}?*${pkgversion}*.*
 test ! -f .npmrc || echo .npmrc >>build/git-files
 tar -c --files-from build/git-files | tar -C $staging_dir -x
 sed -i -r -e 1s/stretch/$codename/g $staging_dir/debian/changelog
