@@ -18,13 +18,19 @@
 #
 
 FROM debian:stretch
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update -qq && apt-get install -yqq \
-        sudo curl python3-tk libyaml-0-2 perl gnupg apt-utils apt-transport-https \
-    && ( curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - ) \
-    && echo 'deb https://deb.nodesource.com/node_8.x stretch main' \
+ENV LANG=en_US.UTF-8 DEBIAN_FRONTEND=noninteractive
+RUN env LANG=C apt-get update -qq \
+    && env LANG=C apt-get install -yqq --no-install-recommends \
+        sudo locales ca-certificates curl perl gnupg2 apt-utils apt-transport-https \
+        python3-tk libyaml-0-2 \
+    && echo "$LANG UTF-8" >/etc/locale.gen \
+    && locale-gen --lang "$LANG" \
+    && echo 'deb [trusted=yes] https://deb.nodesource.com/node_8.x stretch main' \
             >/etc/apt/sources.list.d/nodesource.list \
-    && apt-get update -qq && apt-get install -y nodejs \
+    && ( curl -sL https://deb.nodesource.com/gpgkey/nodesource.gpg.key \
+         | env APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=true apt-key add - ) \
+    && apt-get update -qq \
+    && apt-get install -y --no-install-recommends nodejs \
     && rm -rf "/var/lib/apt/lists"/*
 WORKDIR /srv/jupyterhub
 COPY *.deb ./
