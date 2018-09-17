@@ -2,8 +2,8 @@
 # ===========================================
 #
 #   ./build.sh debian:stretch
-#   docker build --tag jupyterhub-stretch -f Dockerfile.run build
-#   docker run --rm -it -p 8000:8000 -p 8001:8001 jupyterhub-stretch
+#   docker build --tag jupyterhub-stretch:$(./setup.py --version) -f Dockerfile.run build
+#   docker run --rm -it -p 8000:8000 -p 8001:8001 --name jupyterhub-stretch jupyterhub-stretch
 #
 # To copy examples and open Jupyter (do this in another terminal):
 #
@@ -22,7 +22,7 @@ ENV LANG=en_US.UTF-8 DEBIAN_FRONTEND=noninteractive
 RUN env LANG=C apt-get update -qq \
     && env LANG=C apt-get install -yqq --no-install-recommends \
         sudo locales ca-certificates curl perl gnupg2 apt-utils apt-transport-https \
-        vi less python3-tk libyaml-0-2 \
+        vim less python3-tk libyaml-0-2 \
     && echo "$LANG UTF-8" >/etc/locale.gen \
     && locale-gen --lang "$LANG" \
     && echo 'deb https://deb.nodesource.com/node_8.x stretch main' \
