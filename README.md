@@ -23,6 +23,7 @@ and on *Debian Stretch* in a Docker container
    * ['pkg-resources not found' or similar during virtualenv creation](#pkg-resources-not-found-or-similar-during-virtualenv-creation)
    * ['no such option: --no-binary' during package builds](#no-such-option---no-binary-during-package-builds)
  * [How to set up a simple service instance](#how-to-set-up-a-simple-service-instance)
+ * [Securing your JupyterHub web service with an SSL off-loader](#securing-your-jupyterhub-web-service-with-an-ssl-off-loader)
  * [Changing the Service Unit Configuration](#changing-the-service-unit-configuration)
  * [Configuration Files](#configuration-files)
  * [Data Directories](#data-directories)
@@ -196,6 +197,31 @@ but the ``/var/{log,opt,run}/jupyterhub`` directories and the configuration are.
 
 After an upgrade, the service restarts automatically by default
 – you can change that using the ``JUPYTERHUB_AUTO_RESTART`` variable in ``/etc/default/jupyterhub``.
+
+
+## Securing your JupyterHub web service with an SSL off-loader
+
+Note that JupyterHub can directly offer an SSL endpoint,
+but there are a few reasons to do that via a local proxy:
+
+ * JupyterHub needs no special configuration to open a low port (remember, we do not run it as ``root``).
+ * Often there are already configuration management systems in place that,
+   for commodity web servers and proxies, seamlessly handle certificate management and other complexities.
+ * You can protect sensitive endpoints (e.g. metrics) against unauthorized access using
+   the built-in mechanisms of the chosen SSL off-loader.
+
+To hide the HTTP endpoint from the outside world,
+change the bind URL in ``/etc/default/jupyterhub`` as follows:
+
+    JUPYTERHUB_BIND_URL="http://127.0.0.1:8000"
+
+Restart the service and check that port 8000 is bound to localhost only:
+
+    netstat -tulpn | grep :8000
+
+Then install your chosen webserver / proxy for SSL off-loading,
+listening on port 443 and forwarding to port 8000.
+Typical candidates are NginX, Apache httpd, or Envoy.
 
 
 ## Changing the Service Unit Configuration
