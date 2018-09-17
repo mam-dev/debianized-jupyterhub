@@ -6,7 +6,7 @@
 .pip-cache/
 dist/
 build/
-.npmrc
+#.npmrc
 debian/debhelper-build-stamp
 debian/files
 debian/*.debhelper
