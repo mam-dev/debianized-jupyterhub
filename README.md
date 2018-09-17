@@ -16,6 +16,8 @@ and on *Debian Stretch* in a Docker container
 
  * [What is this?](#what-is-this)
  * [How to build and install the package](#how-to-build-and-install-the-package)
+   * [Building in a Docker container](#building-in-a-docker-container)
+   * [Building directly on your workstation](#building-directly-on-your-workstation)
  * [Trouble-Shooting](#trouble-shooting)
    * ['npm' errors while building the package](#npm-errors-while-building-the-package)
    * ['pkg-resources not found' or similar during virtualenv creation](#pkg-resources-not-found-or-similar-during-virtualenv-creation)
@@ -55,13 +57,23 @@ Adapt the ``debian/control`` file if your requirements are different.
 
 To add any plugins or other optional *Python* dependencies, list them in ``install_requires`` in ``setup.py`` as usual
 – but only use versioned dependencies so package builds are reproducible.
-``seaborn`` is added by default, which in turn pulls large parts of the usual data science stack, including
-``numpy``, ``scipy``, ``pandas``, and ``matplotlib``.
+These packages are then visible in the default Python3 kernel.
+
+Some standard extensions are already contained in ``setup.py`` as pip *extras*.
+The ``viz`` extra installs ``seaborn``, ``bokeh``, and ``altair``,
+which in turn pulls large parts of the usual data science stack,
+including ``numpy``, ``scipy``, ``pandas``, and ``matplotlib``.
+
+Activate the ``spark`` extra to get PySpark and related utilities.
+The systemd unit already includes support for auto-detection or explicit configuration
+of an intsalled JVM.
+
+:bangbang: To activate extras, you need ``dh-virtualenv`` v1.1 – which right now is not released yet, but should be soon.
 
 
 ## How to build and install the package
 
-**Building in a Docker container**
+### Building in a Docker container
 
 The easiest way to build the package is using the provided ``Dockerfile.build``.
 Then you do not need to install tooling and build dependencies on your machine,
@@ -76,7 +88,7 @@ for more details.
 To test the resulting package, read the comments at the start of ``Dockerfile.run``.
 
 
-**Building directly on your workstation**
+### Building directly on your workstation
 
 Otherwise, you need a build machine with all build dependencies installed, specifically
 [dh-virtualenv](https://github.com/spotify/dh-virtualenv) in addition to the normal Debian packaging tools.
@@ -86,14 +98,10 @@ or [Debian packages](https://packages.debian.org/source/sid/dh-virtualenv).
 
 This code requires and is tested with ``dh-virtualenv`` v1.0
 – depending on your platform you might get an older version via the standard packages.
-*Zesty* provides a package for *Ubuntu* that works on older releases too,
-see *“Extra steps on Ubuntu”* below for how to use it.
-In all other cases build *v1.0* from source,
-see the [dh-virtualenv documentation](https://dh-virtualenv.readthedocs.io/en/latest/tutorial.html#step-1-install-dh-virtualenv) for that.
+See the [dh-virtualenv documentation](https://dh-virtualenv.readthedocs.io/en/latest/tutorial.html#step-1-install-dh-virtualenv) for details.
 
 With tooling installed,
-the following commands will install a *release* version of `jupyterhub` into `/opt/venvs/jupyterhub/`,
-and place a symlink for the `jupyterhub` command into the machine's PATH.
+the following commands will install a *release* version of `jupyterhub` into `/opt/venvs/jupyterhub/`.
 
 ```sh
 git clone https://github.com/1and1/debianized-jupyterhub.git
@@ -101,11 +109,6 @@ cd debianized-jupyterhub/
 # or "pip download --no-deps --no-binary :all: debianized-jupyterhub" and unpack the archive
 
 sudo apt-get install build-essential debhelper devscripts equivs
-
-# Extra steps on Ubuntu
-( cd /tmp && curl -LO "http://mirrors.kernel.org/ubuntu/pool/universe/d/dh-virtualenv/dh-virtualenv_1.0-1_all.deb" )
-sudo dpkg -i /tmp/dh-virtualenv_1.0-1_all.deb
-# END Ubuntu
 
 sudo mk-build-deps --install debian/control
 dpkg-buildpackage -uc -us -b
@@ -162,68 +165,20 @@ in the dh-virtualenv manual.
 ### 'no such option: --no-binary' during package builds
 
 This package needs a reasonably recent `pip` for building.
-On `Debian Jessie`, for the internal `pip` upgrade to work,
-that means you need a newer `pip` on the system,
-or else at least `dh-virtualenv 1.1` installed (as of this writing, that is *git HEAD*).
+To upgrade `pip` (which makes sense anyway if your system is still on the ancient version 1.5.6),
+call ``sudo python3 -m pip install -U pip``.
 
-To upgrade `pip` (which makes sense anyway, version 1.5.6 is ancient), call ``sudo pip install -U pip``.
-
-And to get `dh-virtualenv 1.1` right now on `Jessie`, you need to apply this patch *before* building it:
-
-```diff
---- a/debian/changelog
-+++ b/debian/changelog
-@@ -1,3 +1,9 @@
-+dh-virtualenv (1.1-1~~dev1) unstable; urgency=medium
-+
-+  * Non-maintainer upload.
-+
-+ -- Juergen Hermann <jh@web.de>  Wed, 20 Jun 2018 10:22:32 +0000
-+
- dh-virtualenv (1.0-1) unstable; urgency=medium
-
-   * New upstream release
---- a/debian/rules
-+++ b/debian/rules
-@@ -1,7 +1,7 @@
- #!/usr/bin/make -f
-
- %:
--       dh $@ --with python2 --with sphinxdoc
-+       dh $@ --with python2
-
- override_dh_auto_clean:
-        rm -rf doc/_build
-@@ -13,6 +13,3 @@ override_dh_auto_build:
-        rst2man doc/dh_virtualenv.1.rst > doc/dh_virtualenv.1
-        dh_auto_build
-
--override_dh_installdocs:
--       python setup.py build_sphinx
--       dh_installdocs doc/_build/html
-
---- a/setup.py
-+++ b/setup.py
-@@ -25,7 +25,7 @@ from setuptools import setup
-
- project = dict(
-     name='dh_virtualenv',
--    version='1.0',
-+    version='1.1.dev1',
-     author=u'Jyrki Pulliainen',
-     author_email='jyrki@spotify.com',
-     url='https://github.com/spotify/dh-virtualenv',
-```
-
-See [this ticket](https://github.com/spotify/dh-virtualenv/issues/234) for details,
-and hopefully for a resolution at the time you read this.
+And to get `dh-virtualenv 1.1` right now, check out the
+[relevant branch](https://github.com/jhermann/dh-virtualenv/tree/release-11-prep)
+and build it from source.
+Before you do that, check whether v1.1 was officially released in the meantime.
 
 
 ## How to set up a simple service instance
 
-**TODO** Link to packaged project's documentation, and adapt the text below as needed!
-
-After installing the package, …
+After installing the package, [JupyterHub](https://jupyterhub.readthedocs.io/) is launched by default
+and available at http://127.0.0.1:8000/.
+The same is true when you used the ``docker run`` command as mentioned in ``Dockerfile.run``.
 
 The package contains a ``systemd`` unit for the service, and starting it is done via ``systemctl``:
 
@@ -237,9 +192,10 @@ systemctl status 'jupyterhub' | grep -B2 Active:
 
 The service runs as ``jupyterhub.daemon``.
 Note that the ``jupyterhub`` user is not removed when purging the package,
-but the ``/var/{log,opt}/jupyterhub`` directories and the configuration are.
+but the ``/var/{log,opt,run}/jupyterhub`` directories and the configuration are.
 
-**TODO** After an upgrade, the services restart automatically by default,
+After an upgrade, the service restarts automatically by default
+– you can change that using the ``JUPYTERHUB_AUTO_RESTART`` variable in ``/etc/default/jupyterhub``.
 
 
 ## Changing the Service Unit Configuration
@@ -247,7 +203,7 @@ but the ``/var/{log,opt}/jupyterhub`` directories and the configuration are.
 The best way to change or augment the configuration of a *systemd* service
 is to use a ‘drop-in’ file.
 For example, to increase the limit for open file handles
-above the system defaults, use this in a **``root``** shell:
+above the default of 8192, use this in a **``root``** shell:
 
 ```sh
 unit='jupyterhub'
@@ -256,7 +212,7 @@ unit='jupyterhub'
 mkdir -p /etc/systemd/system/$unit.service.d
 cat >/etc/systemd/system/$unit.service.d/limits.conf <<'EOF'
 [Service]
-LimitNOFILE=8192
+LimitNOFILE=16384
 EOF
 
 systemctl daemon-reload
@@ -274,6 +230,9 @@ cat "/proc/$MainPID/limits" | egrep 'Limit|files'
  * ``/etc/default/jupyterhub`` – Operational parameters like log levels and port bindings.
  * ``/etc/jupyterhub/jupyterhub_config.py`` – The service's configuration.
 
+A few configuration parameters are set in the ``/usr/sbin/jupyterhub-launcher`` script
+and thus override any values provided by ``jupyterhub_config.py``.
+
  :information_source: Please note that the files in ``/etc/jupyterhub``
  are *not* world-readable, since they might contain passwords.
 
@@ -290,7 +249,6 @@ If you need to relocate, consider using symbolic links to point to the physical 
 
 ## TODOs
 
- * Check https://github.com/jupyterhub/jupyterhub/issues/2120
  * Add a debug switch to the default file
    * https://github.com/jupyterhub/jupyterhub/wiki/Debug-Jupyterhub
  * Add a global ``jupyter_notebook_config.py``
