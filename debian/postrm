@@ -26,6 +26,7 @@ case "$1" in
         echo "${DPKG_MAINTSCRIPT_PACKAGE}: Cleaning '${APP_ID:?INTERNAL ERROR - No APP_ID}' data..." >&2
         [ -d /var/log/"$APP_ID" ] && rm -rf /var/log/"$APP_ID"
         [ -d /var/opt/"$APP_ID" ] && rm -rf /var/opt/"$APP_ID"
+        [ -d /var/run/"$APP_ID" ] && rm -rf /var/run/"$APP_ID"
         [ -d /etc/"$APP_ID" ] && rm -rf /etc/"$APP_ID"
         [ -f /etc/default/"$APP_ID" ] && rm -f /etc/default/"$APP_ID"
     ;;
