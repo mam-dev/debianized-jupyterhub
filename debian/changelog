@@ -1,5 +1,5 @@
-jupyterhub (0.9.3-0.1~stretch) stretch; urgency=low
+jupyterhub (0.9.3-1~stretch) stretch; urgency=low
 
   * Initial release of "debianized-jupyterhub"
 
- -- Juergen Hermann <jh@web.de>  Fri, 06 Jul 2018 15:40:23 +0200
+ -- Juergen Hermann <jh@web.de>  Mon, 17 Sep 2018 17:32:00 +0200
