@@ -18,9 +18,10 @@
 #
 
 FROM debian:stretch
-ENV LANG=en_US.UTF-8 DEBIAN_FRONTEND=noninteractive
-RUN env LANG=C apt-get update -qq \
-    && env LANG=C apt-get install -yqq --no-install-recommends \
+ENV LANG=en_US.UTF-8
+RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
+    && env LANG=C DEBIAN_FRONTEND=noninteractive apt-get install \
+        -yqq --no-install-recommends -o Dpkg::Options::=--force-unsafe-io \
         sudo locales ca-certificates curl perl gnupg2 apt-utils apt-transport-https \
         vim less python3-tk libyaml-0-2 \
     && echo "$LANG UTF-8" >/etc/locale.gen \
@@ -29,13 +30,15 @@ RUN env LANG=C apt-get update -qq \
             >/etc/apt/sources.list.d/nodesource.list \
     && ( curl -sL https://deb.nodesource.com/gpgkey/nodesource.gpg.key \
          | env APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=true apt-key add - ) \
-    && apt-get update -qq \
-    && apt-get install -y --no-install-recommends nodejs \
-    && rm -rf "/var/lib/apt/lists"/*
+    && env LANG=C apt-get update -qq -o Acquire::Languages=none \
+    && env LANG=C DEBIAN_FRONTEND=noninteractive apt-get install \
+        -yqq --no-install-recommends -o Dpkg::Options::=--force-unsafe-io \
+        nodejs \
+    && apt-get clean && rm -rf "/var/lib/apt/lists"/*
 WORKDIR /srv/jupyterhub
 COPY *.deb ./
 RUN echo JUPYTERHUB_AUTO_RESTART=false >/etc/default/jupyterhub \
-    && dpkg -i --force-confold jupyterhub_[0-9]*~stretch_amd64.deb \
+    && dpkg -i --force-confold --force-unsafe-io jupyterhub_[0-9]*~stretch_amd64.deb \
     && groupadd jhub \
     && useradd -g jhub -G jhub,users -c "JupyterHub Admin" -s /bin/bash --create-home admin \
     && chmod 750 ~admin \
