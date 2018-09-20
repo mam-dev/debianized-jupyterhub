@@ -1,4 +1,5 @@
 # Keep in sync with ".gitignore" and "debian/source/options"!
+.git/
 .venv/
 *~
 *.egg-info/
