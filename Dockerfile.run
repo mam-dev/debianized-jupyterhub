@@ -44,6 +44,5 @@ RUN echo JUPYTERHUB_AUTO_RESTART=false >/etc/default/jupyterhub \
     && chmod 750 ~admin \
     && chown -R admin.jhub ~admin \
     && ( echo 'admin:test1234' | chpasswd )
-EXPOSE 8000
-EXPOSE 8001
+EXPOSE 8000 8001
 ENTRYPOINT su -s /bin/sh -c /usr/sbin/jupyterhub-launcher jupyterhub
