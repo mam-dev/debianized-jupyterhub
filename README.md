@@ -67,7 +67,7 @@ including ``numpy``, ``scipy``, ``pandas``, and ``matplotlib``.
 
 Activate the ``spark`` extra to get PySpark and related utilities.
 The systemd unit already includes support for auto-detection or explicit configuration
-of an intsalled JVM.
+of an installed JVM.
 
 :bangbang: To activate extras, you need ``dh-virtualenv`` v1.1 – which right now is not released yet, but should be soon.
 
