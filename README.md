@@ -223,6 +223,10 @@ Then install your chosen webserver / proxy for SSL off-loading,
 listening on port 443 and forwarding to port 8000.
 Typical candidates are NginX, Apache httpd, or Envoy.
 
+:bangbang: Note that this does not protect against any local users
+and their notebook servers and terminals, at least as long as you
+use the default spawner that launches local processes.
+
 
 ## Changing the Service Unit Configuration
 
