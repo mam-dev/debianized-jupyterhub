@@ -94,8 +94,7 @@ project = dict(
     url=deb_source['Homepage'],
     classifiers=[
         # Details at http://pypi.python.org/pypi?:action=list_classifiers
-        'Development Status :: 3 - Alpha',
-        #dev_status,
+        dev_status,
         'Environment :: Web Environment',
         'Framework :: Jupyter',
         'Intended Audience :: Information Technology',
