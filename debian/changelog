@@ -1,3 +1,9 @@
+jupyterhub (0.9.4-0.1~stretch) UNRELEASED; urgency=low
+
+  * Update to 0.9.4
+
+ -- Juergen Hermann <jh@web.de>  Thu, 27 Sep 2018 17:33:29 +0200
+
 jupyterhub (0.9.3-1~stretch) stretch; urgency=low
 
   * Initial release of "debianized-jupyterhub"
