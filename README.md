@@ -36,7 +36,7 @@ and on *Debian Stretch* in a Docker container
 
 ## What is this?
 
-This project provides packaging of the core *JupyterHub* components, so they can be easily installed on Debian-like target hosts .
+This project provides packaging of the core *JupyterHub* components, so they can be easily installed on Debian-like target hosts.
 This makes life-cycle management on production hosts a lot easier, and
 [avoids common drawbacks](https://nylas.com/blog/packaging-deploying-python/) of ‘from source’ installs,
 like needing build tools and direct internet access in production environments.
@@ -79,7 +79,9 @@ of an installed JVM.
 The easiest way to build the package is using the provided ``Dockerfile.build``.
 Then you do not need to install tooling and build dependencies on your machine,
 and the package gets built in a pristine environment.
-The only thing you need on your workstatioon is a ``docker-ce`` installation of version 17.06 or higher.
+The only thing you need on your workstatioon is a ``docker-ce`` installation of version 17.06 or higher
+(either on [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
+or on [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)).
 
 Call ``./build.sh debian:stretch`` to build the package for *Debian Stretch*
 – building for *Ubuntu Bionic* is also supported.
@@ -179,7 +181,10 @@ Before you do that, check whether v1.1 was officially released in the meantime.
 
 After installing the package, [JupyterHub](https://jupyterhub.readthedocs.io/) is launched by default
 and available at http://127.0.0.1:8000/.
+
 The same is true when you used the ``docker run`` command as mentioned in ``Dockerfile.run``.
+The commands as found in ``Dockerfile.run`` also give you a detailed recipe for a manual install,
+when you cannot use Docker for any reason – the only difference is process control, read on for that.
 
 The package contains a ``systemd`` unit for the service, and starting it is done via ``systemctl``:
 
@@ -221,7 +226,7 @@ Restart the service and check that port 8000 is bound to localhost only:
 
 Then install your chosen webserver / proxy for SSL off-loading,
 listening on port 443 and forwarding to port 8000.
-Typical candidates are NginX, Apache httpd, or Envoy.
+Typical candidates are [NginX](https://github.com/SteveLTN/https-portal), Apache httpd, or Envoy.
 
 :bangbang: Note that this does not protect against any local users
 and their notebook servers and terminals, at least as long as you
