@@ -22,8 +22,18 @@ ENV LANG=en_US.UTF-8
 RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
     && env LANG=C DEBIAN_FRONTEND=noninteractive apt-get install \
         -yqq --no-install-recommends -o Dpkg::Options::=--force-unsafe-io \
-        sudo locales ca-certificates curl perl gnupg2 apt-utils apt-transport-https \
-        vim less python3-tk libyaml-0-2 \
+        apt-transport-https \
+        apt-utils \
+        ca-certificates \
+        curl \
+        gnupg2 \
+        less \
+        libyaml-0-2 \
+        locales \
+        perl \
+        python3-tk \
+        sudo \
+        vim \
     && echo "$LANG UTF-8" >/etc/locale.gen \
     && locale-gen --lang "$LANG" \
     && echo 'deb https://deb.nodesource.com/node_8.x stretch main' \
