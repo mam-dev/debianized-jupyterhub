@@ -68,6 +68,9 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
     && apt-get clean && rm -rf "/var/lib/apt/lists"/*
 
 # Uncomment and adapt these ENV instructions to use a local PyPI mirror
+# (examples for devpi and JFrog Artifactory)
+#ENV PIP_TRUSTED_HOST="devpi.local"
+#ENV PIP_INDEX_URL="http://${PIP_TRUSTED_HOST}:3141/root/pypi/+simple/"
 #ENV PIP_TRUSTED_HOST="artifactory.local"
 #ENV PIP_INDEX_URL="https://${PIP_TRUSTED_HOST}/artifactory/api/pypi/pypi.python.org/simple"
 
