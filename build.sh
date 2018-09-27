@@ -30,4 +30,5 @@ docker build --tag $tag \
     --build-arg "PKGNAME=$pkgname" \
     -f Dockerfile.build \
     "$@" $staging_dir
-docker run --rm $tag tar -C /dpkg -c . | tar -C build -xv
+mkdir -p dist
+docker run --rm $tag tar -C /dpkg -c . | tar -C dist -xv

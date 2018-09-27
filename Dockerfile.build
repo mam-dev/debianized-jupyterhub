@@ -1,6 +1,6 @@
 # Build Debian package using dh-virtualenv
 #
-# To create a package for Stretch in `build/`, call:
+# To create a package for Stretch in `dist/`, call:
 #
 #   ./build.sh debian:stretch
 
