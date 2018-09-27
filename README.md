@@ -1,6 +1,6 @@
 # "jupyterhub" Debian Packaging
 
-**STATUS** :construction: Package building works, and you can launch the server
+**STATUS** :ballot_box_with_check: Package building works, and you can launch the server
 using ``systemctl start jupyterhub``, or via the provided ``Dockerfile.run``.
 It'll use PAM authorization, i.e. starts the notebook servers in a local user's context.
 Tested on *Ubuntu Xenial* so far (with Python 3.6 from the *Deadsnakes PPA*),
