@@ -83,7 +83,10 @@ RUN dpkg -i --force-unsafe-io --ignore-depends=sphinx-rtd-theme-common *_all.deb
 
 # Build project and show metadata of built package
 COPY ./ ./
-RUN python3 -m pip --version && dh_virtualenv --version \
-    && sed -i -re "1s/(UNRELEASED|unstable|jessie|stretch|xenial|bionic)/$(lsb_release -cs)/g" debian/changelog \
+RUN hr() { printf '\n   %-74s\n' "[$1]" | tr ' ' = ; } \
+    && hr Versions && python3 -m pip --version && dh_virtualenv --version \
+    && sed -i -r \
+           -e "1s/(UNRELEASED|unstable|jessie|stretch|xenial|bionic)/$(lsb_release -cs)/g" \
+           debian/changelog \
     && dpkg-buildpackage -us -uc -b && mkdir -p /dpkg && cp -pl /${PKGNAME}[-_]* /dpkg \
-    && dpkg-deb -I /dpkg/${PKGNAME}_*.deb
+    && hr DPKG-Info && dpkg-deb -I /dpkg/${PKGNAME}_*.deb
