@@ -64,12 +64,16 @@ Some standard extensions are already contained in ``setup.py`` as pip *extras*.
 The ``viz`` extra installs ``seaborn``, ``bokeh``, and ``altair``,
 which in turn pulls large parts of the usual data science stack,
 including ``numpy``, ``scipy``, ``pandas``, and ``matplotlib``.
+Adding this option increases the package size by about 50 MiB.
 
 Activate the ``spark`` extra to get PySpark and related utilities.
 The systemd unit already includes support for auto-detection or explicit configuration
 of an installed JVM.
 
-:bangbang: To activate extras, you need ``dh-virtualenv`` v1.1 – which right now is not released yet, but should be soon.
+To activate extras, you need ``dh-virtualenv`` v1.1 which supports the
+[--extras](https://dh-virtualenv.readthedocs.io/en/latest/usage.html#cmdoption-extras) option.
+That option is used as part of the ``EXTRA_REQUIREMENTS`` variable in ``debian/rules``
+– add or remove extras there as you see fit.
 
 
 ## How to build and install the package
@@ -85,7 +89,7 @@ or on [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)).
 
 Call ``./build.sh debian:stretch`` to build the package for *Debian Stretch*
 – building for *Ubuntu Bionic* is also supported.
-See [Multi-platform builds in Docker](https://dh-virtualenv.readthedocs.io/en/latest/howtos.html#docker-builds)
+See [Building Debian Packages in Docker](https://dockyard.readthedocs.io/en/latest/packaging-howto.html#dpkg-in-docker)
 for more details.
 
 To test the resulting package, read the comments at the start of ``Dockerfile.run``.
@@ -99,7 +103,7 @@ You can get it from [this PPA](https://launchpad.net/~spotify-jyrki/+archive/ubu
 the [official Ubuntu repositories](http://packages.ubuntu.com/search?keywords=dh-virtualenv),
 or [Debian packages](https://packages.debian.org/source/sid/dh-virtualenv).
 
-This code requires and is tested with ``dh-virtualenv`` v1.0
+This code requires and is tested with ``dh-virtualenv`` v1.1
 – depending on your platform you might get an older version via the standard packages.
 See the [dh-virtualenv documentation](https://dh-virtualenv.readthedocs.io/en/latest/tutorial.html#step-1-install-dh-virtualenv) for details.
 
