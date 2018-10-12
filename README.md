@@ -175,10 +175,7 @@ This package needs a reasonably recent `pip` for building.
 To upgrade `pip` (which makes sense anyway if your system is still on the ancient version 1.5.6),
 call ``sudo python3 -m pip install -U pip``.
 
-And to get `dh-virtualenv 1.1` right now, check out the
-[relevant branch](https://github.com/jhermann/dh-virtualenv/tree/release-11-prep)
-and build it from source.
-Before you do that, check whether v1.1 was officially released in the meantime.
+When using `dh-virtualenv 1.1` or later releases, this problem should not appear anymore.
 
 
 ## How to set up a simple service instance
