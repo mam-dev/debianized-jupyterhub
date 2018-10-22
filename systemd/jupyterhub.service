@@ -16,14 +16,16 @@ ExecStart=/usr/sbin/jupyterhub-launcher
 ExecStop=/usr/sbin/jupyterhub-backup "systemd service stop"
 
 UMask=0027
-#ProtectHome=tmpfs – only when using systemd-spawner!?
 ProtectSystem=full
-ProtectKernelTunables=true
-ProtectKernelModules=true
 ProtectControlGroups=true
 PrivateTmp=true
-PrivateDevices=true
 LimitNOFILE=8192
+
+# These might interfere with sudospawner or other hub components
+#ProtectKernelTunables=true
+#ProtectKernelModules=true
+#PrivateDevices=true
+#ProtectHome=tmpfs – only when using systemd-spawner!?
 
 [Install]
 WantedBy=multi-user.target
