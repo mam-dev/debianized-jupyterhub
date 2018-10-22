@@ -290,6 +290,7 @@ If you need to relocate, consider using symbolic links to point to the physical 
  * Add a global ``jupyter_notebook_config.py``
  * Inject a user's "--user" installs into the launched notebook servers
    * https://github.com/jupyterhub/jupyterhub/issues/2136
+ * Add JupyterLab (as an option?)
  * https://jupyterhub.readthedocs.io/en/stable/reference/config-proxy.html
  * [cull_idle_servers](https://jupyterhub.readthedocs.io/en/stable/getting-started/services-basics.html)
  * Prometheus monitoring → https://github.com/jupyterhub/jupyterhub/issues/2049
