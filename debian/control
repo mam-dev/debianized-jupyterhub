@@ -17,7 +17,7 @@ Package: jupyterhub
 Architecture: any
 Pre-Depends: dpkg (>= 1.16.1), python3 (>= 3.5), ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${perl:Depends}, ${misc:Depends},
-    python3-tk (>= 3.5), nodejs (>= 8), nodejs (<< 9), sudo
+    python3-tk (>= 3.5), nodejs (>= 8), nodejs (<< 11), sudo
 Suggests: oracle-java8-jre | openjdk-8-jre | zulu-8
 Description: Debian packaging of JupyterHub, a multi-user server for Jupyter notebooks.
     .
