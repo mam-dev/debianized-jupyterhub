@@ -362,6 +362,8 @@
 #
 #  Should be a subclass of Spawner.
 #c.JupyterHub.spawner_class = 'jupyterhub.spawner.LocalProcessSpawner'
+c.JupyterHub.spawner_class = 'sudospawner.SudoSpawner'
+c.SudoSpawner.sudospawner_path = '/opt/venvs/jupyterhub/bin/sudospawner'
 
 ## Path to SSL certificate file for the public facing interface of the proxy
 #
@@ -887,7 +889,7 @@
 #
 #  If any errors are encountered when opening/closing PAM sessions, this is
 #  automatically set to False.
-#c.PAMAuthenticator.open_sessions = True
+c.PAMAuthenticator.open_sessions = False
 
 ## The name of the PAM service to use for authentication
 #c.PAMAuthenticator.service = 'login'

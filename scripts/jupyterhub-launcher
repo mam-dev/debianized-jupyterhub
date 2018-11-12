@@ -29,9 +29,6 @@ exec /usr/sbin/jupyterhub \
     --url=${JUPYTERHUB_BIND_URL:-"http://:8000"} \
     --log-level=${JUPYTERHUB_LOGLEVEL:-"INFO"} \
     --pid-file=/var/run/jupyterhub/jupyterhub.pid \
-    --JupyterHub.spawner_class=sudospawner.SudoSpawner \
-    --SudoSpawner.sudospawner_path=/opt/venvs/jupyterhub/bin/sudospawner \
-    --PAMAuthenticator.open_sessions=False \
     --config=${JUPYTERHUB_CONFDIR:-"/etc/jupyterhub"}/jupyterhub_config.py \
     "${OPTS[@]}"
 #    --ssl-key my_ssl.key \
