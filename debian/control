@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: 1&1 Group <jh@web.de>
 Build-Depends: debhelper (>= 9), python3, dh-virtualenv (>= 1.0),
     curl, tar, gzip, lsb-release, libparse-debianchangelog-perl,
-    nodejs (>= 8), nodejs (<< 9),
+    nodejs (>= 8), nodejs (<< 11),
     python3-setuptools, python3-pip, python3-dev, libffi-dev,
     libxml2-dev, libxslt1-dev, libyaml-dev, libjpeg-dev,
     libssl-dev, libncurses5-dev, libncursesw5-dev, libzmq3-dev
