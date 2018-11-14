@@ -10,7 +10,7 @@ ARG CODENAME="stretch"
 ARG PKGNAME
 
 # Other build arguments (adapt as needed)
-ARG NODEREPO="node_8.x"
+ARG NODEREPO="node_10.x"
 ARG DEB_POOL="http://ftp.nl.debian.org/debian/pool/main"
 
 ## Start package builder image for the chosen platform
