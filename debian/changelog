@@ -1,3 +1,9 @@
+jupyterhub (0.9.4-2~stretch) UNRELEASED; urgency=low
+
+  * Next...
+
+ -- Juergen Hermann <jh@web.de>  Wed, 14 Nov 2018 10:53:18 +0100
+
 jupyterhub (0.9.4-1~stretch) stretch; urgency=low
 
   * Update to 0.9.4
