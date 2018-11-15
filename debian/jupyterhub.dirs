@@ -1,4 +1,3 @@
 var/log/jupyterhub
 var/opt/jupyterhub
 var/opt/jupyterhub/backups
-var/run/jupyterhub

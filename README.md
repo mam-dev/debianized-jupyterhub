@@ -276,8 +276,8 @@ and thus override any values provided by ``jupyterhub_config.py``.
 ## Data Directories
 
  * ``/var/log/jupyterhub`` – Extra log files.
- * ``/var/run/jupyterhub`` – PID file.
  * ``/var/opt/jupyterhub`` – Data files created during runtime (``jupyterhub_cookie_secret``, ``jupyterhub.sqlite``, …).
+ * ``/run/jupyterhub`` – PID file.
 
 You should stick to these locations, because the maintainer scripts have special handling for them.
 If you need to relocate, consider using symbolic links to point to the physical location.

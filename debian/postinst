@@ -53,7 +53,7 @@ chgrp daemon /etc/"$APP_ID"/*
 chmod 0440 /etc/sudoers.d/"$APP_ID"
 
 # System user's directory permissions
-chown -RPh "$RUN_AS".daemon /var/log/"$APP_ID"/. /var/opt/"$APP_ID"/. /var/run/"$APP_ID"/.
+chown -RPh "$RUN_AS".daemon /var/log/"$APP_ID"/. /var/opt/"$APP_ID"/.
 
 # Start service AFTER permissions etc. are fixed
 if [ "$1" = "configure" ]; then

@@ -1,6 +1,6 @@
 jupyterhub (0.9.4-2~stretch) UNRELEASED; urgency=low
 
-  * Next...
+  * Put PID file in RuntimeDirectory managed by systemd
 
  -- Juergen Hermann <jh@web.de>  Wed, 14 Nov 2018 10:53:18 +0100
 
