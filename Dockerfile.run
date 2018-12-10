@@ -29,6 +29,7 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
         gnupg2 \
         less \
         libyaml-0-2 \
+        libz1 \
         locales \
         perl \
         python3-tk \

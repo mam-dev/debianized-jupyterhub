@@ -1,8 +1,10 @@
-jupyterhub (0.9.4-2~stretch) UNRELEASED; urgency=low
+jupyterhub (0.9.4-2~stretch) stretch; urgency=high
 
   * Put PID file in RuntimeDirectory managed by systemd
+  * Updated requirements, including fix for XSS CVE in
+    'notebook'
 
- -- Juergen Hermann <jh@web.de>  Wed, 14 Nov 2018 10:53:18 +0100
+ -- Juergen Hermann <jh@web.de>  Mon, 10 Dec 2018 13:42:28 +0100
 
 jupyterhub (0.9.4-1~stretch) stretch; urgency=low
 

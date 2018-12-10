@@ -57,6 +57,7 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
         libxml2-dev \
         libxslt1-dev \
         libyaml-dev \
+        libz-dev \
         libzmq3-dev \
     && ( curl -sL https://deb.nodesource.com/gpgkey/nodesource.gpg.key \
          | env APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=true apt-key add - ) \

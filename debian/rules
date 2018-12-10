@@ -43,4 +43,4 @@ override_dh_strip:
 	dh_strip --exclude=cffi
 
 override_dh_shlibdeps:
-	dh_shlibdeps -X/x86/ -X/numpy/.libs -X/scipy/.libs -X/matplotlib/.libs
+	dh_shlibdeps -X/x86/ -X/PIL/.libs/ -X/numpy/.libs -X/scipy/.libs -X/matplotlib/.libs

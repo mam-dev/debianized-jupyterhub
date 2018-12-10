@@ -117,16 +117,16 @@ project = dict(
     install_requires=[
         # core
         'jupyterhub==' + upstream_version,
-        'notebook==5.5.0',
+        'notebook==5.7.2',
         'sudospawner==0.5.2',
         'pycurl==7.43.0.2',  # recommended by server logs
     ],
     extras_require=dict(
-        spark=['pyspark==2.3.1', 'pyspark-flame==0.2.4'],
+        spark=['pyspark==2.4.0', 'pyspark-flame==0.2.6'],
         viz=[
-            'seaborn==0.8.1',
-            'bokeh==0.13.0', 'psutil==5.4.6',
-            'altair==2.1.0', 'vega==1.3.0', 'vega_datasets==0.5.0',  # needs Python 3.5.3+
+            'seaborn==0.9.0',
+            'bokeh==1.0.2', 'psutil==5.4.8',
+            'altair==2.3.0', 'vega==1.4.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
         ],
     ),
     packages=[],
