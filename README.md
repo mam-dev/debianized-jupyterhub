@@ -22,6 +22,7 @@ and on *Debian Stretch* in a Docker container
    * ['npm' errors while building the package](#npm-errors-while-building-the-package)
    * ['pkg-resources not found' or similar during virtualenv creation](#pkg-resources-not-found-or-similar-during-virtualenv-creation)
    * ['no such option: --no-binary' during package builds](#no-such-option---no-binary-during-package-builds)
+ * [Updating requirements](#updating-requirements)
  * [How to set up a simple service instance](#how-to-set-up-a-simple-service-instance)
  * [Securing your JupyterHub web service with an SSL off-loader](#securing-your-jupyterhub-web-service-with-an-ssl-off-loader)
  * [Changing the Service Unit Configuration](#changing-the-service-unit-configuration)
@@ -176,6 +177,22 @@ To upgrade `pip` (which makes sense anyway if your system is still on the ancien
 call ``sudo python3 -m pip install -U pip``.
 
 When using `dh-virtualenv 1.1` or later releases, this problem should not appear anymore.
+
+
+## Updating requirements
+
+As previously mentioned, additional packages are listed in ``setup.py``.
+General dependencies can be found in ``install_requires``,
+while groups of optional extensions are part of ``extras_require``.
+
+To assist upgrading to newer versions, call these commands in the project workdir:
+
+```sh
+./setup.py egg_info
+pip-upgrade --skip-package-installation --skip-virtualenv-check debianized_jupyterhub.egg-info/requires.txt <<<"q"
+```
+
+This will list any available newer version numbers, that you can then edit into ``setup.py``.
 
 
 ## How to set up a simple service instance
