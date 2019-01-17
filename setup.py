@@ -122,6 +122,7 @@ project = dict(
         'pycurl==7.43.0.2',  # recommended by server logs
     ],
     extras_require=dict(
+        docker=['dockerspawner==0.10.0', 'swarmspawner==0.1.0'],
         spark=['pyspark==2.4.0', 'pyspark-flame==0.2.6'],
         viz=[
             'seaborn==0.9.0',

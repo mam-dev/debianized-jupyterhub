@@ -1,3 +1,9 @@
+jupyterhub (0.9.4-4~stretch) UNRELEASED; urgency=low
+
+  * Add 'docker' extras (included by default)
+
+ -- Juergen Hermann <jh@web.de>  Thu, 17 Jan 2019 16:58:15 +0100
+
 jupyterhub (0.9.4-3~stretch) stretch; urgency=low
 
   * Support hosts controlled by "sudo-ldap"

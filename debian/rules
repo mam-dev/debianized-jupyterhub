@@ -4,7 +4,7 @@
 
 export DH_VIRTUALENV_INSTALL_ROOT=/opt/venvs
 EXTRA_REQUIREMENTS=--upgrade-pip --preinstall "setuptools>=17.1" --preinstall "wheel" \
-    --preinstall "Cython==0.28.4" --extras viz
+    --preinstall "Cython==0.28.4" --extras viz --extras docker
 NODEENV_VERSION=1.3.1
 
 ifeq (1,$(shell grep -iscm1 xenial /etc/os-release))
