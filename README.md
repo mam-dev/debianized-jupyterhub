@@ -218,6 +218,12 @@ The service runs as ``jupyterhub.daemon``.
 Note that the ``jupyterhub`` user is not removed when purging the package,
 but the ``/var/{log,opt,run}/jupyterhub`` directories and the configuration are.
 
+By default, the ``sudospawner`` is used to start a user's notebook process
+– for that purpose, the included ``/etc/sudoers.d/jupyterhub`` configuration
+allows the ``jupyterhub`` system user to create these on behalf of any user
+listed in the ``JUPYTER_USERS`` alias. Unless you change it, that means
+all accounts in the ``users`` group.
+
 After an upgrade, the service restarts automatically by default
 – you can change that using the ``JUPYTERHUB_AUTO_RESTART`` variable in ``/etc/default/jupyterhub``.
 
