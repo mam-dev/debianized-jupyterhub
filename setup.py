@@ -117,12 +117,14 @@ project = dict(
     install_requires=[
         # core
         'jupyterhub==' + upstream_version,
-        'notebook==5.7.2',
+        'notebook==5.7.4',
         'sudospawner==0.5.2',
         'pycurl==7.43.0.2',  # recommended by server logs
     ],
     extras_require=dict(
+        arrow=['pyarrow==0.11.1', 'csv2parquet==0.0.6'],
         docker=['dockerspawner==0.10.0', 'swarmspawner==0.1.0'],
+        parquet=['fastparquet==0.2.1', 'parquet-cli==1.2'],
         spark=['pyspark==2.4.0', 'pyspark-flame==0.2.6'],
         viz=[
             'seaborn==0.9.0',
