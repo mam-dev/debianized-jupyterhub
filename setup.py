@@ -126,7 +126,9 @@ project = dict(
         docker=['dockerspawner==0.10.0', 'swarmspawner==0.1.0'],
         parquet=['fastparquet==0.2.1', 'parquet-cli==1.2'],
         spark=['pyspark==2.4.0', 'pyspark-flame==0.2.6'],
-        utils=['jupytext==1.0.0'],
+        utils=[
+            #'jupytext==1.0.0',  # see https://github.com/mwouts/jupytext/issues/185
+        ],
         viz=[
             'seaborn==0.9.0',
             'bokeh==1.0.2', 'psutil==5.4.8',
