@@ -227,6 +227,12 @@ all accounts in the ``users`` group.
 After an upgrade, the service restarts automatically by default
 – you can change that using the ``JUPYTERHUB_AUTO_RESTART`` variable in ``/etc/default/jupyterhub``.
 
+In case of errors or other trouble, look into the service's journal with…
+
+```sh
+journalctl -eu jupyterhub
+```
+
 
 ## Securing your JupyterHub web service with an SSL off-loader
 
