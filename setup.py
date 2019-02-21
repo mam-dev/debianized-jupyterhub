@@ -127,6 +127,9 @@ project = dict(
         parquet=['fastparquet==0.2.1', 'parquet-cli==1.2'],
         spark=['pyspark==2.4.0', 'pyspark-flame==0.2.6'],
         utils=[
+            'jupyter-console==6.0.0',
+            'openpyxl==2.6.0',
+            'xlsxwriter==1.1.2',
             #'jupytext==1.0.0',  # see https://github.com/mwouts/jupytext/issues/185
         ],
         viz=[
