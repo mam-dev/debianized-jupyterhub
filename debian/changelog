@@ -1,8 +1,9 @@
 jupyterhub (0.9.4-4~stretch) xenial; urgency=low
 
-  * Extras: Added 'docker' and 'utils' (included by default)
+  * Extras: Added 'docker', 'utils', and 'vizjs' (included by default)
   * Extras: Added 'arrow' and 'parquet' (optional)
   * notebook: update to 5.7.4
+  * bokeh: update to 1.0.4
 
  -- Juergen Hermann <jh@web.de>  Wed, 20 Feb 2019 11:49:11 +0100
 

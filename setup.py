@@ -134,9 +134,12 @@ project = dict(
         ],
         viz=[
             'seaborn==0.9.0',
+            'holoviews[recommended]==1.11.2',
+        ],
+        vizjs=[
+            'plotly==3.6.1',
             'bokeh==1.0.4', 'psutil==5.5.1',
             'altair==2.3.0', 'vega==1.4.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
-            'holoviews[recommended]==1.11.2',
             'selenium==3.141.0', 'chromedriver-binary==2.46.0',
         ],
     ),
