@@ -131,7 +131,7 @@ project = dict(
         ],
         viz=[
             'seaborn==0.9.0',
-            'bokeh==1.0.2', 'psutil==5.4.8',
+            'bokeh==1.0.4', 'psutil==5.5.1',
             'altair==2.3.0', 'vega==1.4.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
         ],
     ),
