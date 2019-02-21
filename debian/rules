@@ -42,7 +42,7 @@ override_dh_virtualenv:
 	. $(DH_VENV_DIR)/bin/activate && node /usr/bin/npm install --userconfig=$(NPM_CONFIG) -g configurable-http-proxy
 
 override_dh_strip:
-	dh_strip --exclude=cffi
+	dh_strip --exclude=cffi --exclude=_imaging --exclude=libtiff
 
 override_dh_shlibdeps:
 	dh_shlibdeps -X/x86/ -X/PIL/.libs/ -X/numpy/.libs -X/scipy/.libs -X/matplotlib/.libs
