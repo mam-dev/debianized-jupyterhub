@@ -77,7 +77,7 @@ of an installed JVM.
 
 To activate extras, you need ``dh-virtualenv`` v1.1 which supports the
 [--extras](https://dh-virtualenv.readthedocs.io/en/latest/usage.html#cmdoption-extras) option.
-That option is used as part of the ``EXTRA_REQUIREMENTS`` variable in ``debian/rules``
+That option is used as part of the ``EXTRAS`` variable in ``debian/rules``
 – add or remove extras there as you see fit.
 
 
