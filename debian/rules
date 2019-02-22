@@ -45,4 +45,7 @@ override_dh_strip:
 	dh_strip --exclude=cffi --exclude=_imaging --exclude=libtiff
 
 override_dh_shlibdeps:
-	dh_shlibdeps -X/x86/ -X/PIL/.libs/ -X/numpy/.libs -X/scipy/.libs -X/matplotlib/.libs
+	dh_shlibdeps -X/x86/ \
+        -X/chromedriver_binary/ -X/Cython/ -X/kiwisolver -X/markupsafe/ \
+        -X/matplotlib/ -X/numpy/ -X/pandas/ -X/PIL/ -X/psutil/ -X/pycurl \
+        -X/scipy/ -X/selenium/ -X/sqlalchemy/ -X/tornado/ -X/_yaml -X/zmq/
