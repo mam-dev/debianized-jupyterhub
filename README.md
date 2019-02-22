@@ -62,11 +62,14 @@ To add any plugins or other optional *Python* dependencies, list them in ``insta
 These packages are then visible in the default Python3 kernel.
 Or add a ``requirements.txt`` file, which has the advantage that you don't need to change any git-controlled files.
 
-Some standard extensions are already contained in ``setup.py`` as pip *extras*.
-The ``viz`` extra installs ``seaborn``, ``bokeh``, and ``altair``,
+Some standard extensions are already contained in ``setup.py`` as setuptools *extras*.
+The ``viz`` extra installs ``seaborn`` and ``holoviews``,
 which in turn pulls large parts of the usual data science stack,
 including ``numpy``, ``scipy``, ``pandas``, and ``matplotlib``.
-Adding this option increases the package size by about 50 MiB.
+The related ``vizjs`` extra adds several Javascript-based frameworks like ``bokeh``,
+and image rendering support for SVG/PNG writing.
+Activating extras increases the package size by 10s or even 100s of MiB,
+so be aware of that and keep an eye on package size.
 
 Activate the ``spark`` extra to get PySpark and related utilities.
 The systemd unit already includes support for auto-detection or explicit configuration
