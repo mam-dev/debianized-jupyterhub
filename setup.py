@@ -122,14 +122,14 @@ project = dict(
         'pycurl==7.43.0.2',  # recommended by server logs
     ],
     extras_require=dict(
-        arrow=['pyarrow==0.11.1', 'csv2parquet==0.0.6'],
+        arrow=['pyarrow==0.12.0', 'csv2parquet==0.0.6'],
         docker=['dockerspawner==0.10.0', 'swarmspawner==0.1.0'],
         parquet=['fastparquet==0.2.1', 'parquet-cli==1.2'],
         spark=['pyspark==2.4.0', 'pyspark-flame==0.2.6'],
         utils=[
             'jupyter-console==6.0.0',
             'openpyxl==2.6.0',
-            'xlsxwriter==1.1.2',
+            'xlsxwriter==1.1.4',
             #'jupytext==1.0.0',  # see https://github.com/mwouts/jupytext/issues/185
         ],
         viz=[
@@ -139,7 +139,7 @@ project = dict(
         vizjs=[
             'plotly==3.6.1',
             'bokeh==1.0.4', 'psutil==5.5.1',
-            'altair==2.3.0', 'vega==1.4.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
+            'altair==2.4.1', 'vega==1.4.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
             'selenium==3.141.0', 'chromedriver-binary==2.46.0',
         ],
     ),
