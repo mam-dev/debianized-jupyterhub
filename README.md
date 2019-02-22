@@ -60,6 +60,7 @@ Adapt the ``debian/control`` file if your requirements are different.
 To add any plugins or other optional *Python* dependencies, list them in ``install_requires`` in ``setup.py`` as usual
 – but only use versioned dependencies so package builds are reproducible.
 These packages are then visible in the default Python3 kernel.
+Or add a ``requirements.txt`` file, which has the advantage that you don't need to change any git-controlled files.
 
 Some standard extensions are already contained in ``setup.py`` as pip *extras*.
 The ``viz`` extra installs ``seaborn``, ``bokeh``, and ``altair``,
