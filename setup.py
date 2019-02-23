@@ -118,6 +118,7 @@ project = dict(
         # core
         'jupyterhub==' + upstream_version,
         'notebook==5.7.4',
+        'ipython==7.3.0',
         'sudospawner==0.5.2',
         'pycurl==7.43.0.2',  # recommended by server logs
     ],
