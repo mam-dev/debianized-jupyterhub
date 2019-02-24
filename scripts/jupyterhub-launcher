@@ -17,6 +17,11 @@ ${JUPYTERHUB_AUTO_MIGRATION:-false} && OPTS+=( --upgrade-db ) || :
 # Bokeh: Use inline resources (no use of the CDN)
 export BOKEH_RESOURCES=inline
 
+# Make PhantomJS visible to Bokeh
+export BOKEH_PHANTOMJS_PATH=$(/opt/venvs/jupyterhub/bin/python 2>/dev/null -c \
+                              "from phantomjs_bin import executable_path as _; print(_)")
+test -z "$BOKEH_PHANTOMJS_PATH" || chmod a+rx "$BOKEH_PHANTOMJS_PATH"
+
 # PySpark / JVM settings
 default_java_home=$(readlink /etc/alternatives/java 2>/dev/null)
 default_java_home=${default_java_home%%/bin/*}

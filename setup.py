@@ -139,7 +139,7 @@ project = dict(
         ],
         vizjs=[
             'plotly==3.6.1',
-            'bokeh==1.0.4', 'psutil==5.5.1',
+            'bokeh==1.0.4', 'psutil==5.5.1', 'phantomjs-binary==2.1.3',
             'altair==2.4.1', 'vega==1.4.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
             'selenium==3.141.0', 'chromedriver-binary==2.46.0',
         ],
