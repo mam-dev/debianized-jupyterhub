@@ -45,6 +45,7 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
         python3-pkg-resources \
         python3-setuptools \
         python-virtualenv \
+        python3-venv \
         sphinx-rtd-theme-common \
         tar \
         \
