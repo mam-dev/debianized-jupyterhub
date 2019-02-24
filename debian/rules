@@ -40,7 +40,7 @@ override_dh_virtualenv:
 	$(DH_VENV_DIR)/bin/python $(DH_VENV_DIR)/bin/pip install nodeenv==$(NODEENV_VERSION)
 	$(DH_VENV_DIR)/bin/nodeenv -C '' -p -n system
 	. $(DH_VENV_DIR)/bin/activate && node /usr/bin/npm install --userconfig=$(NPM_CONFIG) -g configurable-http-proxy
-	-PJS=$(find $(DH_VENV_DIR)/lib -iname 'phantomjs_bin' -type d) && test -n "$$PJS" && \
+	-PJS=$$(find $(DH_VENV_DIR)/lib -iname 'phantomjs_bin' -type d) && test -n "$$PJS" && \
 		chmod a+x "$$PJS/bin/linux/phantomjs" && \
 		rm "$$PJS/bin/macosx/phantomjs" "$$PJS/bin/windows/phantomjs.exe"
 
@@ -50,5 +50,5 @@ override_dh_strip:
 override_dh_shlibdeps:
 	dh_shlibdeps -X/x86/ \
         -X/chromedriver_binary/ -X/Cython/ -X/kiwisolver -X/markupsafe/ \
-        -X/matplotlib/ -X/numpy/ -X/pandas/ -X/PIL/ -X/psutil/ -X/pycurl \
+        -X/matplotlib/ -X/numpy/ -X/pandas/ -X/PIL/ -X/psutil/ -X/pvectorc -X/pycurl \
         -X/scipy/ -X/selenium/ -X/sqlalchemy/ -X/tornado/ -X/_yaml -X/zmq/
