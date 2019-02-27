@@ -82,7 +82,7 @@ WORKDIR /dpkg-build
 ADD "${DEB_POOL}/d/dh-virtualenv/dh-virtualenv_1.1-1_all.deb" ./
 RUN dpkg -i --force-unsafe-io --ignore-depends=sphinx-rtd-theme-common *_all.deb \
     && python3 -m pip install -U pip \
-    && python3 -m pip install -U virtualenv setuptools wheel
+    && python3 -m pip install -U setuptools wheel
 
 # Build project and show metadata of built package
 COPY ./ ./
