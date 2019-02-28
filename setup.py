@@ -121,6 +121,8 @@ project = dict(
         'ipython==7.3.0',
         'sudospawner==0.5.2',
         'pycurl==7.43.0.2',  # recommended by server logs
+
+        'numpy==1.16.2',
     ],
     extras_require=dict(
         arrow=['pyarrow==0.12.0', 'csv2parquet==0.0.6'],
