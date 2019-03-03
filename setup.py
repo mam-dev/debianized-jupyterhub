@@ -124,6 +124,8 @@ project = dict(
 
         'numpy==1.16.2',
         'tornado==5.1.1',
+        'jupyter==1.0.0',
+        'ipywidgets==7.4.2',
     ],
     extras_require=dict(
         arrow=['pyarrow==0.12.0', 'csv2parquet==0.0.6'],
@@ -131,11 +133,12 @@ project = dict(
         parquet=['fastparquet==0.2.1', 'parquet-cli==1.2'],
         spark=['pyspark==2.4.0', 'pyspark-flame==0.2.6'],
         utils=[
+            'colour==0.1.5',
             'dfply==0.3.3',
             'jupyter-console==6.0.0',
             'openpyxl==2.6.0',
             'xlsxwriter==1.1.4',
-            #'jupytext==1.0.0',  # see https://github.com/mwouts/jupytext/issues/185
+            #'jupytext==1.0.1',  # see https://github.com/mwouts/jupytext/issues/185
         ],
         viz=[
             'seaborn==0.9.0',
@@ -143,9 +146,9 @@ project = dict(
         ],
         vizjs=[
             'plotly==3.6.1',
-            'bokeh==1.0.4', 'psutil==5.5.1', 'phantomjs-binary==2.1.3',
+            'bokeh==1.0.4', 'psutil==5.5.1', 'chartify==2.5.0',
             'altair==2.4.1', 'vega==1.4.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
-            'selenium==3.141.0', 'chromedriver-binary==2.46.0',
+            'selenium==3.141.0', 'chromedriver-binary==2.46.0', 'phantomjs-binary==2.1.3',
         ],
     ),
     packages=[],
