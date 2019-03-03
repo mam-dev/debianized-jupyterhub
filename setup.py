@@ -123,6 +123,7 @@ project = dict(
         'pycurl==7.43.0.2',  # recommended by server logs
 
         'numpy==1.16.2',
+        'tornado==5.1.1',
     ],
     extras_require=dict(
         arrow=['pyarrow==0.12.0', 'csv2parquet==0.0.6'],
