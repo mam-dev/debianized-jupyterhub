@@ -18,7 +18,8 @@ endif
 
 PACKAGE=$(shell dh_listpackages)
 VERSION=$(shell parsechangelog | grep ^Version: | sed -re 's/[^0-9]+([^-]+).*/\1/')
-DH_VENV_ARGS=--setuptools --builtin-venv --python $(SNAKE) $(EXTRA_REQUIREMENTS) $(EXTRAS)
+DH_VENV_ARGS=--setuptools --builtin-venv --python $(SNAKE) $(EXTRA_REQUIREMENTS) $(EXTRAS) \
+           --extra-pip-arg=--progress-bar=pretty
            # --extra-pip-arg "--no-binary=psycopg2" \
            # -v
 DH_VENV_DIR=debian/$(PACKAGE)$(DH_VIRTUALENV_INSTALL_ROOT)/$(PACKAGE)
