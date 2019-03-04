@@ -135,14 +135,13 @@ project = dict(
         utils=[
             'colour==0.1.5',
             'dfply==0.3.3',
-            'missingno==0.4.1',
             'jupyter-console==6.0.0',
             'openpyxl==2.6.0',
             'xlsxwriter==1.1.4',
             #'jupytext==1.0.1',  # see https://github.com/mwouts/jupytext/issues/185
         ],
         viz=[
-            'seaborn==0.9.0',
+            'seaborn==0.9.0', 'missingno==0.4.1',
             'holoviews[recommended]==1.11.2',
         ],
         vizjs=[
