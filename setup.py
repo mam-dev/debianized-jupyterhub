@@ -123,6 +123,7 @@ project = dict(
         'pycurl==7.43.0.2',  # recommended by server logs
 
         'numpy==1.16.2',
+        'pandas==0.24.1',
         'tornado==5.1.1',
         'jupyter==1.0.0',
         'ipywidgets==7.4.2',
