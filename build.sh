@@ -14,14 +14,17 @@ pypi_version="$(./setup.py --version)"
 pkgname="$(dh_listpackages)"
 tag=$pypi_name-$dist_id-$codename
 
+build_opts=(
+    -f Dockerfile.build
+    --tag $tag
+    --build-arg "DIST_ID=$dist_id"
+    --build-arg "CODENAME=$codename"
+    --build-arg "PKGNAME=$pkgname"
+)
+
 # Build in Docker container, save results, and show package info
 rm -f dist/${pkgname}?*${pypi_version//./?}*${codename}*.*
-docker build --tag $tag \
-    --build-arg "DIST_ID=$dist_id" \
-    --build-arg "CODENAME=$codename" \
-    --build-arg "PKGNAME=$pkgname" \
-    -f Dockerfile.build \
-    "$@" .
+docker build "${build_opts[@]}" "$@" .
 mkdir -p dist
 docker run --rm $tag tar -C /dpkg -c . | tar -C dist -x
 ls -lh dist/${pkgname}?*${pypi_version//./?}*${codename}*.*
