@@ -7,6 +7,7 @@
 # Build arguments, as provided by 'build.sh'
 ARG DIST_ID="debian"
 ARG CODENAME="stretch"
+ARG PYVERSION="3"
 ARG PKGNAME
 
 # Other build arguments (adapt as needed)
@@ -18,6 +19,7 @@ FROM ${DIST_ID}:${CODENAME} AS dpkg-build
 
 # Pass build args into image scope
 ARG CODENAME
+ARG PYVERSION
 ARG PKGNAME
 ARG NODEREPO
 ARG DEB_POOL
@@ -39,13 +41,13 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
         libjs-sphinxdoc \
         libparse-debianchangelog-perl \
         lsb-release \
-        python3 \
-        python3-dev \
-        python3-pip \
-        python3-pkg-resources \
-        python3-setuptools \
+        python${PYVERSION} \
+        python${PYVERSION}-dev \
+        python${PYVERSION}-pip \
+        python${PYVERSION}-pkg-resources \
+        python${PYVERSION}-setuptools \
+        python${PYVERSION}-venv \
         python-virtualenv \
-        python3-venv \
         sphinx-rtd-theme-common \
         tar \
         \
