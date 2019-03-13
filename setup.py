@@ -122,6 +122,7 @@ project = dict(
         'sudospawner==0.5.2',
         'pycurl==7.43.0.2',  # recommended by server logs
 
+        'Cython==0.29.6',
         'numpy==1.16.2',
         'pandas==0.24.1',
         'tornado==5.1.1',
@@ -132,6 +133,16 @@ project = dict(
         arrow=['pyarrow==0.12.0', 'csv2parquet==0.0.6'],
         docker=['dockerspawner==0.10.0', 'swarmspawner==0.1.0'],
         parquet=['fastparquet==0.2.1', 'parquet-cli==1.2'],
+        nlp=[
+            'gensim==3.7.1',  # Topic Modelling in Python
+            'polyglot==16.7.4',
+            'spacy==2.0.18',
+        ],
+        nltk=['nltk==3.4', 'textblob==0.15.3'],
+        ml=[
+            'scikit-learn==0.20.3',
+            'word2vec==0.10.2',
+        ],
         spark=['pyspark==2.4.0', 'pyspark-flame==0.2.6'],
         utils=[
             'colour==0.1.5',
