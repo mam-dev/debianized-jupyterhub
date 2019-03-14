@@ -316,27 +316,6 @@ You should stick to these locations, because the maintainer scripts have special
 If you need to relocate, consider using symbolic links to point to the physical location.
 
 
-## TODOs
-
- * Add a debug switch to the default file
-   * https://github.com/jupyterhub/jupyterhub/wiki/Debug-Jupyterhub
- * Add a global ``jupyter_notebook_config.py``
- * Inject a user's "--user" installs into the launched notebook servers
-   * https://github.com/jupyterhub/jupyterhub/issues/2136
- * Add JupyterLab (as an option?)
- * https://jupyterhub.readthedocs.io/en/stable/reference/config-proxy.html
- * [cull_idle_servers](https://jupyterhub.readthedocs.io/en/stable/getting-started/services-basics.html)
- * Prometheus monitoring → https://github.com/jupyterhub/jupyterhub/issues/2049
-   * Graphite bridge: https://github.com/prometheus/client_python#bridges
- * Sample nginx config
-   * https://github.com/jupyterhub/jupyterhub/issues/2105
-
-*Maybe*
-
- * Run the proxy as a separate systemd service?
- * Replace CHP by Træfik, an F5 integration, or similar?
-
-
 ## References
 
 ### Documentation Links
