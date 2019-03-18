@@ -30,6 +30,5 @@ Description: Debian packaging of JupyterHub, a multi-user server for Jupyter not
     a corporate data science workgroup, a scientific research
     project, or a high performance computing group.
     .
-    This is a self-contained Python virtualenv wrapped into a Debian package
-    (an "omnibus" package, all passengers on board). The packaged virtualenv
-    is kept in sync with the host's interpreter automatically.
+    This is a self-contained Python3 venv wrapped into a Debian package
+    (an "omnibus" package, all passengers on board).
