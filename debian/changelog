@@ -8,7 +8,7 @@ jupyterhub (0.9.4-4~stretch) stretch; urgency=low
   * Tornado: kept at 5.x because of compatibility problems
   * Packaging: Switched to built-in Python3 venv
 
- -- Juergen Hermann <jh@web.de>  Thu, 14 Mar 2019 13:49:07 +0100
+ -- Juergen Hermann <jh@web.de>  Mon, 18 Mar 2019 15:47:37 +0100
 
 jupyterhub (0.9.4-3~stretch) stretch; urgency=low
 
