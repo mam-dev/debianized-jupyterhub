@@ -4,7 +4,7 @@
 # mkvenv: no-deps
 """ Debian packaging for the jupyterhub package.
 
-    | Copyright ©  2018, 1&1 Group
+    | Copyright ©  2018 - 2019, 1&1 Group
     | See LICENSE for details.
 
     This puts the ``jupyterhub`` Python package and its dependencies as released
