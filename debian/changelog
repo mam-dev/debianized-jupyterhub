@@ -1,3 +1,9 @@
+jupyterhub (0.9.4-5~stretch) stretch; urgency=low
+
+  * setup: Removed polyglot
+
+ -- Juergen Hermann <jh@web.de>  Mon, 18 Mar 2019 17:02:15 +0100
+
 jupyterhub (0.9.4-4~stretch) stretch; urgency=low
 
   * Extras: Added 'docker', 'nlp', 'ml', 'utils', and 'vizjs'

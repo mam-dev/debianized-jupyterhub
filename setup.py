@@ -135,7 +135,7 @@ project = dict(
         parquet=['fastparquet==0.2.1', 'parquet-cli==1.2'],
         nlp=[
             'gensim==3.7.1',  # Topic Modelling in Python
-            'polyglot==16.7.4',
+            #'polyglot==16.7.4',  # badly maintained, and setup has Unicode problems
             'spacy==2.0.18',
         ],
         nltk=['nltk==3.4', 'textblob==0.15.3'],
