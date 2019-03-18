@@ -124,14 +124,14 @@ project = dict(
 
         'Cython==0.29.6',
         'numpy==1.16.2',
-        'pandas==0.24.1',
+        'pandas==0.24.2',
         'tornado==5.1.1',
         'jupyter==1.0.0',
         'ipywidgets==7.4.2',
     ],
     extras_require=dict(
-        arrow=['pyarrow==0.12.0', 'csv2parquet==0.0.6'],
-        docker=['dockerspawner==0.10.0', 'swarmspawner==0.1.0'],
+        arrow=['pyarrow==0.12.1', 'csv2parquet==0.0.6'],
+        docker=['dockerspawner==0.11.0', 'swarmspawner==0.1.0'],
         parquet=['fastparquet==0.2.1', 'parquet-cli==1.2'],
         nlp=[
             'gensim==3.7.1',  # Topic Modelling in Python
@@ -148,17 +148,17 @@ project = dict(
             'colour==0.1.5',
             'dfply==0.3.3',
             'jupyter-console==6.0.0',
-            'openpyxl==2.6.0',
-            'xlsxwriter==1.1.4',
+            'openpyxl==2.6.1',
+            'xlsxwriter==1.1.5',
             #'jupytext==1.0.1',  # see https://github.com/mwouts/jupytext/issues/185
         ],
         viz=[
             'seaborn==0.9.0', 'missingno==0.4.1',
-            'holoviews[recommended]==1.11.2',
+            'holoviews[recommended]==1.11.3',
         ],
         vizjs=[
-            'plotly==3.6.1', 'cufflinks==0.14.6',
-            'bokeh==1.0.4', 'psutil==5.5.1', 'chartify==2.5.0',
+            'plotly==3.7.0', 'cufflinks==0.14.6',
+            'bokeh==1.0.4', 'psutil==5.6.1', 'chartify==2.6.0',
             'altair==2.4.1', 'vega==1.4.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
             'selenium==3.141.0', 'chromedriver-binary==2.46.0', 'phantomjs-binary==2.1.3',
         ],
