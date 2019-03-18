@@ -1,11 +1,14 @@
-jupyterhub (0.9.4-4~stretch) xenial; urgency=low
+jupyterhub (0.9.4-4~stretch) stretch; urgency=low
 
-  * Extras: Added 'docker', 'utils', and 'vizjs' (included by default)
-  * Extras: Added 'arrow' and 'parquet' (optional)
-  * notebook: update to 5.7.6
-  * bokeh: update to 1.0.4
+  * Extras: Added 'docker', 'nlp', 'ml', 'utils', and 'vizjs'
+    (included by default)
+  * Extras: Added 'arrow', 'nltk', and 'parquet' (optional)
+  * notebook: update to 5.7.6 (CVE-2019–9644); also updated other
+    explicit requirements
+  * Tornado: kept at 5.x because of compatibility problems
+  * Packaging: Switched to built-in Python3 venv
 
- -- Juergen Hermann <jh@web.de>  Wed, 20 Feb 2019 11:49:11 +0100
+ -- Juergen Hermann <jh@web.de>  Thu, 14 Mar 2019 13:49:07 +0100
 
 jupyterhub (0.9.4-3~stretch) stretch; urgency=low
 
