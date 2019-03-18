@@ -1,3 +1,9 @@
+jupyterhub (0.9.4-6~stretch) UNRELEASED; urgency=medium
+
+  * ...
+
+ -- Juergen Hermann <jh@web.de>  Mon, 18 Mar 2019 17:38:00 +0100
+
 jupyterhub (0.9.4-5~stretch) stretch; urgency=low
 
   * setup: Removed polyglot
