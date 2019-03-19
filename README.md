@@ -263,9 +263,26 @@ In case you want to enable a specific user group for the sudo spawner, change th
 
     sed -i.orig~ -e s/%users/%jhub-users/ /etc/sudoers.d/jupyterhub
 
+If you want certain users to have admin access, add them to the set named `c.Authenticator.admin_users`
+in `/etc/jupyterhub/jupyterhub_config.py`.
+
 Then install your chosen webserver / proxy for SSL off-loading,
 listening on port 443 and forwarding to port 8000.
-Typical candidates are [NginX](https://github.com/SteveLTN/https-portal), Apache httpd, or Envoy.
+Typical candidates are NginX, Apache httpd, or Envoy.
+For an internet-facing service, consider [https-portal](https://github.com/SteveLTN/https-portal),
+which is a NginX docker image with easy configuration and built-in *Let's Encrypt* support.
+
+Otherwise, install the Debian `nginx-full` package and copy the `docs/examples/nginx-jhub.conf`
+to the `/etc/nginx/sites-enabled/default` file (or another path depending on your server setup).
+Make sure to read through the file, most likely you have to adapt the certificate paths in
+`ssl_certificate` and `ssl_certificate_key` (and create a certificate, e.g. a self-signed one).
+
+You also need to create Diffie-Hellman parameters using the following command,
+which can take several minutes to finish:
+
+    openssl dhparam -out /etc/ssl/private/dhparam.pem 4096
+
+Then (re-)start the `nginx` service and try to login.
 
 :bangbang: Note that this does not protect against any local users
 and their notebook servers and terminals, at least as long as you
