@@ -28,7 +28,6 @@ and on *Debian Stretch*. You can also use a Docker container
  * [Changing the Service Unit Configuration](#changing-the-service-unit-configuration)
  * [Configuration Files](#configuration-files)
  * [Data Directories](#data-directories)
- * [TODOs](#todos)
  * [References](#references)
    * [Documentation Links](#documentation-links)
    * [Related Projects](#related-projects)
@@ -252,11 +251,17 @@ but there are a few reasons to do that via a local proxy:
 To hide the HTTP endpoint from the outside world,
 change the bind URL in ``/etc/default/jupyterhub`` as follows:
 
-    JUPYTERHUB_BIND_URL="http://127.0.0.1:8000"
+    # Bind to 127.0.0.1 only
+    sed -i.orig~ -e s~//:8000~//127.0.0.1:8000~ /etc/default/jupyterhub
 
 Restart the service and check that port 8000 is bound to localhost only:
 
+    systemctl restart jupyterhub.service
     netstat -tulpn | grep :8000
+
+In case you want to enable a specific user group for the sudo spawner, change the sudoers file like this:
+
+    sed -i.orig~ -e s/%users/%jhub-users/ /etc/sudoers.d/jupyterhub
 
 Then install your chosen webserver / proxy for SSL off-loading,
 listening on port 443 and forwarding to port 8000.
