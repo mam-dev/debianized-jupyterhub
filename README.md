@@ -236,6 +236,29 @@ In case of errors or other trouble, look into the service's journal with…
 journalctl -eu jupyterhub
 ```
 
+To identify your instance, and help users use the right login credentials,
+add something similar to this to your `/etc/jupyterhub/jupyterhub_config.py`
+(see [this issue](https://github.com/jupyterhub/jupyterhub/pull/1913) for details):
+
+```py
+c.JupyterHub.template_vars = dict(
+    announcement=
+        '<a href="https://confluence.example.com/x/123456" target="_blank">'
+        "<h1>DevOps Intelligence Platform</h1></a>",
+    announcement_login=
+        '<a href="https://confluence.example.com/x/123456" target="_blank">'
+        "<h1>DevOps Intelligence Platform</h1></a>",
+        "<big>&#128274; <b>Use your company LDAP credentials!</b></big>",
+)
+```
+
+In case you want to enable a specific user group for the sudo spawner, change the sudoers file like this:
+
+    sed -i.orig~ -e s/%users/%jhub-users/ /etc/sudoers.d/jupyterhub
+
+If you want certain users to have admin access, add them to the set named `c.Authenticator.admin_users`
+in `/etc/jupyterhub/jupyterhub_config.py`.
+
 
 ## Securing your JupyterHub web service with an SSL off-loader
 
@@ -258,13 +281,6 @@ Restart the service and check that port 8000 is bound to localhost only:
 
     systemctl restart jupyterhub.service
     netstat -tulpn | grep :8000
-
-In case you want to enable a specific user group for the sudo spawner, change the sudoers file like this:
-
-    sed -i.orig~ -e s/%users/%jhub-users/ /etc/sudoers.d/jupyterhub
-
-If you want certain users to have admin access, add them to the set named `c.Authenticator.admin_users`
-in `/etc/jupyterhub/jupyterhub_config.py`.
 
 Then install your chosen webserver / proxy for SSL off-loading,
 listening on port 443 and forwarding to port 8000.
