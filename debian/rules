@@ -45,12 +45,15 @@ override_dh_virtualenv:
 	-PJS=$$(find $(DH_VENV_DIR)/lib -iname 'phantomjs_bin' -type d) && test -n "$$PJS" && \
 		chmod a+x "$$PJS/bin/linux/phantomjs" && \
 		rm "$$PJS/bin/macosx/phantomjs" "$$PJS/bin/windows/phantomjs.exe"
+	date -Iseconds >$(DH_VENV_DIR)/dpkg-stamp
 
 override_dh_strip:
 	dh_strip --exclude=cffi --exclude=_imaging --exclude=libtiff
+	date -Iseconds >$(DH_VENV_DIR)/dpkg-stamp
 
 override_dh_shlibdeps:
 	dh_shlibdeps -X/x86/ \
         -X/chromedriver_binary/ -X/Cython/ -X/kiwisolver -X/markupsafe/ \
         -X/matplotlib/ -X/numpy/ -X/pandas/ -X/PIL/ -X/psutil/ -X/pvectorc -X/pycurl \
         -X/scipy/ -X/selenium/ -X/sqlalchemy/ -X/tornado/ -X/_yaml -X/zmq/
+	date -Iseconds >$(DH_VENV_DIR)/dpkg-stamp
