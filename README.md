@@ -237,6 +237,13 @@ allows the ``jupyterhub`` system user to create these on behalf of any user
 listed in the ``JUPYTER_USERS`` alias. Unless you change it, that means
 all accounts in the ``users`` group.
 
+In case you want to enable a specific user group for the sudo spawner, change the sudoers file like this:
+
+    sed -i.orig~ -e s/%users/%jhub-users/ /etc/sudoers.d/jupyterhub
+
+If you want certain users to have admin access, add them to the set named `c.Authenticator.admin_users`
+in `/etc/jupyterhub/jupyterhub_config.py`.
+
 After an upgrade, the service restarts automatically by default
 – you can change that using the ``JUPYTERHUB_AUTO_RESTART`` variable in ``/etc/default/jupyterhub``.
 
@@ -261,13 +268,6 @@ c.JupyterHub.template_vars = dict(
         "<big>&#128274; <b>Use your company LDAP credentials!</b></big>",
 )
 ```
-
-In case you want to enable a specific user group for the sudo spawner, change the sudoers file like this:
-
-    sed -i.orig~ -e s/%users/%jhub-users/ /etc/sudoers.d/jupyterhub
-
-If you want certain users to have admin access, add them to the set named `c.Authenticator.admin_users`
-in `/etc/jupyterhub/jupyterhub_config.py`.
 
 
 ## Securing your JupyterHub web service with an SSL off-loader
