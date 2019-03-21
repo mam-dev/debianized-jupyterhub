@@ -15,6 +15,7 @@ and on *Debian Stretch*. You can also use a Docker container
 **Contents**
 
  * [What is this?](#what-is-this)
+ * [“Devops Intelligence” showcase](#devops-intelligence-showcase)
  * [How to build and install the package](#how-to-build-and-install-the-package)
    * [Building in a Docker container](#building-in-a-docker-container)
    * [Building directly on your workstation](#building-directly-on-your-workstation)
@@ -78,6 +79,15 @@ To activate extras, you need ``dh-virtualenv`` v1.1 which supports the
 [--extras](https://dh-virtualenv.readthedocs.io/en/latest/usage.html#cmdoption-extras) option.
 That option is used as part of the ``EXTRAS`` variable in ``debian/rules``
 – add or remove extras there as you see fit.
+
+
+## “Devops Intelligence” showcase
+
+Here is an example of what you can do using this package, without any great investment of effort or capital. Within a simple setup adding a single JupyterHub host, you can use the built-in Python3 kernel to access existing internal data sources (see figure below).
+
+Such a setup supports risk analysis and decision making within development and operations processes – typical business intelligence / data science procedures can be applied to the ‘business of making and running software’. The idea is to create feedback loops, and facilitate human decision making by automatically providing reliable input in form of up-to-date factoids. After all development is our business — so let's have KPIs for developing, releasing, and operating software.
+
+> ![Architecture Overview](https://github.com/1and1/debianized-jupyterhub/raw/master/docs/_static/img/devops-intelligence.png)
 
 
 ## How to build and install the package
