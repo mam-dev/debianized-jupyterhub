@@ -298,7 +298,8 @@ Typical candidates are NginX, Apache httpd, or Envoy.
 For an internet-facing service, consider [https-portal](https://github.com/SteveLTN/https-portal),
 which is a NginX docker image with easy configuration and built-in *Let's Encrypt* support.
 
-Otherwise, install the Debian `nginx-full` package and copy the `docs/examples/nginx-jhub.conf`
+Otherwise, install the Debian `nginx-full` package and copy
+[docs/examples/nginx-jhub.conf](https://github.com/1and1/debianized-jupyterhub/blob/master/docs/examples/nginx-jhub.conf)
 to the `/etc/nginx/sites-enabled/default` file (or another path depending on your server setup).
 Make sure to read through the file, most likely you have to adapt the certificate paths in
 `ssl_certificate` and `ssl_certificate_key` (and create a certificate, e.g. a self-signed one).
