@@ -192,6 +192,12 @@ call ``sudo python3 -m pip install -U pip``.
 When using `dh-virtualenv 1.1` or later releases, this problem should not appear anymore.
 
 
+### “Unknown lvalue 'ProtectControlGroups' in section 'Service'” at runtime
+
+This appears in the service logs (`journalctl`) when you use the provided systemd unit files
+on older systems (e.g. Xenial). They're just warnings, and can be safely ignored.
+
+
 ## Updating requirements
 
 As previously mentioned, additional packages are listed in ``setup.py``.
