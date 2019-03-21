@@ -15,10 +15,11 @@
 ## Backlog
 
  * [Set Your Jupyter Notebook up Right with this Extension](https://towardsdatascience.com/set-your-jupyter-notebook-up-right-with-this-extension-24921838a332)
- * Inject a user's "--user" installs into the launched notebook servers
+ * Inject a user's "~/.ipython/lib/…" installs into the launched notebook servers
    * https://github.com/jupyterhub/jupyterhub/issues/2136
    * Or https://nbviewer.jupyter.org/github/jhermann/jupyter-by-example/blob/master/setup/configuration.ipynb#Embedded-Dependency-Installation
  * Add JupyterLab (as an option?)
+   * https://github.com/NixOS/nixpkgs/pull/50858
  * Prometheus monitoring → https://github.com/jupyterhub/jupyterhub/issues/2049
    * Graphite bridge: https://github.com/prometheus/client_python#bridges
 
