@@ -275,6 +275,11 @@ c.JupyterHub.template_vars = dict(
 )
 ```
 
+If you add a PNG image at `/etc/jupyterhub/banner.png`, it is used instead
+of the original banner image (sized 208 × 56 px). Note that this is done
+via a `postinst` script, so you must call `dpkg-reconfigure jupyterhub`
+if you change or add such an image *after* the package installation.
+
 
 ## Securing your JupyterHub web service with an SSL off-loader
 

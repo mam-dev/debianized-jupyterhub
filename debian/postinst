@@ -28,6 +28,10 @@ case "$1" in
                     --home "/var/opt/$APP_ID" --shell /usr/sbin/nologin "$RUN_AS"
             usermod -a -G shadow "$RUN_AS"
         fi
+        if test -f /etc/jupyterhub/banner.png; then
+            # Original banner is 208x56
+            cp /etc/jupyterhub/banner.png /opt/venvs/jupyterhub/share/jupyterhub/static/images/jupyter.png
+        fi
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

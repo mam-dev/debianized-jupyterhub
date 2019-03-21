@@ -1,6 +1,8 @@
 jupyterhub (0.9.4-6~stretch) UNRELEASED; urgency=medium
 
-  * ...
+  * postinst; Configurable banner image by adding a
+    "/etc/jupyterhub/banner.png" file (original size
+    is 208 x 56 px)
 
  -- Juergen Hermann <jh@web.de>  Mon, 18 Mar 2019 17:38:00 +0100
 
