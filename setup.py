@@ -119,18 +119,19 @@ project = dict(
         'jupyterhub==' + upstream_version,
         'notebook==5.7.6',
         'ipython==7.3.0',
-        'sudospawner==0.5.2',
-        'pycurl==7.43.0.2',  # recommended by server logs
-
-        'Cython==0.29.6',
-        'numpy==1.16.2',
-        'pandas==0.24.2',
-        'tornado==5.1.1',
         'jupyter==1.0.0',
         'ipywidgets==7.4.2',
+        'sudospawner==0.5.2',
+        'tornado==5.1.1',
+        'pycurl==7.43.0.2',  # recommended by server logs
     ],
     extras_require=dict(
         arrow=['pyarrow==0.12.1', 'csv2parquet==0.0.6'],
+        base=[
+            'Cython==0.29.6',  # see also --preinstall in debian/rules
+            'numpy==1.16.2',
+            'pandas==0.24.2',
+        ],
         docker=['dockerspawner==0.11.0', 'swarmspawner==0.1.0'],
         parquet=['fastparquet==0.2.1', 'parquet-cli==1.2'],
         nlp=[
