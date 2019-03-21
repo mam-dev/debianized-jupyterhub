@@ -118,7 +118,7 @@ project = dict(
         # core
         'jupyterhub==' + upstream_version,
         'notebook==5.7.6',
-        'ipython==7.3.0',
+        'ipython==7.4.0',
         'jupyter==1.0.0',
         'ipywidgets==7.4.2',
         'sudospawner==0.5.2',
@@ -137,7 +137,7 @@ project = dict(
         nlp=[
             'gensim==3.7.1',  # Topic Modelling in Python
             #'polyglot==16.7.4',  # badly maintained, and setup has Unicode problems
-            'spacy==2.0.18',
+            'spacy==2.1.1',
         ],
         nltk=['nltk==3.4', 'textblob==0.15.3'],
         ml=[
@@ -158,7 +158,7 @@ project = dict(
             'holoviews[recommended]==1.11.3',
         ],
         vizjs=[
-            'plotly==3.7.0', 'plotly_express==0.1', 'cufflinks==0.14.6',
+            'plotly==3.7.1', 'plotly_express==0.1.1', 'cufflinks==0.14.6',
             'bokeh==1.0.4', 'psutil==5.6.1', 'chartify==2.6.0',
             'altair==2.4.1', 'vega==1.4.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
             'selenium==3.141.0', 'chromedriver-binary==2.46.0', 'phantomjs-binary==2.1.3',
