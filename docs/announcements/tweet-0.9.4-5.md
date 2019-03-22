@@ -1,0 +1,1 @@
+I released version 0.9.4-5 of my Debian packaging for #JupyterHub (https://github.com/1and1/debianized-jupyterhub/releases). It makes the installation of a @ProjectJupyter PaaS on a Debian or Ubuntu server easy, with everything already installed and compiled, including a fully equipped Python3 kernel.
