@@ -149,6 +149,7 @@ project = dict(
             'colour==0.1.5',
             'dfply==0.3.3',
             'jupyter-console==6.0.0',
+            'jupyter-contrib-nbextensions==0.5.1',
             'openpyxl==2.6.1',
             'xlsxwriter==1.1.5',
             #'jupytext==1.0.1',  # see https://github.com/mwouts/jupytext/issues/185
@@ -156,6 +157,7 @@ project = dict(
         viz=[
             'seaborn==0.9.0', 'missingno==0.4.1',
             'holoviews[recommended]==1.11.3',
+            'colorcet==1.0.1',
         ],
         vizjs=[
             'plotly==3.7.1', 'plotly_express==0.1.1', 'cufflinks==0.14.6',
