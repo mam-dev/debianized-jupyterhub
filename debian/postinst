@@ -30,7 +30,8 @@ case "$1" in
         fi
         if test -f /etc/jupyterhub/banner.png; then
             # Original banner is 208x56
-            cp /etc/jupyterhub/banner.png /opt/venvs/jupyterhub/share/jupyterhub/static/images/jupyter.png
+            ( umask 0022 && \
+              cat /etc/jupyterhub/banner.png >/opt/venvs/jupyterhub/share/jupyterhub/static/images/jupyter.png )
         fi
     ;;
 
