@@ -89,6 +89,9 @@ Such a setup supports risk analysis and decision making within development and o
 
 > ![Architecture Overview](https://github.com/1and1/debianized-jupyterhub/raw/master/docs/_static/img/devops-intelligence.png)
 
+See [this notebook](https://nbviewer.jupyter.org/github/jhermann/jupyter-by-example/blob/master/complete-scenarios/devops-intelligence.ipynb)
+for more details and a concrete example how to use such a setup.
+
 
 ## How to build and install the package
 
