@@ -129,6 +129,7 @@ project = dict(
         arrow=['pyarrow==0.12.1', 'csv2parquet==0.0.6'],
         base=[
             'Cython==0.29.6',  # see also --preinstall in debian/rules
+            'networkx==2.2',
             'numpy==1.16.2',
             'pandas==0.24.2',
         ],
