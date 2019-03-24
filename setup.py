@@ -122,7 +122,7 @@ project = dict(
         'jupyter==1.0.0',
         'ipywidgets==7.4.2',
         'sudospawner==0.5.2',
-        'tornado==5.1.1',
+        'tornado==6.0.2',
         'pycurl==7.43.0.2',  # recommended by server logs
     ],
     extras_require=dict(
