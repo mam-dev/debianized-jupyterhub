@@ -117,7 +117,7 @@ project = dict(
     install_requires=[
         # core
         'jupyterhub==' + upstream_version,
-        'notebook==5.7.6',
+        'notebook==5.7.7',
         'ipython==7.4.0',
         'jupyter==1.0.0',
         'ipywidgets==7.4.2',

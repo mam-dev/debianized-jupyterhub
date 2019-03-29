@@ -1,10 +1,18 @@
-jupyterhub (0.9.4-6~stretch) UNRELEASED; urgency=medium
+jupyterhub (0.9.5-1~stretch) UNRELEASED; urgency=medium
 
-  * postinst; Configurable banner image by adding a
+  * jupyterhub: update to release 0.9.5 + NB 5.7.7 (fix
+    for Open Redirect vulnerability)
+  * postinst: Configurable banner image by adding a
     "/etc/jupyterhub/banner.png" file (original size
     is 208 x 56 px)
+  * setup: Added plotly_express, colorcet, networkx,
+    and jupyter-contrib-nbextensions
+  * setup: Put non-jhub packages into 'base' extra
+  * setup: Now on Tornado 6 (compatibility problems solved)
+  * docs: SSL off-loading with NginX (with config example)
+  * docs: Setting custom announcements in the web UI
 
- -- Juergen Hermann <jh@web.de>  Mon, 18 Mar 2019 17:38:00 +0100
+ -- Juergen Hermann <jh@web.de>  Thu, 28 Mar 2019 16:34:41 +0100
 
 jupyterhub (0.9.4-5~stretch) stretch; urgency=low
 
