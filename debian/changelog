@@ -1,4 +1,4 @@
-jupyterhub (0.9.5-1~stretch) UNRELEASED; urgency=medium
+jupyterhub (0.9.5-1~stretch) stretch; urgency=medium
 
   * jupyterhub: update to release 0.9.5 + NB 5.7.7 (fix
     for Open Redirect vulnerability)
@@ -12,7 +12,7 @@ jupyterhub (0.9.5-1~stretch) UNRELEASED; urgency=medium
   * docs: SSL off-loading with NginX (with config example)
   * docs: Setting custom announcements in the web UI
 
- -- Juergen Hermann <jh@web.de>  Thu, 28 Mar 2019 16:34:41 +0100
+ -- Juergen Hermann <jh@web.de>  Fri, 29 Mar 2019 11:45:40 +0100
 
 jupyterhub (0.9.4-5~stretch) stretch; urgency=low
 
