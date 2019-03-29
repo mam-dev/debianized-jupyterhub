@@ -9,6 +9,7 @@ Build the image by calling…
 pyenv_version=1.2.9
 gitroot="$(git rev-parse --show-toplevel)"
 version=$(command cd "$gitroot" >/dev/null && ./setup.py --version)
+test -f "$gitroot/requirements.txt" || touch "$gitroot/requirements.txt"
 ( cd "$gitroot/Docker" &&
   ( test -f v${pyenv_version}.tar.gz \
     || wget https://github.com/pyenv/pyenv/archive/v${pyenv_version}.tar.gz ) &&

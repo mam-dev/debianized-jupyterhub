@@ -148,6 +148,7 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
     && apt-get clean && rm -rf "/var/lib/apt/lists"/*
 COPY --from=builder /opt/python /opt/python
 COPY debian/rules /tmp
+COPY requirements.txt /tmp
 RUN groupadd jupyter \
     && useradd -g jupyter -G jupyter,users -c "Jupyter User" -s /bin/bash --create-home jupyter \
     && chmod 750 ~jupyter \
@@ -156,6 +157,7 @@ RUN groupadd jupyter \
     && /opt/python/bin/python3 -m pip install -f /opt/python/wheels \
                                --no-warn-script-location \
                                debianized-jupyterhub[$extras] \
+    && /opt/python/bin/python3 -m pip install -r /tmp/requirements.txt \
     && /opt/python/bin/python3 -m pip uninstall -y debianized-jupyterhub \
     && bash -c "rm -rf /opt/python/lib/python3.*/site-packages/phantomjs_bin/bin/{macosx,windows}" \
     && ln -s /opt/python/bin/* /usr/local/bin
