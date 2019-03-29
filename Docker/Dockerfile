@@ -157,6 +157,7 @@ RUN groupadd jupyter \
                                --no-warn-script-location \
                                debianized-jupyterhub[$extras] \
     && /opt/python/bin/python3 -m pip uninstall -y debianized-jupyterhub \
+    && bash -c "rm -rf /opt/python/lib/python3.*/site-packages/phantomjs_bin/bin/{macosx,windows}" \
     && ln -s /opt/python/bin/* /usr/local/bin
 WORKDIR /home/jupyter
 USER jupyter
