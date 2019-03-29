@@ -1,5 +1,5 @@
-# Instal and run JupyterHub on Debian Stretch
-# ===========================================
+# Install and run JupyterHub on Debian Stretch
+# ============================================
 #
 #   ./build.sh debian:stretch
 #   docker build --tag jupyterhub-stretch:latest --tag jupyterhub-stretch:$(./setup.py --version) -f Dockerfile.run dist
