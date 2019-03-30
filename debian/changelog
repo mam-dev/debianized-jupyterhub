@@ -1,3 +1,9 @@
+jupyterhub (0.9.5-2~stretch) UNRELEASED; urgency=low
+
+  * setup: Added bottleneck and numexpr for speedup
+
+ -- Juergen Hermann <jh@web.de>  Sat, 30 Mar 2019 12:10:01 +0100
+
 jupyterhub (0.9.5-1~stretch) stretch; urgency=medium
 
   * jupyterhub: update to release 0.9.5 + NB 5.7.7 (fix

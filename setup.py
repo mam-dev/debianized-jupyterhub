@@ -128,10 +128,13 @@ project = dict(
     extras_require=dict(
         arrow=['pyarrow==0.12.1', 'csv2parquet==0.0.6'],
         base=[
+            'bottleneck==1.2.1',
             'Cython==0.29.6',  # see also --preinstall in debian/rules
             'networkx==2.2',
+            'numexpr==2.6.9',
             'numpy==1.16.2',
             'pandas==0.24.2',
+            'pytz==2018.9',
         ],
         docker=['dockerspawner==0.11.0', 'swarmspawner==0.1.0'],
         parquet=['fastparquet==0.2.1', 'parquet-cli==1.2'],
