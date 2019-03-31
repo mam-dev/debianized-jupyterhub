@@ -126,7 +126,7 @@ project = dict(
         'pycurl==7.43.0.2',  # recommended by server logs
     ],
     extras_require=dict(
-        arrow=['pyarrow==0.12.1', 'csv2parquet==0.0.6'],
+        arrow=['pyarrow==0.12.1'],
         base=[
             'bottleneck==1.2.1',
             'Cython==0.29.6',  # see also --preinstall in debian/rules
@@ -137,18 +137,18 @@ project = dict(
             'pytz==2018.9',
         ],
         docker=['dockerspawner==0.11.0', 'swarmspawner==0.1.0'],
-        parquet=['fastparquet==0.2.1', 'parquet-cli==1.2'],
+        parquet=['fastparquet==0.2.1', 'parquet-cli==1.2', 'csv2parquet==0.0.6'],
         nlp=[
             'gensim==3.7.1',  # Topic Modelling in Python
             #'polyglot==16.7.4',  # badly maintained, and setup has Unicode problems
-            'spacy==2.1.1',
+            'spacy==2.1.1',  # BIG (several 100 MiB)
         ],
         nltk=['nltk==3.4', 'textblob==0.15.3'],
         ml=[
             'scikit-learn==0.20.3',
             'word2vec==0.10.2',
         ],
-        spark=['pyspark==2.4.0', 'pyspark-flame==0.2.6'],
+        spark=['pyspark==2.4.0', 'pyspark-flame==0.2.6'],  # BIG (several 100 MiB)
         utils=[
             'colour==0.1.5',
             'dfply==0.3.3',
