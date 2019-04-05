@@ -137,6 +137,9 @@ project = dict(
             'pytz==2018.9',
         ],
         docker=['dockerspawner==0.11.0', 'swarmspawner==0.1.0'],
+        img=[
+            'scikit-image==0.15.0',  # above 50 MiB
+        ],
         parquet=['fastparquet==0.2.1', 'parquet-cli==1.2', 'csv2parquet==0.0.6'],
         nlp=[
             'gensim==3.7.1',  # Topic Modelling in Python
