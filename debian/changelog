@@ -1,6 +1,7 @@
 jupyterhub (0.9.5-2~stretch) UNRELEASED; urgency=low
 
   * setup: Added bottleneck and numexpr for speedup
+  * notebook: Open Redirect vulnerability (CVE-2019-10255)
 
  -- Juergen Hermann <jh@web.de>  Sat, 30 Mar 2019 12:10:01 +0100
 
