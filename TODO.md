@@ -14,6 +14,7 @@
 
 ## Ready
 
+ * Look into "nbreport"
  * Metrics auth: https://github.com/jupyterhub/jupyterhub/issues/2105
 
 
