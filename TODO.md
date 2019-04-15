@@ -15,6 +15,7 @@
 ## Ready
 
  * Look into "nbreport"
+ * https://jupyterhub.github.io/nbgitpuller/link
  * Metrics auth: https://github.com/jupyterhub/jupyterhub/issues/2105
 
 
@@ -57,6 +58,7 @@
 
 ## Maybe
 
+ * https://github.com/nteract/bookstore
  * Run the proxy as a separate systemd service?
  * Replace CHP by Træfik, an F5 integration, or similar?
    * https://github.com/jupyterhub/traefik-proxy
