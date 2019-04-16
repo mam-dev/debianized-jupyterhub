@@ -134,7 +134,7 @@ project = dict(
             'numexpr==2.6.9',
             'numpy==1.16.2',
             'pandas==0.24.2',
-            'pytz==2018.9',
+            'pytz==2019.1',
         ],
         docker=['dockerspawner==0.11.0', 'swarmspawner==0.1.0'],
         img=[

@@ -1,9 +1,12 @@
-jupyterhub (0.9.5-2~stretch) UNRELEASED; urgency=low
+jupyterhub (0.9.6-1~stretch) stretch; urgency=medium
 
   * setup: Added bottleneck and numexpr for speedup
+  * setup: Python3 Kernel Docker Image, based on the same
+    dependencies as the Debian package
+  * setup: New 'img' extra for image processing
   * notebook: Open Redirect vulnerability (CVE-2019-10255)
 
- -- Juergen Hermann <jh@web.de>  Sat, 30 Mar 2019 12:10:01 +0100
+ -- Juergen Hermann <jh@web.de>  Tue, 16 Apr 2019 14:47:49 +0200
 
 jupyterhub (0.9.5-1~stretch) stretch; urgency=medium
 
