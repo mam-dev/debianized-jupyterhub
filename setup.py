@@ -131,6 +131,7 @@ project = dict(
             'bottleneck==1.2.1',
             'Cython==0.29.6',  # see also --preinstall in debian/rules
             'networkx==2.2',
+            'nxviz==0.6.1',
             'numexpr==2.6.9',
             'numpy==1.16.2',
             'pandas==0.24.2',
