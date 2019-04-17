@@ -15,6 +15,7 @@
 ## Ready
 
  * Look into "nbreport"
+ * https://github.com/quantopian/qgrid
  * https://jupyterhub.github.io/nbgitpuller/link
  * Metrics auth: https://github.com/jupyterhub/jupyterhub/issues/2105
 
