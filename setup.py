@@ -152,6 +152,9 @@ project = dict(
             'scikit-learn==0.20.3',
             'word2vec==0.10.2',
         ],
+        publish=[
+            'nbreport==0.7.1',
+        ],
         spark=['pyspark==2.4.1', 'pyspark-flame==0.2.6'],  # BIG (several 100 MiB)
         utils=[
             'colour==0.1.5',

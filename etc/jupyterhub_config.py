@@ -528,6 +528,7 @@ c.SudoSpawner.sudospawner_path = '/opt/venvs/jupyterhub/bin/sudospawner'
 #  process's environment (such as `CONFIGPROXY_AUTH_TOKEN`) is not passed to the
 #  single-user server's process.
 #c.Spawner.env_keep = ['PATH', 'PYTHONPATH', 'CONDA_ROOT', 'CONDA_DEFAULT_ENV', 'VIRTUAL_ENV', 'LANG', 'LC_ALL']
+c.Spawner.env_keep = ['LANG', 'LC_ALL']
 
 ## Extra environment variables to set for the single-user server's process.
 #
@@ -546,7 +547,15 @@ c.SudoSpawner.sudospawner_path = '/opt/venvs/jupyterhub/bin/sudospawner'
 #  Note that the spawner class' interface is not guaranteed to be exactly same
 #  across upgrades, so if you are using the callable take care to verify it
 #  continues to work after upgrades!
-#c.Spawner.environment = {}
+_ca_certs = '/etc/ssl/certs/ca-certificates.crt'
+c.Spawner.environment = dict(
+    REQUESTS_CA_BUNDLE=_ca_certs,
+    PIP_CERT=_ca_certs,
+
+    # In case you have a local PyPI index...
+    #PIP_TRUSTED_HOST='repo.local',
+    #PIP_INDEX_URL='https://repo.local/artifactory/api/pypi/pypi-virtual/simple',
+)
 
 ## Timeout (in seconds) before giving up on a spawned HTTP server
 #
