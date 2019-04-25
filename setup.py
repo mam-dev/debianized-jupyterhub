@@ -118,7 +118,7 @@ project = dict(
         # core
         'jupyterhub==' + upstream_version,
         'notebook==5.7.8',
-        'ipython==7.4.0',
+        'ipython==7.5.0',
         'jupyter==1.0.0',
         'ipywidgets==7.4.2',
         'sudospawner==0.5.2',
@@ -129,25 +129,25 @@ project = dict(
         arrow=['pyarrow==0.13.0'],
         base=[
             'bottleneck==1.2.1',
-            'Cython==0.29.6',  # see also --preinstall in debian/rules
-            'networkx==2.2',
+            'Cython==0.29.7',  # see also --preinstall in debian/rules
+            'networkx==2.3',
             'nxviz==0.6.1',
             'numexpr==2.6.9',
-            'numpy==1.16.2',
+            'numpy==1.16.3',
             'pandas==0.24.2',
             'pytz==2019.1',
         ],
-        docker=['dockerspawner==0.11.0', 'swarmspawner==0.1.0'],
+        docker=['dockerspawner==0.11.1', 'swarmspawner==0.1.0'],
         img=[
             'scikit-image==0.15.0',  # above 50 MiB
         ],
-        parquet=['fastparquet==0.3.0', 'parquet-cli==1.2', 'csv2parquet==0.0.6'],
+        parquet=['fastparquet==0.3.1', 'parquet-cli==1.2', 'csv2parquet==0.0.6'],
         nlp=[
             'gensim==3.7.2',  # Topic Modelling in Python
             #'polyglot==16.7.4',  # badly maintained, and setup has Unicode problems
             'spacy==2.1.3',  # BIG (several 100 MiB)
         ],
-        nltk=['nltk==3.4', 'textblob==0.15.3'],
+        nltk=['nltk==3.4.1', 'textblob==0.15.3'],
         ml=[
             'scikit-learn==0.20.3',
             'word2vec==0.10.2',
@@ -155,25 +155,25 @@ project = dict(
         publish=[
             'nbreport==0.7.1',
         ],
-        spark=['pyspark==2.4.1', 'pyspark-flame==0.2.6'],  # BIG (several 100 MiB)
+        spark=['pyspark==2.4.2', 'pyspark-flame==0.2.6'],  # BIG (several 100 MiB)
         utils=[
             'colour==0.1.5',
             'dfply==0.3.3',
             'jupyter-console==6.0.0',
             'jupyter-contrib-nbextensions==0.5.1',
             'openpyxl==2.6.2',
-            'xlsxwriter==1.1.6',
+            'xlsxwriter==1.1.7',
             #'jupytext==1.0.1',  # see https://github.com/mwouts/jupytext/issues/185
         ],
         viz=[
             'seaborn==0.9.0', 'missingno==0.4.1',
-            'holoviews[recommended]==1.11.3',
+            'holoviews[recommended]==1.12.1',
             'colorcet==2.0.1',
         ],
         vizjs=[
-            'plotly==3.7.1', 'plotly_express==0.1.3', 'cufflinks==0.15',
+            'plotly==3.8.1', 'plotly_express==0.1.7', 'cufflinks==0.15',
             'bokeh==1.1.0', 'psutil==5.6.1', 'chartify==2.6.0',
-            'altair==2.4.1', 'vega==2.0.1', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
+            'altair==2.4.1', 'vega==2.1.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
             'selenium==3.141.0', 'chromedriver-binary==2.46.0', 'phantomjs-binary==2.1.3',
         ],
     ),
