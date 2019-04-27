@@ -169,6 +169,7 @@ project = dict(
             'seaborn==0.9.0', 'missingno==0.4.1',
             'holoviews[recommended]==1.12.1',
             'colorcet==2.0.1',
+            'plotnine==0.5.1',
         ],
         vizjs=[
             'plotly==3.8.1', 'plotly_express==0.1.7', 'cufflinks==0.15',
