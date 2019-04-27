@@ -180,6 +180,7 @@ project = dict(
     ),
     packages=[],
 )
+project['full'] = sum(project['extras_require'].values(), [])
 
 
 # 'main'
