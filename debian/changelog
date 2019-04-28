@@ -1,6 +1,7 @@
 jupyterhub (0.9.6-2~stretch) UNRELEASED; urgency=medium
 
   * setup: New 'publish' extra (included by default)
+  * setup: Added 'qgrid' widget
   * setup: Lots of dependency updates
 
  -- Juergen Hermann <jh@web.de>  Wed, 17 Apr 2019 11:52:09 +0200
