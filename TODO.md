@@ -59,6 +59,7 @@
 
 ## Maybe
 
+ * https://github.com/erdewit/eventkit
  * https://github.com/nteract/bookstore
  * Run the proxy as a separate systemd service?
  * Replace CHP by Træfik, an F5 integration, or similar?
