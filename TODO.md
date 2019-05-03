@@ -2,6 +2,7 @@
 
 ## WIP
 
+ * Install Pillow from source, to ensure freetype support
  * https://github.com/ipython-contrib/jupyter_contrib_nbextensions/blob/master/src/jupyter_contrib_nbextensions/nbconvert_support/toc2.py
 
         jupyter contrib nbextension install --only-files --sys-prefix --symlink --debug
