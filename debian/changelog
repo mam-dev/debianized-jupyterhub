@@ -1,10 +1,11 @@
-jupyterhub (0.9.6-2~stretch) UNRELEASED; urgency=medium
+jupyterhub (1.0.0-1~stretch) stretch; urgency=high
 
+  * Upstream version 1.0
   * setup: New 'publish' extra (included by default)
-  * setup: Added 'qgrid' widget
+  * setup: Added 'qgrid' widget and 'wordcloud'
   * setup: Lots of dependency updates
 
- -- Juergen Hermann <jh@web.de>  Wed, 17 Apr 2019 11:52:09 +0200
+ -- Juergen Hermann <jh@web.de>  Fri, 03 May 2019 19:54:34 +0200
 
 jupyterhub (0.9.6-1~stretch) stretch; urgency=medium
 
