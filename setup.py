@@ -163,6 +163,7 @@ project = dict(
             'jupyter-contrib-nbextensions==0.5.1',
             'openpyxl==2.6.2',
             'qgrid==1.1.1',
+            'requests==2.21.0',
             'xlsxwriter==1.1.7',
             #'jupytext==1.0.1',  # see https://github.com/mwouts/jupytext/issues/185
         ],
