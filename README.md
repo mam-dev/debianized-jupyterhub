@@ -136,7 +136,7 @@ cd debianized-jupyterhub/
 sudo apt-get install build-essential debhelper devscripts equivs
 
 sudo mk-build-deps --install debian/control
-dpkg-buildpackage -uc -us -b
+( deactivate; dpkg-buildpackage -uc -us -b )
 dpkg-deb -I ../jupyterhub_*.deb
 ```
 
