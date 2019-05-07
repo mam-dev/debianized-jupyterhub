@@ -16,6 +16,7 @@ ARG pyenv_version=1.2.9
 ARG pyenv_url=https://github.com/pyenv/pyenv/archive/v${pyenv_version}.tar.gz
 
 FROM ${distro} AS builder
+ARG extras
 
 # Install build dependencies for 'python-build'
 RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
@@ -25,6 +26,8 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
         build-essential \
         ca-certificates \
         curl \
+        dpkg-dev \
+        libparse-debianchangelog-perl \
         llvm \
         make \
         wget \
@@ -34,6 +37,7 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
         libdb-dev \
         libexpat1-dev \
         libffi-dev \
+        libfreetype6-dev \
         libgdbm-dev \
         libcurl4-openssl-dev \
         libncurses5-dev \
@@ -72,14 +76,17 @@ RUN /opt/python/bin/python3 -m pip install --no-warn-script-location -U pip \
     && /opt/python/bin/python3 -m pip install --no-warn-script-location -U setuptools wheel
 
 # Build source-only native wheels
-COPY setup.py /tmp
+COPY setup.py MANIFEST.in /tmp/
+COPY debian/changelog debian/control debian/rules /tmp/debian/
 RUN mkdir -p /opt/python/wheels \
     && /opt/python/bin/python3 -m pip install --no-warn-script-location \
                                $(egrep Cython /tmp/setup.py | cut -f2 -d"'") \
     && /opt/python/bin/python3 -m pip wheel -w /opt/python/wheels \
                                psutil \
                                $(egrep pycurl /tmp/setup.py | cut -f2 -d"'") \
-                               $(egrep word2vec /tmp/setup.py | cut -f2 -d"'")
+                               $(egrep word2vec /tmp/setup.py | cut -f2 -d"'") \
+                               $(egrep Pillow /tmp/setup.py | cut -f2 -d"'") \
+                               -e /tmp/.[$extras]
 
 # Reduce size of runtime image by removing cruft (lib: 188M → 55M)
 RUN cd python && rm -rf \
@@ -130,6 +137,7 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
         libdb5.3 \
         libexpat1 \
         libffi6 \
+        libfreetype6 \
         $(apt-cache search libgdbm[0-9] | awk '{print $1}') \
         libncursesw5 \
         libpng16-16 \
