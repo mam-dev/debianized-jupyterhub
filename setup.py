@@ -162,6 +162,7 @@ project = dict(
             'jupyter-console==6.0.0',
             'jupyter-contrib-nbextensions==0.5.1',
             'openpyxl==2.6.2',
+            'Pillow==6.0.0',
             'qgrid==1.1.1',
             'requests==2.21.0',
             'xlsxwriter==1.1.8',
