@@ -7,3 +7,5 @@
 dist/
 build/
 .npmrc
+
+.ipynb_checkpoints/
