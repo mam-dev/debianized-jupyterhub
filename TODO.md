@@ -24,6 +24,8 @@
 ## Backlog
 
  * [Set Your Jupyter Notebook up Right with this Extension](https://towardsdatascience.com/set-your-jupyter-notebook-up-right-with-this-extension-24921838a332)
+ * https://ipywidgets.readthedocs.io/
+ * https://github.com/pyviz/param
  * Inject a user's "~/.ipython/lib/…" installs into the launched notebook servers
    * https://github.com/jupyterhub/jupyterhub/issues/2136
    * Or https://nbviewer.jupyter.org/github/jhermann/jupyter-by-example/blob/master/setup/configuration.ipynb#Embedded-Dependency-Installation
