@@ -155,7 +155,7 @@ project = dict(
         publish=[
             'nbreport==0.7.1',
         ],
-        spark=['pyspark==2.4.2', 'pyspark-flame==0.2.6'],  # BIG (several 100 MiB)
+        spark=['pyspark==2.4.3', 'pyspark-flame==0.2.6'],  # BIG (several 100 MiB)
         utils=[
             'colour==0.1.5',
             'dfply==0.3.3',
@@ -164,7 +164,7 @@ project = dict(
             'openpyxl==2.6.2',
             'qgrid==1.1.1',
             'requests==2.21.0',
-            'xlsxwriter==1.1.7',
+            'xlsxwriter==1.1.8',
             #'jupytext==1.0.1',  # see https://github.com/mwouts/jupytext/issues/185
         ],
         viz=[
@@ -175,7 +175,7 @@ project = dict(
             'wordcloud==1.5.0',
         ],
         vizjs=[
-            'plotly==3.8.1', 'plotly_express==0.1.7', 'cufflinks==0.15',
+            'plotly==3.9.0', 'plotly_express==0.1.7', 'cufflinks==0.15',
             'bokeh==1.1.0', 'psutil==5.6.2', 'chartify==2.6.0',
             'altair==3.0.1', 'vega==2.1.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
             'selenium==3.141.0', 'chromedriver-binary==2.46.0', 'phantomjs-binary==2.1.3',
