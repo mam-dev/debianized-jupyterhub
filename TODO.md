@@ -23,7 +23,6 @@
 
 ## Backlog
 
- * Set CA bundle env vars globally (`REQUESTS_CA_BUNDLE` etc)
  * [Set Your Jupyter Notebook up Right with this Extension](https://towardsdatascience.com/set-your-jupyter-notebook-up-right-with-this-extension-24921838a332)
  * Inject a user's "~/.ipython/lib/…" installs into the launched notebook servers
    * https://github.com/jupyterhub/jupyterhub/issues/2136
