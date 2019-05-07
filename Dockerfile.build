@@ -54,6 +54,7 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
         libcurl4-openssl-dev \
         libffi-dev \
         libfontconfig1 \
+        libfreetype6-dev \
         libjpeg-dev \
         libncurses5-dev \
         libncursesw5-dev \
