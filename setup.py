@@ -143,13 +143,13 @@ project = dict(
         ],
         parquet=['fastparquet==0.3.1', 'parquet-cli==1.2', 'csv2parquet==0.0.6'],
         nlp=[
-            'gensim==3.7.2',  # Topic Modelling in Python
+            'gensim==3.7.3',  # Topic Modelling in Python
             #'polyglot==16.7.4',  # badly maintained, and setup has Unicode problems
-            'spacy==2.1.3',  # BIG (several 100 MiB)
+            'spacy==2.1.4',  # BIG (several 100 MiB)
         ],
         nltk=['nltk==3.4.1', 'textblob==0.15.3'],
         ml=[
-            'scikit-learn==0.20.3',
+            'scikit-learn==0.21.1',
             'word2vec==0.10.2',
         ],
         publish=[
@@ -164,19 +164,19 @@ project = dict(
             'openpyxl==2.6.2',
             'Pillow==6.0.0',
             'qgrid==1.1.1',
-            'requests==2.21.0',
+            'requests==2.22.0',
             'xlsxwriter==1.1.8',
             #'jupytext==1.0.1',  # see https://github.com/mwouts/jupytext/issues/185
         ],
         viz=[
             'seaborn==0.9.0', 'missingno==0.4.1',
-            'holoviews[recommended]==1.12.2',
+            'holoviews[recommended]==1.12.3',
             'colorcet==2.0.1',
             'plotnine==0.5.1',
             'wordcloud==1.5.0',
         ],
         vizjs=[
-            'plotly==3.9.0', 'plotly_express==0.1.7', 'cufflinks==0.15',
+            'plotly==3.9.0', 'plotly_express==0.2.2', 'cufflinks==0.15',
             'bokeh==1.1.0', 'psutil==5.6.2', 'chartify==2.6.0',
             'altair==3.0.1', 'vega==2.1.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
             'selenium==3.141.0', 'chromedriver-binary==2.46.0', 'phantomjs-binary==2.1.3',
