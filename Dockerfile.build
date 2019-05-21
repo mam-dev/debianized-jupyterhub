@@ -84,13 +84,13 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
 WORKDIR /dpkg-build
 ADD "${DEB_POOL}/d/dh-virtualenv/dh-virtualenv_1.1-1_all.deb" ./
 RUN dpkg -i --force-unsafe-io --ignore-depends=sphinx-rtd-theme-common *_all.deb \
-    && python3 -m pip install -U pip \
-    && python3 -m pip install -U setuptools wheel
+    && python${PYVERSION} -m pip install -U pip \
+    && python${PYVERSION} -m pip install -U setuptools wheel
 
 # Build project and show metadata of built package
 COPY ./ ./
 RUN hr() { printf '\n   %-74s\n' "[$1]" | tr ' ' = ; } \
-    && hr Versions && python3 -m pip --version && dh_virtualenv --version \
+    && hr Versions && python${PYVERSION} -m pip --version && dh_virtualenv --version \
     && sed -i -r \
            -e "1s/(UNRELEASED|unstable|jessie|stretch|xenial|bionic)/$(lsb_release -cs)/g" \
            debian/changelog \
