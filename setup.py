@@ -184,7 +184,11 @@ project = dict(
     ),
     packages=[],
 )
-project['full'] = sum(project['extras_require'].values(), [])
+DEFAULT_EXTRAS = {'base', 'docker', 'ml', 'publish', 'utils', 'viz', 'vizjs'}
+#                 'arrow', 'img', 'nlp', 'nltk', 'parquet', 'spark'
+project['extras_require']['full'] = sum(project['extras_require'].values(), [])
+project['extras_require']['default'] = sum((v for k, v in project['extras_require'].items()
+                                            if k in DEFAULT_EXTRAS), [])
 
 
 # 'main'

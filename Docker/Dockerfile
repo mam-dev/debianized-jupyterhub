@@ -7,9 +7,7 @@
 #   https://github.com/pyenv/pyenv/tree/master/plugins/python-build
 #
 
-# Keep extras in sync with "debian/rules"!
-ARG extras=base,docker,ml,nlp,utils,viz,vizjs
-#          ,arrow,nltk,parquet,spark
+ARG extras=default
 ARG distro=ubuntu:bionic
 ARG pyversion=3.7.2
 ARG pyenv_version=1.2.9
