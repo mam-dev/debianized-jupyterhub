@@ -113,6 +113,7 @@ See [Building Debian Packages in Docker](https://dockyard.readthedocs.io/en/late
 for more details.
 
 To test the resulting package, read the comments at the start of ``Dockerfile.run``.
+Generated package files are placed in the ``dist/`` directory.
 
 
 ### Building directly on your workstation
