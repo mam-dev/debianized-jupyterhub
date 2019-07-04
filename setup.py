@@ -118,18 +118,18 @@ project = dict(
         # core
         'jupyterhub==' + upstream_version,
         'notebook==5.7.8',
-        'ipython==7.5.0',
+        'ipython==7.6.1',
         'jupyter==1.0.0',
-        'ipywidgets==7.4.2',
+        'ipywidgets==7.5.0',
         'sudospawner==0.5.2',
-        'tornado==6.0.2',
-        'pycurl==7.43.0.2',  # recommended by server logs
+        'tornado==6.0.3',
+        'pycurl==7.43.0.3',  # recommended by server logs
     ],
     extras_require=dict(
         arrow=['pyarrow==0.13.0'],
         base=[
             'bottleneck==1.2.1',
-            'Cython==0.29.7',  # see also --preinstall in debian/rules
+            'Cython==0.29.11',  # see also --preinstall in debian/rules
             'networkx==2.3',
             'nxviz==0.6.1',
             'numexpr==2.6.9',
@@ -162,7 +162,7 @@ project = dict(
             'jupyter-console==6.0.0',
             'jupyter-contrib-nbextensions==0.5.1',
             'openpyxl==2.6.2',
-            'Pillow==6.0.0',
+            'Pillow==6.1.0',
             'qgrid==1.1.1',
             'requests==2.22.0',
             'xlsxwriter==1.1.8',
