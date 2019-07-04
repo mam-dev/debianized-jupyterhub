@@ -126,7 +126,7 @@ project = dict(
         'pycurl==7.43.0.3',  # recommended by server logs
     ],
     extras_require=dict(
-        arrow=['pyarrow==0.13.0'],
+        arrow=['pyarrow==0.14.0'],
         base=[
             'bottleneck==1.2.1',
             'Cython==0.29.11',  # see also --preinstall in debian/rules
@@ -149,7 +149,7 @@ project = dict(
         ],
         nltk=['nltk==3.4.1', 'textblob==0.15.3'],
         ml=[
-            'scikit-learn==0.21.1',
+            'scikit-learn==0.21.2',
             'word2vec==0.10.2',
         ],
         publish=[
@@ -176,9 +176,9 @@ project = dict(
             'wordcloud==1.5.0',
         ],
         vizjs=[
-            'plotly==3.9.0', 'plotly_express==0.2.2', 'cufflinks==0.15',
-            'bokeh==1.1.0', 'psutil==5.6.2', 'chartify==2.6.0',
-            'altair==3.0.1', 'vega==2.1.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
+            'plotly==3.10.0', 'plotly_express==0.3.1', 'cufflinks==0.16',
+            'bokeh==1.2.0', 'psutil==5.6.3', 'chartify==2.6.0',
+            'altair==3.1.0', 'vega==2.4.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
             'selenium==3.141.0', 'chromedriver-binary==2.46.0', 'phantomjs-binary==2.1.3',
         ],
     ),
