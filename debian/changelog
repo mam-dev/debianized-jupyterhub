@@ -1,9 +1,11 @@
 jupyterhub (1.0.0-1~stretch) stretch; urgency=high
 
   * Upstream version 1.0
+  * setup: Added virtual extras named 'default' and 'full'
   * setup: New 'publish' extra (included by default)
   * setup: Added 'qgrid' widget and 'wordcloud'
   * setup: Lots of dependency updates
+  * Kernel: Set ca-certs location in env vars
 
  -- Juergen Hermann <jh@web.de>  Fri, 03 May 2019 19:54:34 +0200
 
