@@ -14,6 +14,8 @@ recursive-include etc *
 recursive-include scripts *
 recursive-include systemd *.service
 recursive-include docs/_static/img *.md *.png *.svg *.graphml
-recursive-include docs/examples *.ipynb
+recursive-include docs/tests *.ipynb
+recursive-include docs/examples *.ipynb *.conf
+recursive-include Docker Dockerfile README.md
 
-global-exclude *~ *.swp *debhelper* *.substvars files
+global-exclude *~ *.swp *debhelper* *.substvars files *-checkpoint.ipynb
