@@ -1,3 +1,9 @@
+jupyterhub (1.0.0-2~stretch) UNRELEASED; urgency=medium
+
+  * ...
+
+ -- Juergen Hermann <jh@web.de>  Fri, 05 Jul 2019 11:54:47 +0200
+
 jupyterhub (1.0.0-1~stretch) stretch; urgency=high
 
   * Upstream version 1.0
