@@ -128,7 +128,7 @@ project = dict(
     extras_require=dict(
         arrow=['pyarrow==0.14.0'],
         base=[
-            'bottleneck==1.2.1',
+            'bottleneck==1.3.1',
             'Cython==0.29.11',  # see also --preinstall in debian/rules
             'networkx==2.3',
             #'nxviz==0.6.1',  # requires Py3.6+, and has frozen/clashing requirements
