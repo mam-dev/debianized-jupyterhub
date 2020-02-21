@@ -3,7 +3,7 @@
 **STATUS** :ballot_box_with_check: Package building works, and you can launch the server
 using ``systemctl start jupyterhub``, or via the provided ``Dockerfile.run``.
 It'll use PAM authorization, i.e. starts the notebook servers in a local user's context.
-The package is tested on *Ubuntu Bionic*, on *Ubuntu Xenial* (with Python 3.6 from the *Deadsnakes PPA*),
+The package is tested on *Ubuntu Bionic*, on *Ubuntu Xenial* (with Python 3.8.1 from the *Deadsnakes PPA*),
 and on *Debian Stretch*. You can also use a Docker container
 (see ``Dockerfile.run`` / user: ``admin`` / pwd: ``test1234``).
 
