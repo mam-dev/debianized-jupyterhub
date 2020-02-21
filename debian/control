@@ -2,10 +2,10 @@ Source: jupyterhub
 Section: contrib/python
 Priority: extra
 Maintainer: 1&1 Group <jh@web.de>
-Build-Depends: debhelper (>= 9), python3, dh-virtualenv (>= 1.1),
+Build-Depends: debhelper (>= 9), python3.8, dh-virtualenv (>= 1.1),
     curl, tar, gzip, lsb-release, libparse-debianchangelog-perl,
     nodejs (>= 8), nodejs (<< 11),
-    python3-setuptools, python3-pip, python3-dev, libffi-dev,
+    python3-venv, python3.8-dev, libffi-dev,
     libxml2-dev, libxslt1-dev, libyaml-dev, libjpeg-dev,
     libssl-dev, libncurses5-dev, libncursesw5-dev, libzmq3-dev,
     libfreetype6-dev
@@ -16,9 +16,9 @@ Homepage: https://github.com/1and1/debianized-jupyterhub
 
 Package: jupyterhub
 Architecture: any
-Pre-Depends: dpkg (>= 1.16.1), python3 (>= 3.5), ${misc:Pre-Depends}
+Pre-Depends: dpkg (>= 1.16.1), python3.8 (>= 3.5), ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${perl:Depends}, ${misc:Depends},
-    python3-tk (>= 3.5), nodejs (>= 8), nodejs (<< 11), sudo | sudo-ldap
+    python3.8-tk (>= 3.5), nodejs (>= 8), nodejs (<< 11), sudo | sudo-ldap
 Suggests: oracle-java8-jre | openjdk-8-jre | zulu-8, fonts-humor-sans
 Description: Debian packaging of JupyterHub, a multi-user server for Jupyter notebooks.
     .

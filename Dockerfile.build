@@ -25,7 +25,10 @@ ARG NODEREPO
 ARG DEB_POOL
 
 # Install build tools and package build deps including nodejs
-RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
+RUN ( test "${CODENAME}" = "xenial" \
+        && echo "deb [trusted=yes] http://ppa.launchpad.net/deadsnakes/ppa/ubuntu ${CODENAME} main" \
+            >/etc/apt/sources.list.d/deadsnakes.list || : ) \
+    && env LANG=C apt-get update -qq -o Acquire::Languages=none \
     && env LANG=C DEBIAN_FRONTEND=noninteractive apt-get install \
         -yqq --no-install-recommends -o Dpkg::Options::=--force-unsafe-io \
         \
@@ -43,11 +46,12 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
         lsb-release \
         python${PYVERSION} \
         python${PYVERSION}-dev \
-        python${PYVERSION}-pip \
-        python${PYVERSION}-pkg-resources \
-        python${PYVERSION}-setuptools \
         python${PYVERSION}-venv \
-        python-virtualenv \
+        python${PYVERSION}-tk \
+        python${PYVERSION}-dev \
+        python3-pkg-resources \
+        python3-setuptools \
+        python3-venv \
         sphinx-rtd-theme-common \
         tar \
         \
@@ -83,8 +87,12 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
 # Install updated Python tooling and a current 'dh-virtualenv'
 WORKDIR /dpkg-build
 ADD "${DEB_POOL}/d/dh-virtualenv/dh-virtualenv_1.1-1_all.deb" ./
-RUN dpkg -i --force-unsafe-io --ignore-depends=sphinx-rtd-theme-common *_all.deb \
-    && python${PYVERSION} -m pip install -U pip \
+RUN dpkg -i --force-unsafe-io \
+         --ignore-depends=python:any \
+         --ignore-depends=virtualenv \
+         --ignore-depends=sphinx-rtd-theme-common \
+         *_all.deb \
+    && python${PYVERSION} -m easy_install pip \
     && python${PYVERSION} -m pip install -U setuptools wheel
 
 # Build project and show metadata of built package

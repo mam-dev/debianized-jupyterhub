@@ -7,9 +7,8 @@ NODEENV_VERSION=1.3.1
 EXTRA_REQUIREMENTS=--upgrade-pip --preinstall "setuptools>=17.1" --preinstall "wheel" \
     --preinstall "Cython==0.29.15" --extras=default
 
-ifeq (1,$(shell grep -iscm1 xenial /etc/os-release))
-    # On Xenial, install "python3.6 python3.6-tk" from Deadsnakes PPA
-    SNAKE=/usr/bin/python3.6
+ifeq (1,$(shell grep -iscm1 ID=ubuntu /etc/os-release))
+    SNAKE=/usr/bin/python3.8
 else
     SNAKE=/usr/bin/python3
 endif

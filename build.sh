@@ -22,6 +22,10 @@ build_opts=(
     --build-arg "PKGNAME=$pkgname"
 )
 
+if test "$dist_id" = "ubuntu"; then
+    build_opts+=( --build-arg "PYVERSION=3.8" )
+fi
+
 # Build in Docker container, save results, and show package info
 rm -f dist/${pkgname}?*${pypi_version//./?}*${codename}*.*
 docker build "${build_opts[@]}" "$@" .
