@@ -15,7 +15,7 @@ endif
 
 PACKAGE=$(shell dh_listpackages)
 VERSION=$(shell parsechangelog | grep ^Version: | sed -re 's/[^0-9]+([^-]+).*/\1/')
-DH_VENV_ARGS=--setuptools --builtin-venv --python $(SNAKE) $(EXTRA_REQUIREMENTS) \
+DH_VENV_ARGS=--setuptools --builtin-venv --python=$(SNAKE) $(EXTRA_REQUIREMENTS) \
             --extra-pip-arg=--progress-bar=pretty
             # --extra-pip-arg "--no-binary=psycopg2" \
             # -v
