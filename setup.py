@@ -118,7 +118,8 @@ project = dict(
         # core
         'jupyterhub==' + upstream_version,
         'notebook==6.0.3',
-        'ipython==7.12.0',
+        'ipython==7.9.0; python_version < "3.6"',  # Stretch
+        'ipython==7.12.0; python_version >= "3.6"',
         'jupyter==1.0.0',
         'ipywidgets==7.5.1',
         'sudospawner==0.5.2',
@@ -134,7 +135,8 @@ project = dict(
             #'nxviz==0.6.1',  # requires Py3.6+, and has frozen/clashing requirements
             'numexpr==2.7.1',
             'numpy==1.18.1',
-            'pandas==1.0.1',
+            'pandas==0.25.3; python_version < "3.6"',  # Stretch
+            'pandas==1.0.1; python_version >= "3.6"',
             'pytz==2019.3',
         ],
         docker=['dockerspawner==0.11.1', 'swarmspawner==0.1.0'],
@@ -161,7 +163,8 @@ project = dict(
             'dfply==0.3.3',
             'jupyter-console==6.1.0',
             'jupyter-contrib-nbextensions==0.5.1',
-            'openpyxl==3.0.3',
+            'openpyxl==2.6.4; python_version < "3.6"',  # Stretch
+            'openpyxl==3.0.3; python_version >= "3.6"',
             'Pillow==7.0.0',
             'qgrid==1.2.0',
             'requests==2.23.0',
@@ -170,10 +173,13 @@ project = dict(
             #'jupytext==1.0.1',  # see https://github.com/mwouts/jupytext/issues/185
         ],
         viz=[
-            'seaborn==0.10.0', 'missingno==0.4.2',
+            'seaborn==0.9.1; python_version < "3.6"',  # Stretch
+            'seaborn==0.10.0; python_version >= "3.6"',
+            'missingno==0.4.2',
             'holoviews[recommended]==1.12.7',
             'colorcet==2.0.2',
-            'plotnine==0.6.0',
+            'plotnine==0.5.1; python_version < "3.6"',  # Stretch
+            'plotnine==0.6.0; python_version >= "3.6"',
             'wordcloud==1.6.0',
         ],
         vizjs=[
@@ -181,7 +187,10 @@ project = dict(
             'bokeh==1.4.0',
             'psutil==5.7.0',
             'chartify==2.7.0',
-            'altair==4.0.1', 'vega==3.0.2', 'vega_datasets==0.8.0',  # needs Python 3.5.3+
+            'altair==4.0.1',  # needs Python 3.5.3+
+            'vega==2.6.0; python_version < "3.6"',  # Stretch
+            'vega==3.0.2; python_version >= "3.6"',
+            'vega_datasets==0.8.0',
             'selenium==3.141.0', 'chromedriver-binary==2.46.0', 'phantomjs-binary==2.1.3',
         ],
     ),
