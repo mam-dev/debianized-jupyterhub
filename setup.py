@@ -117,68 +117,71 @@ project = dict(
     install_requires=[
         # core
         'jupyterhub==' + upstream_version,
-        'notebook==5.7.8',
-        'ipython==7.6.1',
+        'notebook==6.0.3',
+        'ipython==7.12.0',
         'jupyter==1.0.0',
-        'ipywidgets==7.5.0',
+        'ipywidgets==7.5.1',
         'sudospawner==0.5.2',
         'tornado==6.0.3',
-        'pycurl==7.43.0.3',  # recommended by server logs
+        'pycurl==7.43.0.5',  # recommended by server logs
     ],
     extras_require=dict(
-        arrow=['pyarrow==0.14.0'],
+        arrow=['pyarrow==0.16.0'],
         base=[
-            'bottleneck==1.3.1',
-            'Cython==0.29.11',  # see also --preinstall in debian/rules
-            'networkx==2.3',
+            ##'bottleneck==1.3.1',
+            'Cython==0.29.15',  # see also --preinstall in debian/rules
+            'networkx==2.4',
             #'nxviz==0.6.1',  # requires Py3.6+, and has frozen/clashing requirements
-            'numexpr==2.6.9',
-            'numpy==1.16.3',
-            'pandas==0.24.2',
-            'pytz==2019.1',
+            'numexpr==2.7.1',
+            'numpy==1.18.1',
+            'pandas==1.0.1',
+            'pytz==2019.3',
         ],
         docker=['dockerspawner==0.11.1', 'swarmspawner==0.1.0'],
         img=[
-            'scikit-image==0.15.0',  # above 50 MiB
+            'scikit-image==0.16.2',  # above 50 MiB
         ],
-        parquet=['fastparquet==0.3.1', 'parquet-cli==1.2', 'csv2parquet==0.0.6'],
+        parquet=['fastparquet==0.3.3', 'parquet-cli==1.3', 'csv2parquet==0.0.9'],
         nlp=[
-            'gensim==3.7.3',  # Topic Modelling in Python
+            'gensim==3.8.1',  # Topic Modelling in Python
             #'polyglot==16.7.4',  # badly maintained, and setup has Unicode problems
-            'spacy==2.1.4',  # BIG (several 100 MiB)
+            'spacy==2.2.3',  # BIG (several 100 MiB)
         ],
-        nltk=['nltk==3.4.1', 'textblob==0.15.3'],
+        nltk=['nltk==3.4.5', 'textblob==0.15.3'],
         ml=[
-            'scikit-learn==0.21.2',
+            'scikit-learn==0.22.1',
             'word2vec==0.10.2',
         ],
         publish=[
-            'nbreport==0.7.1',
+            'nbreport==0.7.4',
         ],
-        spark=['pyspark==2.4.3', 'pyspark-flame==0.2.6'],  # BIG (several 100 MiB)
+        spark=['pyspark==2.4.5', 'pyspark-flame==0.2.6'],  # BIG (several 100 MiB)
         utils=[
             'colour==0.1.5',
             'dfply==0.3.3',
-            'jupyter-console==6.0.0',
+            'jupyter-console==6.1.0',
             'jupyter-contrib-nbextensions==0.5.1',
-            'openpyxl==2.6.2',
-            'Pillow==6.1.0',
-            'qgrid==1.1.1',
-            'requests==2.22.0',
-            'xlsxwriter==1.1.8',
+            'openpyxl==3.0.3',
+            'Pillow==7.0.0',
+            'qgrid==1.2.0',
+            'requests==2.23.0',
+            'xlsxwriter==1.2.7',
+            'xlrd==1.2.0',
             #'jupytext==1.0.1',  # see https://github.com/mwouts/jupytext/issues/185
         ],
         viz=[
-            'seaborn==0.9.0', 'missingno==0.4.1',
-            'holoviews[recommended]==1.12.3',
-            'colorcet==2.0.1',
-            'plotnine==0.5.1',
-            'wordcloud==1.5.0',
+            'seaborn==0.10.0', 'missingno==0.4.2',
+            'holoviews[recommended]==1.12.7',
+            'colorcet==2.0.2',
+            'plotnine==0.6.0',
+            'wordcloud==1.6.0',
         ],
         vizjs=[
-            'plotly==3.10.0', 'plotly_express==0.3.1', 'cufflinks==0.16',
-            'bokeh==1.2.0', 'psutil==5.6.3', 'chartify==2.6.0',
-            'altair==3.1.0', 'vega==2.4.0', 'vega_datasets==0.7.0',  # needs Python 3.5.3+
+            'plotly==4.5.1', 'plotly_express==0.4.1', 'cufflinks==0.17.0',
+            'bokeh==1.4.0',
+            'psutil==5.7.0',
+            'chartify==2.7.0',
+            'altair==4.0.1', 'vega==3.0.2', 'vega_datasets==0.8.0',  # needs Python 3.5.3+
             'selenium==3.141.0', 'chromedriver-binary==2.46.0', 'phantomjs-binary==2.1.3',
         ],
     ),
