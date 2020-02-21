@@ -15,10 +15,9 @@ and on *Debian Stretch*. You can also use a Docker container
 **Contents**
 
  * [What is this?](#what-is-this)
+ * [Customizing the Package Contents](#customizing-the-package-contents)
  * [“Devops Intelligence” showcase](#devops-intelligence-showcase)
  * [How to build and install the package](#how-to-build-and-install-the-package)
-   * [Building in a Docker container](#building-in-a-docker-container)
-   * [Building directly on your workstation](#building-directly-on-your-workstation)
  * [Trouble-Shooting](#trouble-shooting)
    * ['npm' errors while building the package](#npm-errors-while-building-the-package)
    * ['pkg-resources not found' or similar during virtualenv creation](#pkg-resources-not-found-or-similar-during-virtualenv-creation)
@@ -54,8 +53,11 @@ limited to the current LTS version range (that is 10.x or 8.x as of this writing
 In practice, that means you should use the
 [NodeSource](https://github.com/nodesource/distributions#nodesource-nodejs-binary-distributions)
 packages to get *Node.js*,
-since the native *Debian* ones are typically dated (*Stretch* comes with  ``4.8.2~dfsg-1``).
+because the native *Debian* ones are typically dated (*Stretch* comes with ``4.8.2~dfsg-1``).
 Adapt the ``debian/control`` file if your requirements are different.
+
+
+## Customizing the Package Contents
 
 To add any plugins or other optional *Python* dependencies, list them in ``install_requires`` in ``setup.py`` as usual
 – but only use versioned dependencies so package builds are reproducible.
@@ -98,11 +100,9 @@ for more details and a concrete example of how to use such a setup.
 
 ## How to build and install the package
 
-### Building in a Docker container
-
-The easiest way to build the package is using the provided ``Dockerfile.build``.
-Then you do not need to install tooling and build dependencies on your machine,
-and the package gets built in a pristine environment.
+Packages are built in Docker using the ``Dockerfile.build`` file.
+That way you do not need to install tooling and build dependencies on your machine,
+and the package always gets built in a pristine environment.
 The only thing you need on your workstatioon is a ``docker-ce`` installation of version 17.06 or higher
 (either on [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
 or on [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)).
@@ -112,50 +112,21 @@ Call ``./build.sh debian:stretch`` to build the package for *Debian Stretch*
 See [Building Debian Packages in Docker](https://dockyard.readthedocs.io/en/latest/packaging-howto.html#dpkg-in-docker)
 for more details.
 
-To test the resulting package, read the comments at the start of ``Dockerfile.run``.
 Generated package files are placed in the ``dist/`` directory.
-
-
-### Building directly on your workstation
-
-Otherwise, you need a build machine with all build dependencies installed, specifically
-[dh-virtualenv](https://github.com/spotify/dh-virtualenv) in addition to the normal Debian packaging tools.
-You can get it from [this PPA](https://launchpad.net/~spotify-jyrki/+archive/ubuntu/dh-virtualenv),
-the [official Ubuntu repositories](http://packages.ubuntu.com/search?keywords=dh-virtualenv),
-or [Debian packages](https://packages.debian.org/source/sid/dh-virtualenv).
-
-This code requires and is tested with ``dh-virtualenv`` v1.1
-– depending on your platform you might get an older version via the standard packages.
-See the [dh-virtualenv documentation](https://dh-virtualenv.readthedocs.io/en/latest/tutorial.html#step-1-install-dh-virtualenv) for details.
-
-With tooling installed,
-the following commands will install a *release* version of `jupyterhub` into `/opt/venvs/jupyterhub/`.
-
-```sh
-git clone https://github.com/1and1/debianized-jupyterhub.git
-cd debianized-jupyterhub/
-# or "pip download --no-deps --no-binary :all: debianized-jupyterhub" and unpack the archive
-
-sudo apt-get install build-essential debhelper devscripts equivs
-
-sudo mk-build-deps --install debian/control
-( deactivate; dpkg-buildpackage -uc -us -b )
-dpkg-deb -I ../jupyterhub_*.deb
-```
-
-The resulting package, if all went well, can be found in the parent of your project directory.
-You can upload it to a Debian package repository via e.g. `dput`, see
+You can upload them to a Debian package repository via e.g. `dput`, see
 [here](https://github.com/jhermann/artifactory-debian#package-uploading)
 for a hassle-free solution that works with *Artifactory* and *Bintray*.
 
-You can also install it directly on the build machine:
+To test the resulting package, read the comments at the start of ``Dockerfile.run``.
+Or install the package locally into `/opt/venvs/jupyterhub/`, using ``dpkg -i …``.
 
 ```sh
-sudo dpkg -i ../jupyterhub_*.deb
+sudo dpkg -i $PWD/dist/jupyterhub_*.deb
 /usr/sbin/jupyterhub --version  # ensure it basically works
 ```
 
-To list the installed version of `jupyterhub` and all its dependencies, call this:
+To list the installed version of `jupyterhub` and all its dependencies
+(around 150 in the default configuration), call this:
 
 ```sh
 /opt/venvs/jupyterhub/bin/pip freeze | column
