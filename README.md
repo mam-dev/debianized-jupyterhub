@@ -108,8 +108,9 @@ The only thing you need on your workstatioon is a ``docker-ce`` installation of 
 or on [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)).
 
 After initializing your work environment with ``command . .env --yes``,
-call ``./build.sh debian:buster`` to build the package for *Debian Buster*
-– building for *Ubuntu Bionic* with ``./build.sh ubuntu:bionic`` is also supported.
+call ``./build.sh debian:buster`` to build the package for *Debian Buster*.
+Building for *Ubuntu Bionic* with ``./build.sh ubuntu:bionic`` is also supported,
+as are the old-stable releases, but those aren't regularly tested and might fail.
 See [Building Debian Packages in Docker](https://dockyard.readthedocs.io/en/latest/packaging-howto.html#dpkg-in-docker)
 for more details.
 
