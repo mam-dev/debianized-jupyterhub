@@ -107,7 +107,8 @@ The only thing you need on your workstatioon is a ``docker-ce`` installation of 
 (either on [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
 or on [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)).
 
-Call ``./build.sh debian:stretch`` to build the package for *Debian Stretch*
+After initializing your work environment with ``command . .env --yes``,
+call ``./build.sh debian:buster`` to build the package for *Debian Buster*
 – building for *Ubuntu Bionic* with ``./build.sh ubuntu:bionic`` is also supported.
 See [Building Debian Packages in Docker](https://dockyard.readthedocs.io/en/latest/packaging-howto.html#dpkg-in-docker)
 for more details.
