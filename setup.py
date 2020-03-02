@@ -38,7 +38,7 @@ except ImportError:
 try:
     from setuptools import setup
 except ImportError as exc:
-    raise RuntimeError("setuptools is missing ({1})".format(exc))
+    raise RuntimeError("setuptools is missing ({0})".format(exc))
 
 
 # get external project data (and map Debian version semantics to PEP440)
