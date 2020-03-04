@@ -8,6 +8,11 @@ set -e
 # If you chnage this, you MUST also change "debian/control" and "debina/rules"
 PYTHON_MINOR="3.8"  # Deadsnakes version on Ubuntu
 
+# Check build environment
+if ! command which "dh_listpackages" >/dev/null 2>&1; then
+    echo >&2 "ERROR: You must 'apt install debhelper' on the build host."
+    exit 1
+fi
 
 # Get build platform as 1st argument, and collect project metadata
 image="${1:?You MUST provide a docker image name}"; shift
