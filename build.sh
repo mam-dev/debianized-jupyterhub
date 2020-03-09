@@ -5,7 +5,7 @@
 
 set -e
 
-# If you chnage this, you MUST also change "debian/control" and "debina/rules"
+# If you change this, you MUST also change "debian/control" and "debina/rules"
 PYTHON_MINOR="3.8"  # Deadsnakes version on Ubuntu
 
 # Check build environment
