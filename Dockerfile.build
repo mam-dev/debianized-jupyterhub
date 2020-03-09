@@ -31,7 +31,7 @@ RUN ( test "${CODENAME}" = "xenial" \
     && env LANG=C apt-get update -qq -o Acquire::Languages=none \
     && env LANG=C DEBIAN_FRONTEND=noninteractive apt-get install \
         -yqq --no-install-recommends -o Dpkg::Options::=--force-unsafe-io \
-        \
+        "" \
         apt-transport-https \
         apt-utils \
         build-essential \
@@ -45,7 +45,6 @@ RUN ( test "${CODENAME}" = "xenial" \
         libparse-debianchangelog-perl \
         lsb-release \
         python${PYVERSION} \
-        python${PYVERSION}-dev \
         python${PYVERSION}-venv \
         python${PYVERSION}-tk \
         python${PYVERSION}-dev \
@@ -54,7 +53,7 @@ RUN ( test "${CODENAME}" = "xenial" \
         python3-venv \
         sphinx-rtd-theme-common \
         tar \
-        \
+        "" \
         libcurl4-openssl-dev \
         libffi-dev \
         libfontconfig1 \
