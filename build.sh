@@ -54,7 +54,7 @@ mv "$staging" build/docker.staging
 echo
 echo "*** Building DEB package (takes a while)"
 rm -f dist/${pkgname}?*${pypi_version//./?}*${codename}*.*
-docker build "${build_opts[@]}" "$@" build/docker.staging
+command docker build "${build_opts[@]}" "$@" build/docker.staging
 mkdir -p dist
-docker run --rm $tag tar -C /dpkg -c . | tar -C dist -x
+command docker run --rm $tag tar -C ../dpkg -c . | tar -C dist -x
 ls -lh dist/${pkgname}?*${pypi_version//./?}*${codename}*.*
