@@ -119,77 +119,77 @@ project = dict(
         'jupyterhub==' + upstream_version,
         'notebook==6.0.3',
         'ipython==7.9.0; python_version < "3.6"',  # Stretch
-        'ipython==7.12.0; python_version >= "3.6"',
+        'ipython==7.16.1; python_version >= "3.6"',
         'jupyter==1.0.0',
         'ipywidgets==7.5.1',
         'sudospawner==0.5.2',
-        'tornado==6.0.3',
+        'tornado==6.0.4',
         'pycurl==7.43.0.5',  # recommended by server logs
     ],
     extras_require=dict(
-        arrow=['pyarrow==0.16.0'],
+        arrow=['pyarrow==1.0.0'],
         base=[
             ##'bottleneck==1.3.1',
-            'Cython==0.29.15',  # see also --preinstall in debian/rules
+            'Cython==0.29.21',  # see also --preinstall in debian/rules
             'networkx==2.4',
             #'nxviz==0.6.1',  # requires Py3.6+, and has frozen/clashing requirements
             'numexpr==2.7.1',
-            'numpy==1.18.1',
+            'numpy==1.19.1',
             'pandas==0.25.3; python_version < "3.6"',  # Stretch
-            'pandas==1.0.1; python_version >= "3.6"',
-            'pytz==2019.3',
+            'pandas==1.0.5; python_version >= "3.6"',
+            'pytz==2020.1',
         ],
         docker=['dockerspawner==0.11.1', 'swarmspawner==0.1.0'],
         img=[
-            'scikit-image==0.16.2',  # above 50 MiB
+            'scikit-image==0.17.2',  # above 50 MiB
         ],
-        parquet=['fastparquet==0.3.3', 'parquet-cli==1.3', 'csv2parquet==0.0.9'],
+        parquet=['fastparquet==0.4.1', 'parquet-cli==1.3', 'csv2parquet==0.0.9'],
         nlp=[
-            'gensim==3.8.1',  # Topic Modelling in Python
+            'gensim==3.8.3',  # Topic Modelling in Python
             #'polyglot==16.7.4',  # badly maintained, and setup has Unicode problems
-            'spacy==2.2.3',  # BIG (several 100 MiB)
+            'spacy==2.3.2',  # BIG (several 100 MiB)
         ],
-        nltk=['nltk==3.4.5', 'textblob==0.15.3'],
+        nltk=['nltk==3.5', 'textblob==0.15.3'],
         ml=[
-            'scikit-learn==0.22.1',
-            'word2vec==0.10.2',
+            'scikit-learn==0.23.1',
+            'word2vec==0.11.1',
         ],
         publish=[
             'nbreport==0.7.4',
         ],
-        spark=['pyspark==2.4.5', 'pyspark-flame==0.2.6'],  # BIG (several 100 MiB)
+        spark=['pyspark==3.0.0', 'pyspark-flame==0.2.6'],  # BIG (several 100 MiB)
         utils=[
             'colour==0.1.5',
             'dfply==0.3.3',
             'jupyter-console==6.1.0',
             'jupyter-contrib-nbextensions==0.5.1',
             'openpyxl==2.6.4; python_version < "3.6"',  # Stretch
-            'openpyxl==3.0.3; python_version >= "3.6"',
-            'Pillow==7.0.0',
-            'qgrid==1.2.0',
-            'requests==2.23.0',
-            'xlsxwriter==1.2.7',
+            'openpyxl==3.0.4; python_version >= "3.6"',
+            'Pillow==7.2.0',
+            'qgrid==1.3.1',
+            'requests==2.24.0',
+            'xlsxwriter==1.2.9',
             'xlrd==1.2.0',
             #'jupytext==1.0.1',  # see https://github.com/mwouts/jupytext/issues/185
         ],
         viz=[
             'seaborn==0.9.1; python_version < "3.6"',  # Stretch
-            'seaborn==0.10.0; python_version >= "3.6"',
+            'seaborn==0.10.1; python_version >= "3.6"',
             'missingno==0.4.2',
-            'holoviews[recommended]==1.12.7',
+            'holoviews[recommended]==1.13.3',
             'colorcet==2.0.2',
             'plotnine==0.5.1; python_version < "3.6"',  # Stretch
-            'plotnine==0.6.0; python_version >= "3.6"',
-            'wordcloud==1.6.0',
+            'plotnine==0.7.0; python_version >= "3.6"',
+            'wordcloud==1.7.0',
         ],
         vizjs=[
-            'plotly==4.5.1', 'plotly_express==0.4.1', 'cufflinks==0.17.0',
-            'bokeh==1.4.0',
-            'psutil==5.7.0',
-            'chartify==2.7.0',
-            'altair==4.0.1',  # needs Python 3.5.3+
+            'plotly==4.9.0', 'plotly_express==0.4.1', 'cufflinks==0.17.3',
+            'bokeh==2.1.1',
+            'psutil==5.7.2',
+            'chartify==3.0.1',
+            'altair==4.1.0',  # needs Python 3.5.3+
             'vega==2.6.0; python_version < "3.6"',  # Stretch
-            'vega==3.0.2; python_version >= "3.6"',
+            'vega==3.4.0; python_version >= "3.6"',
             'vega_datasets==0.8.0',
             'selenium==3.141.0', 'chromedriver-binary==2.46.0', 'phantomjs-binary==2.1.3',
         ],

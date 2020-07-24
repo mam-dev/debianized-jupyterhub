@@ -37,7 +37,7 @@ RUN env LANG=C apt-get update -qq -o Acquire::Languages=none \
         vim \
     && echo "$LANG UTF-8" >/etc/locale.gen \
     && locale-gen --lang "$LANG" \
-    && echo 'deb https://deb.nodesource.com/node_10.x stretch main' \
+    && echo 'deb https://deb.nodesource.com/node_12.x stretch main' \
             >/etc/apt/sources.list.d/nodesource.list \
     && ( curl -sL https://deb.nodesource.com/gpgkey/nodesource.gpg.key \
          | env APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=true apt-key add - ) \

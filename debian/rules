@@ -5,7 +5,7 @@
 export DH_VIRTUALENV_INSTALL_ROOT=/opt/venvs
 NODEENV_VERSION=1.3.1
 EXTRA_REQUIREMENTS=--upgrade-pip --preinstall "setuptools>=17.1" --preinstall "wheel" \
-    --preinstall "Cython==0.29.15" --extras=default
+    --preinstall "Cython==0.29.21" --extras=default
 
 ifeq (1,$(shell grep -iscm1 ID=ubuntu /etc/os-release))
     SNAKE=/usr/bin/python3.8
@@ -46,12 +46,13 @@ override_dh_virtualenv:
 	date -Iseconds >$(DH_VENV_DIR)/dpkg-stamp
 
 override_dh_strip:
-	dh_strip --exclude=cffi --exclude=_imaging --exclude=libtiff
+	dh_strip --exclude=cffi --exclude=_imaging --exclude=libtiff --exclude=libgfortran
 	date -Iseconds >$(DH_VENV_DIR)/dpkg-stamp
 
 override_dh_shlibdeps:
 	dh_shlibdeps -X/x86/ \
         -X/chromedriver_binary/ -X/Cython/ -X/kiwisolver -X/markupsafe/ \
-        -X/matplotlib/ -X/numpy/ -X/pandas/ -X/PIL/ -X/psutil/ -X/pvectorc -X/pycurl \
-        -X/scipy/ -X/selenium/ -X/sqlalchemy/ -X/tornado/ -X/_yaml -X/zmq/
+        -X/matplotlib/ -X/numpy/ -X/numpy.libs/ -X/pandas/ -X/Pillow.libs/ -X/PIL/ -X/psutil/ \
+        -X/pvectorc -X/pycurl -X/scipy/ -X/scipy.libs/ -X/selenium/ -X/sqlalchemy/ -X/tornado/ \
+        -X/_yaml -X/zmq/
 	date -Iseconds >$(DH_VENV_DIR)/dpkg-stamp

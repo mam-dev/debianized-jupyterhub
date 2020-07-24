@@ -49,7 +49,7 @@ The resulting *omnibus package* is thus easily installed to and removed from a m
 but is not a ‘normal’ Debian `python-*` package. If you want that, look elsewhere.
 
 Since the dynamic router of *JupyterHub* is a *Node.js* application, the package also has a dependency on `nodejs`,
-limited to the current LTS version range (that is 10.x or 8.x as of this writing).
+limited to the current LTS version range (that is 12.x or 10.x as of this writing).
 In practice, that means you should use the
 [NodeSource](https://github.com/nodesource/distributions#nodesource-nodejs-binary-distributions)
 packages to get *Node.js*,

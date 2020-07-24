@@ -11,7 +11,7 @@ ARG PYVERSION="3"
 ARG PKGNAME
 
 # Other build arguments (adapt as needed)
-ARG NODEREPO="node_10.x"
+ARG NODEREPO="node_12.x"
 ARG DEB_POOL="http://ftp.nl.debian.org/debian/pool/main"
 
 ## Start package builder image for the chosen platform
