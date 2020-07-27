@@ -1,0 +1,23 @@
+# http://editorconfig.org
+root = true
+
+[*]
+indent_style = tab
+end_of_line = lf
+charset = utf-8
+insert_final_newline = true
+
+[*.{yaml,yml}]
+indent_style = space
+trim_trailing_whitespace = true
+indent_size = 2
+
+[*.rst]
+indent_style = space
+trim_trailing_whitespace = true
+indent_size = 3
+
+[*.{py,ini,txt,md}]
+indent_style = space
+trim_trailing_whitespace = true
+indent_size = 4
