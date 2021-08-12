@@ -9,3 +9,5 @@ build/
 .npmrc
 
 .ipynb_checkpoints/
+*.pid
+*_secret
