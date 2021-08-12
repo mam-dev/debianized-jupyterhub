@@ -188,6 +188,7 @@ project = dict(
             'psutil==5.7.2',
             'chartify==3.0.1',
             'altair==4.1.0',  # needs Python 3.5.3+
+            'altair_saver==0.5.0',
             'vega==2.6.0; python_version < "3.6"',  # Stretch
             'vega==3.4.0; python_version >= "3.6"',
             'vega_datasets==0.8.0',
