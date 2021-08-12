@@ -192,7 +192,8 @@ project = dict(
             'vega==2.6.0; python_version < "3.6"',  # Stretch
             'vega==3.4.0; python_version >= "3.6"',
             'vega_datasets==0.8.0',
-            'selenium==3.141.0', 'chromedriver-binary==2.46.0', 'phantomjs-binary==2.1.3',
+            'selenium',  # '==3.141.0',
+            'chromedriver-binary==2.46.0', 'phantomjs-binary==2.1.3',
         ],
     ),
     packages=[],
