@@ -1,7 +1,7 @@
 [Unit]
 Description=JupyterHub Service
 Documentation=https://jupyterhub.readthedocs.io/en/stable/
-Documentation=https://github.com/1and1/debianized-jupyterhub#jupyterhub-debian-packaging
+Documentation=https://github.com/mam-dev/debianized-jupyterhub#jupyterhub-debian-packaging
 After=network.target
 #Requires=jupyterhub-worker.service
 #Requires=jupyterhub-cron.service

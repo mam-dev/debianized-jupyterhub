@@ -42,7 +42,7 @@ This makes life-cycle management on production hosts a lot easier, and
 like needing build tools and direct internet access in production environments.
 
 The Debian packaging metadata in
-[debian](https://github.com/1and1/debianized-jupyterhub/tree/master/debian)
+[debian](https://github.com/mam-dev/debianized-jupyterhub/tree/master/debian)
 puts the `jupyterhub` Python package and its dependencies as released on PyPI into a DEB package,
 using [dh-virtualenv](https://github.com/spotify/dh-virtualenv).
 The resulting *omnibus package* is thus easily installed to and removed from a machine,
@@ -91,7 +91,7 @@ Here is an example of what you can do using this package, without any great inve
 
 Such a setup supports risk analysis and decision making within development and operations processes – typical business intelligence / data science procedures can be applied to the ‘business of making and running software’. The idea is to create feedback loops, and facilitate human decision making by automatically providing reliable input in form of up-to-date facts. After all development is our business — so let's have KPIs for developing, releasing, and operating software.
 
-> ![Architecture Overview](https://github.com/1and1/debianized-jupyterhub/raw/master/docs/_static/img/devops-intelligence.png)
+> ![Architecture Overview](https://github.com/mam-dev/debianized-jupyterhub/raw/master/docs/_static/img/devops-intelligence.png)
 
 See [this notebook](https://nbviewer.jupyter.org/github/jhermann/jupyter-by-example/blob/master/complete-scenarios/devops-intelligence.ipynb)
 or [this blog post](https://blog.jupyter.org/devops-intelligence-3ff48a76b525)
@@ -290,7 +290,7 @@ For an internet-facing service, consider [https-portal](https://github.com/Steve
 which is a NginX docker image with easy configuration and built-in *Let's Encrypt* support.
 
 Otherwise, install the Debian `nginx-full` package and copy
-[docs/examples/nginx-jhub.conf](https://github.com/1and1/debianized-jupyterhub/blob/master/docs/examples/nginx-jhub.conf)
+[docs/examples/nginx-jhub.conf](https://github.com/mam-dev/debianized-jupyterhub/blob/master/docs/examples/nginx-jhub.conf)
 to the `/etc/nginx/sites-enabled/default` file (or another path depending on your server setup).
 Make sure to read through the file, most likely you have to adapt the certificate paths in
 `ssl_certificate` and `ssl_certificate_key` (and create a certificate, e.g. a self-signed one).

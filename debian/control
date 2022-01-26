@@ -10,9 +10,9 @@ Build-Depends: debhelper (>= 9), python3.8, dh-virtualenv (>= 1.1),
     libssl-dev, libncurses5-dev, libncursesw5-dev, libzmq3-dev,
     libfreetype6-dev
 Standards-Version: 3.9.5
-Homepage: https://github.com/1and1/debianized-jupyterhub
-#Vcs-Git: https://github.com/1and1/debianized-jupyterhub.git
-#Vcs-Browser: https://github.com/1and1/debianized-jupyterhub
+Homepage: https://github.com/mam-dev/debianized-jupyterhub
+#Vcs-Git: https://github.com/mam-dev/debianized-jupyterhub.git
+#Vcs-Browser: https://github.com/mam-dev/debianized-jupyterhub
 
 Package: jupyterhub
 Architecture: any

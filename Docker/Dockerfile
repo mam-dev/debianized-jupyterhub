@@ -115,8 +115,8 @@ LABEL maintainer="Juergen Hermann <jh@web.de>"
 LABEL org.label-schema.schema-version="0.9.5.1"
 LABEL org.label-schema.name="ono-py3-kernel"
 LABEL org.label-schema.description="Python3 JupyterHub Kernel"
-LABEL org.label-schema.url="https://github.com/1and1/debianized-jupyterhub/blob/master/Docker"
-LABEL org.label-schema.vcs-url="https://github.com/1and1/debianized-jupyterhub.git"
+LABEL org.label-schema.url="https://github.com/mam-dev/debianized-jupyterhub/blob/master/Docker"
+LABEL org.label-schema.vcs-url="https://github.com/mam-dev/debianized-jupyterhub.git"
 ARG extras
 
 ENV LANG=en_US.UTF-8

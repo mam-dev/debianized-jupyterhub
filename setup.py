@@ -15,7 +15,7 @@
 
     See the `GitHub README`_ for more.
 
-    .. _`GitHub README`: https://github.com/1and1/debianized-jupyterhub
+    .. _`GitHub README`: https://github.com/mam-dev/debianized-jupyterhub
 """
 import io
 import os
