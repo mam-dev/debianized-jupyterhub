@@ -42,7 +42,10 @@ except ImportError as exc:
 
 
 # get external project data (and map Debian version semantics to PEP440)
-pkg_version = subprocess.check_output("parsechangelog | grep ^Version:", shell=True)
+try:
+    pkg_version = subprocess.check_output("dpkg-parsechangelog | grep ^Version:", shell=True)
+except subprocess.CalledProcessError:
+    pkg_version = subprocess.check_output("parsechangelog | grep ^Version:", shell=True)
 try:
     pkg_version = pkg_version.decode('ascii')
 except (UnicodeDecodeError, AttributeError):
